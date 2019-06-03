@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {# title #}
+        <title>LDCA - Backoffice</title>
+        {# meta #}
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        {{ render(controller( 'AdminBundle:RenderTemplate:renderFavIcon' )) }}
+        {# css libs #}
+         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+        <link href="{{ asset('adminTemplateFiles/build/css/all.css') }}" rel="stylesheet">
+        <link href="{{ asset('adminTemplateFiles/mediaBuild/css/masnoryGridStyle.css') }}" rel="stylesheet" >
+        {% block lib_css %}{% endblock %} 
+    </head>
+ 
+    <body data-title="{% block title %}{% endblock %}">
+        <div class="sidebar_wrapper active">
+            {% set localepathForRouteId =  app.request.get('id')  %}
+            {% set localepathForRoutePath =  path ( app.request.get('_route'),app.request.get('_route_params'))  %}
+            
+             {{ render(controller( 'AdminBundle:RenderTemplate:renderSideBar',{ 'localepathForRouteId': localepathForRouteId ,
+             'localepathForRoutePath': localepathForRoutePath })) }}
+        </div>
+        <div class="all_warrapers_web_content margin_left_activated">
+            <div class="header_wrapper">
+ 
+                
+
+                <div class="header_side right_side_header">
+                    <span class="user_name" > {{ app.user.username }}
+                        <span class="logout_icon" data-href="{{ path('admin_logout')}}" ><i class="fas fa-sign-out-alt"></i></span>
+                    </span>
+                </div>
+            </div>
+            <div class="container_wrapper">
+                <div class="row blockRow ">
+                    {% block body %}{% endblock %}
+                    {% block media_content %}{% endblock %}
+                </div>
+                <footer class="sticky-footer">
+                      <div class="copyright text-center my-auto">
+                        <span>Version 0.7</span>
+                      </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+        <div class="loading_part generale"> 
+            <div class="container">
+                <h3>loading ...</h3>
+                <img src="{{ asset('adminTemplateFiles/build/img/loading.svg') }}">
+            </div>    
+        </div>
+
+        {# JS Main #}        
+        <script src="{{ asset('adminTemplateFiles/build/js/jquery.js') }}"></script>
+        {# JS Libs #}
+        {% block lib_script %}{% endblock %}
+        <script src="{{ asset('adminTemplateFiles/build/js/all.js') }}" type="text/javascript"></script>
+        {# JS Libs MediaBundle #}
+        <script src="{{ asset('adminTemplateFiles/mediaBuild/js/media_functions.js') }}" type="text/javascript"></script>
+        <script src="{{ asset('adminTemplateFiles/mediaBuild/js/upload.js') }}" type="text/javascript"></script>
+        {# JS Libs DragAndDropBundle #}
+        <script src="{{ asset('adminTemplateFiles/dragAndDropBuild/libs/jquery.touch-punch.min.js') }}"></script>
+        <script src="{{ asset('adminTemplateFiles/dragAndDropBuild/libs/jquery.shapeshift.js') }}"></script>
+        <script src="{{ asset('adminTemplateFiles/dragAndDropBuild/dragAndDropFunctions.js') }}" type="text/javascript"></script>
+        <script src="{{ asset('adminTemplateFiles/dragAndDropBuild/script.js') }}" type="text/javascript"></script>
+        {# JS Libs myJS #}
+        <script src="{{ asset('adminTemplateFiles/build/js/all_functions.js') }}" type="text/javascript"></script>
+        <script src="{{ asset('adminTemplateFiles/build/js/main_script.js') }}" type="text/javascript"></script>
+        <script src="{{ asset('adminTemplateFiles/build/js/selectScript.js') }}" type="text/javascript"></script>
+        {% block local_script %}{% endblock %}
+        <script type="text/javascript">
+            var mediaAjxUrl  = "{{ path('all_images') }}";
+            var mediaOneAjaxUrlForEdit  = "{{ path('getOneImage',{'id':0}) }}";
+            var form_route   = "{{ path('add_new_image') }}";
+            var form_edit_route   = "{{ path('edit_existant_image',{'id':0}) }}";
+            var form_delete_route = "{{ path('delete_existant_image',{'id':0}) }}";
+            var imagebaseUrl = "{{ asset('uploads') }}/";
+            getWidthAndHeigth("{{ path('getImageConfig') }}");
+        </script>
+        
+    </body>
+
+</html>

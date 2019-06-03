@@ -1,0 +1,89 @@
+{% extends 'AdminBundle::_shared.html.twig' %}
+{% block title %}Ajouter un nouveau utilisateur{% endblock %}
+{% block body %}
+{{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+<div class="col col_10">
+    <div class="container_box">
+        <div class="box_title">
+            <h3>Ajouter un nouveau Utilisateur</h3>
+            <div class="topSwitch">
+                <div class="onoffswitch">
+                    {{form_widget(form.is_active)}}
+                    <label class="onoffswitch-label" for="user_is_active">
+                        <span class="onoffswitch-inner"></span>
+                        <span class="onoffswitch-switch"></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="box_content">
+            <div class="row">
+                <div class="form_group col col_10">
+                    {{ form_label(form.first_name) }}
+                    <div class="input_box">
+                        {{ form_widget(form.first_name) }}
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form_group col col_10">
+                    {{ form_label(form.last_name) }}
+                    <div class="input_box">
+                        {{ form_widget(form.last_name) }}
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form_group col col_10">
+                    {{ form_label(form.username, null, {'label_attr': {'class': 'input_label'}}) }}
+                    <div class="input_box">
+                        {{ form_errors(form.username) }}
+                        {{ form_widget(form.username) }}
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form_group col col_10">
+                    {{ form_label(form.email, null, {'label_attr': {'class': 'input_label'}}) }}
+                    <div class="input_box">
+                        {{ form_widget(form.email) }}
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form_group col col_10">
+                    {{ form_label(form.password, null, {'label_attr': {'class': 'input_label'}}) }}
+                    <div class="input_box">
+                        {{ form_widget(form.password) }}
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form_group col col_10">
+                    {{ form_label(form.role, null, {'label_attr': {'class': 'input_label'}}) }}
+                    <div class="input_box">
+                        {{ form_widget(form.role) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col col_10 marginTopMinus">
+    <div class="submitResetModifBtnsSection">
+         <input type="submit" value="Enregistrer"  class="btn btn-submit"/>
+         <input type="reset" value="Annuler"  class="btn btn-reset"/>
+    </div>
+</div>
+
+{{ form_end(form) }} 
+{% endblock %}
+
+{% block lib_script %}
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js "></script>
+    {{ tinymce_init() }}
+{% endblock %}
+
+{% block local_script %}
+    <script src="{{ asset('adminTemplateFiles/build/js/boxes_script.js') }}" type="text/javascript"></script>
+{% endblock %}

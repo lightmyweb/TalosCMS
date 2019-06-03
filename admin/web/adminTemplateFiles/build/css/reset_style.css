@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css?family=K2D:100,200,300,400,500,600,700');
+h1,h2,h3,h4,h5,
+h6,p,html,body,table,span
+a, abbr, acronym, address, applet, article, aside, audio, b, big, 
+blockquote, body, canvas, caption, center, 
+cite, code, dd, del, details, dfn, div, dl, dt, em, embed, fieldset, 
+figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, 
+hgroup, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, main
+object, ol, output, p, pre, q, ruby, s, samp, section, small, span, strike, picture
+strong, sub, summary, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video {
+  margin: 0px;
+  padding: 0px;
+  font-weight: 300;
+  font-family: 'k2d', sans-serif;
+}
+img,svg{
+  width: 100%;
+}
+body{
+	background-color: #f7f7f7;
+}
+a{
+	text-decoration: none;
+	color: inherit;
+}
+button:focus,input:focus,textarea:focus,select:focus{
+	outline: 0;
+}
+.container_wrapper .container_box .box_title{
+	z-index: 2 !important
+}
+.blocPosition{
+	display: none;
+}
+.action_td a.delete_action{
+	cursor: pointer;
+}
+.alert.alert-success{
+	text-align: center;
+	padding: 0px 15px;
+}
+.mce-tinymce.mce-container.mce-panel{
+	margin-left:21px;
+	width: 100%;
+}
+.info_page .panel_content{
+	padding: 10px;
+}
+.customTabs{
+	margin-bottom: 20px;
+}
+.select2-input{
+	border: 0px !important;
+}
+.catgory-tag .input_box {
+    margin-left: 18px;
+    width: calc(100% - 15px)!important;
+}
+.logo-bo{
+    width: 80%;
+    margin-top:8px; 
+}
+.sidebar_wrapper #sidebar .header h1{
+    text-align: center;
+}
+.form_group.imgContainer img {
+    width: 280px;
+    margin-top: 18px;
+}
+.catgory-tag input {
+    margin: 0!important;
+    font-size: 15px!important;
+}
+.panel_content .input_box.fileUploadTriggerDiv {
+    width: calc(100% - 72px)!important;
+}
+.sidebar_wrapper{
+    width: 200px!important;
+}
+.header_wrapper .header_side.left_side_header .menu_humbegrer_toggle{
+    height: 34px!important;
+    top: 8px!important;
+}
+.all_warrapers_web_content.margin_left_activated{
+    width: calc(100% - 200px)!important;
+}
+
+
+.sidebar_wrapper #sidebar .content #menu ul li a{
+   font-size: 14px!important;
+}
+.header_wrapper .header_side.right_side_header{
+  z-index: 10;
+}
+.action_td a.delete_action{
+  cursor: pointer;
+}
+.alert.alert-success{
+  text-align: center;
+  padding: 0px 15px;
+}
+.mce-tinymce.mce-container.mce-panel{
+  margin-left:21px;
+  width: 100%;
+}
+.DisplayImageAfterUpload{
+  max-width: 250px;
+    margin-left: 21px;
+    margin-top: 20px;
+}
+.info_page .panel_content{
+  padding: 10px;
+}
+.customTabs{
+  margin-bottom: 20px;
+}
+.select2-input{
+  border: 0px !important;
+}

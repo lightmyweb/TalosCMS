@@ -1,0 +1,54 @@
+{% extends 'AdminBundle::_shared.html.twig' %}
+{% block title %}Dashboard{% endblock %}
+{% block body %}
+<div class="wrapper container">
+  <div class="row">
+    <div class="col-lg-12">
+      <h2 class="heading">Bienvenue sur Admin Dashboard</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col col_2">
+      <a class="dashboard-stat purple" href="{{ path('page_index') }}">
+        <div class="visual">
+          <i class="fas fa-copy"></i>
+        </div>
+        <div class="details">
+          <div class="number">
+            <span>{{number_of_pages}}</span>
+          </div>
+          <div class="desc">Page(s)</div>
+        </div>
+      </a>
+    </div>
+    <div class="col col_2">
+      <a class="dashboard-stat purple" href="{{ path('admin_users') }}">
+        <div class="visual">
+          <i class="fa fa-user"></i>
+        </div>
+        <div class="details">
+          <div class="number">
+            <span>{{number_of_users}}</span>
+          </div>
+          <div class="desc">Utilisateur(s)</div>
+        </div>
+      </a>
+    </div>
+    <div class="col col_2">
+      <a class="dashboard-stat purple" href="{{ path('locale_index') }}">
+        <div class="visual">
+          <i class="fas fa-language"></i>
+        </div>
+        <div class="details">
+          <div class="number">
+            <span>{{number_of_locales}}</span>
+          </div>
+          <div class="desc">Langue(s)</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+<hr>
+
+{% endblock %}

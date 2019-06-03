@@ -1,0 +1,23 @@
+{% if edit == 1 and contents is defined %}
+	{% for content in contents %}
+		{% if content.type == 'textBloc' %}
+			{% for textBloc in form.blocTexts %}
+				{% if textBloc.vars.value.position ==  content.entity.position %}
+					{{ render(controller( 
+	                    'ContentElementsManagementSystemBundle:ElementsFormRender:renderTextBlocForm',
+	                    { 'form': textBloc.vars.form}
+	                )) }}
+                {% endif %}
+			{% endfor %}  
+		{% elseif content.type == 'sectionBloc' %}
+			{% for sectiontBloc in form.blocSections %}
+				{% if sectiontBloc.vars.value.position ==  content.entity.position %}
+					{{ render(controller( 
+	                    'ContentElementsManagementSystemBundle:ElementsFormRender:renderSectionBlocForm',
+	                    { 'form': sectiontBloc.vars.form,'entity':content.entity}
+	                )) }}
+                {% endif %}
+			{% endfor %} 
+		{% endif %}
+	{% endfor %}
+{% endif %}

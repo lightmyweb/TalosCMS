@@ -1,0 +1,5 @@
+<div class="customTabs">
+	{% for locale in locales %}
+		<button class="customTabButton {% if app.request.locale == locale.slug %}active{% endif %}" data-display="lang-{{locale.slug}}" >{{locale.name}}</button>
+	{% endfor %}
+</div>

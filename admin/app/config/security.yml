@@ -1,0 +1,35 @@
+# To get started with security, check out the documentation:
+# https://symfony.com/doc/current/security.html
+security:
+    # https://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
+    encoders:
+        #Symfony\Component\Security\Core\User\User: plaintext
+       AdminBundle\Entity\User: bcrypt
+    role_hierarchy:
+        ROLE_EDITOR: ROLE_USER
+        ROLE_ADMIN: ROLE_EDITOR
+        ROLE_SUPER_ADMIN: [ROLE_EDITOR, ROLE_USER, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
+        ROLE_DEV: [ROLE_EDITOR, ROLE_ADMIN, ROLE_SUPER_ADMIN,ROLE_USER]
+    providers:
+        db_provider:
+            entity:
+                class: AdminBundle:User
+                property: username
+    firewalls:
+        secured_area:
+            pattern:    ^/
+            anonymous: ~
+            provider: db_provider
+            # user_checker: app.user_checker
+            form_login:
+                login_path:  /login_5TALOS/
+                check_path:  /login_check_5TALOS/
+                always_use_default_target_path: true
+                default_target_path: /login_5TALOS/
+            logout:
+                path: /logout_5TALOS/
+                target: /login_5TALOS/
+                invalidate_session: false
+    access_control:
+        - { path: ^/admin_5TALOS/, roles: ROLE_USER }
+        - { path: ^/login_5TALOS/, roles: IS_AUTHENTICATED_ANONYMOUSLY }

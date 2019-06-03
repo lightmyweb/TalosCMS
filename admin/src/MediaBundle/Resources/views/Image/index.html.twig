@@ -1,0 +1,55 @@
+{% extends 'AdminBundle::_shared.html.twig' %}
+{% block title %}Gestion des medias{% endblock %} 
+{% block body %}
+<div class="col col_12">
+    <div class="container_box mediaBox">
+        <div class="box_title">
+            <h3>Gestion des medias</h3>
+            <div class="button addNewElement addImage " data-go="toCreation">
+                <a data-href="{{path('add_new_image')}}" ><i class="fas fa-plus-circle"></i> image</a> 
+            </div>
+        </div>
+        <div class="searchForm">
+            <input type="text" name="search" class="searchMedia" placeholder="Rechercher une image">
+        </div>
+        <div class="box_content">
+            <div class="row imageContent">
+                <div class="col col_12 allmedias" id="allmedias">
+                    <div class="row list" >
+                        {% for image in images %}
+                            <div class="col col_2 mediaBordered # list" data-id="{{ image.id }}" data-alt="{{ image.alt }}">
+                                <div class="imgContent">
+                                    <img src="{{ asset('uploads') }}/{{ image.src }}">
+                                </div>
+                                <div class="imgHoverContent">
+                                    <div class="row centeredRow">
+                                        <div class="col col_3">
+                                            <i class="fas fa-edit editMediaIcon" data-id="{{ image.id}}"></i>
+                                        </div>
+                                        <div class="col col_3">
+                                            <i class="fas fa-check-circle selectMediaIcon" data-id="{{image.id}}"></i>
+                                        </div>
+                                        <div class="col col_3">
+                                            <i class="fas fa-trash-alt deleteMediaIcon" data-id="{{image.id}}"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <div class="no-result"></div>  
+                    <ul class="pagination "></ul>
+                </div>
+            </div>
+        </div>
+            <div class="loading_part modalLoading"> 
+        <div class="container">
+            <h3>loading ...</h3>
+            <img src="{{ asset('adminTemplateFiles/build/img/loading.svg') }}">
+        </div>    
+    </div>
+    </div>
+
+</div>
+<div id="resizer-demo"><button>Enregistrer et fermer</button></div>
+{% endblock %}

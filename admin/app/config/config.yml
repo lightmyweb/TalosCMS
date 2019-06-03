@@ -1,0 +1,58 @@
+imports:
+    - { resource: parameters.yml }
+    - { resource: security.yml }
+    - { resource: services.yml }
+    - { resource: '@AdminBundle/Resources/config/services.yml' }
+    - { resource: '@FrontBundle/Resources/config/services.yml' }
+    - { resource: '@ContentElementsManagementSystemBundle/Resources/config/services.yml' }
+    - { resource: '@MediaBundle/Resources/config/services.yml' }
+parameters:
+    locale: fr
+    uploads_directory: '%kernel.root_dir%/../web/uploads/'
+    app.db.table_prefix: _talos_
+framework:
+    secret: '%secret%'
+    templating: { engines: [twig] }
+    router: { resource: '%kernel.project_dir%/app/config/routing.yml', strict_requirements: null }
+    form: null
+    csrf_protection: null
+    validation: { enable_annotations: true }
+    default_locale: '%locale%'
+    trusted_hosts: null
+    session: { handler_id: session.handler.native_file, save_path: '%kernel.project_dir%/var/sessions/%kernel.environment%' }
+    fragments: null
+    http_method_override: true
+    assets: null
+    php_errors: { log: true }
+    translator: { fallbacks: [fr] }
+twig:
+    debug: '%kernel.debug%'
+    strict_variables: '%kernel.debug%'
+doctrine:
+    dbal: { driver: pdo_mysql, host: '%database_host%', port: '%database_port%', dbname: '%database_name%', user: '%database_user%', password: '%database_password%', charset: UTF8 }
+    orm: { auto_generate_proxy_classes: '%kernel.debug%', naming_strategy: doctrine.orm.naming_strategy.underscore, auto_mapping: true }
+swiftmailer:
+    transport: '%mailer_transport%'
+    host: '%mailer_host%'
+    username: '%mailer_user%'
+    password: '%mailer_password%'
+    spool: { type: memory }
+sensio_framework_extra:
+    router: { annotations: false }
+stfalcon_tinymce:
+    external_plugins: { filemanager: { url: 'asset[bundles/stfalcontinymce/vendor/tinymce/plugins/filemanager/plugin.min.js]' } }
+    selector: .tinymce
+    theme: { simple: { height: 150, plugins: ['advlist autolink lists link image charmap print preview hr anchor pagebreak', 'searchreplace wordcount visualblocks visualchars code fullscreen', 'insertdatetime media nonbreaking save table contextmenu directionality', 'emoticons template paste textcolor jbimages filemanager'], toolbar: 'insertfile undo redo |filemanager| styleselect | forecolor | backcolor | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link jbimages | code | hr', image_advtab: true, relative_urls: false, external_filemanager_path: 'http://127.0.0.1:8000/bundles/stfalcontinymce/vendor/tinymce/plugins/filemanager/', filemanager_title: 'Gestionnaire de fichiers' } }
+knp_doctrine_behaviors:
+    blameable: false
+    geocodable: null
+    loggable: null
+    sluggable: true
+    soft_deletable: true
+    translatable: true
+a2lix_translation_form:
+    locale_provider: default
+    locales: [fr, gk, en]
+    default_locale: fr
+    required_locales: [fr]
+    templating: '@A2lixTranslationForm/default.html.twig'

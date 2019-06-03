@@ -1,0 +1,139 @@
+@media screen and (max-height: 798px) and ( min-width: 1130px ){
+	.leftSideBar .contact{
+		position:  relative;
+		top:0px;
+    	bottom: inherit;
+    	margin-top: 110px;
+	}
+	.leftSideBar nav{
+		position:relative;
+		top: initial;
+		transform: initial;
+		margin-top: 80px;
+	}
+}
+@media screen and (max-width: 1130px) {
+	.galleryPageFormat .grid .element{
+		display: block;
+		margin-right: auto;
+		margin-left: auto;
+		&:nth-child(3n+3){
+			margin-right: auto;
+		}
+	}
+	.loading{
+		left: 0px;
+		width: 100%;
+		&.active{
+			z-index: 99999999999999;
+		}
+	}
+	.leftSideBar .logo{
+		display: none;
+	}
+	main{
+		max-width: 100%;
+		overflow-x: hidden;
+	}
+	div.container .inside{
+		min-height: 20vh;
+	}
+	.eventPageFormat .infoheader{
+		display: none;
+	}
+	.eventPageFormat .swiperContent .swiper-container{
+		margin-top: 27px;
+	}
+	.eventPageFormat .swiperContent .swiper-container .swiper-slide .bottomHeader{
+		display: none;
+	}
+	.temoignagePageFormat .row.page404{
+		top: initial;
+		left: initial;
+		position:static;
+		transform: initial;
+		margin-right: auto;
+    margin-left: auto;
+    margin-top: 25px;
+	}
+	.translateToLeft{
+		&.leftSideBar.active{
+			left: 0px;
+			transition: left 0.4s;
+		}
+		&.mobileMenu{
+			left: 260px;
+			transition: left 0.4s;
+		}
+		&.container{
+			left: 260px;
+			transition: left 0.4s;
+			position:relative;
+		}
+		&.titlesGroup{
+			left: 260px !important;
+			transform: translateX(-0px) !important;
+			transition: left 0.4s, transform 0.4s;
+		}
+	}
+	div.leftSideBar{
+		left: -250px;
+		transition: left 0.8s;
+		._localesPart, ._title, ._subTitle{
+			display: none;
+		}
+		nav{
+			margin-top: 0px;
+			top: 0px;
+			transform: translateY(0);
+		}
+		.contact{
+			position:absolute;
+			bottom:40px;
+			width: 100%;
+		}
+	}
+	div.container{
+		transition: left 0.8s;
+	}
+	.temoignagePageFormat .subTitle::after{
+		display: none;
+	}
+	div.container .inside{
+		width: calc(100% - 60px);
+		margin-right: auto;
+		margin-left: auto;
+		.description{
+			margin-top: 208px;
+		}
+		.titlesGroup{
+			margin-top: 0px;
+		    top: 40px;
+		    left: 50%;
+		    position: fixed;
+		    width: calc(100% - 20px);
+		    background-color: #fff;
+		    z-index: 9999999999;
+		    transform: translateX(-50%);
+		    padding-top: 28px;
+		    padding-bottom:3px;
+		    transition: left 0.8s, transform 0.8s;
+		}
+	}
+	.temoignagePageFormat .row .element .elementContent{
+		font-size: 16px;
+	}
+	.eventPageFormat .titlesGroup .toAllAlbums{
+		display: block;
+	}
+	.mobileMenu{
+		display: block;
+		transition: left 0.8s
+	}
+	.temoignagepage .titlesGroup::after{
+		opacity: 1;
+	}
+	.temoignagepage .titlesGroup{
+		padding-bottom:6px;
+	}
+}

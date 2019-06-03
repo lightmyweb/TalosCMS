@@ -1,0 +1,33 @@
+<div class="_mediaModel">
+    <div class="container_box">
+        <div class="box_title">
+            <h3>Ensemble des images</h3>
+            <div class="btn closeMediaModal ">
+                <a href="#"><i class="far fa-times-circle"></i></a> 
+            </div>
+            <div class="btn newFormModal">
+                <a href="#"><i class=" fas fa-plus-circle"></i></a> 
+            </div>
+        </div>
+        <div class="searchForm">
+            <input type="text" name="search" class="searchMedia" placeholder="Rechercher une image">
+        </div>
+        <div class="box_content">
+            <div class="row imageContent">
+                <div class="col col_12 allmedias" id="allmedias">
+                    <div class="row list" >
+                    </div>
+                    <div class="no-result"></div>  
+                    <ul class="pagination "></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="loading_part modalLoading"> 
+        <div class="container">
+            <h3>loading ...</h3>
+            <img src="{{ asset('adminTemplateFiles/build/img/loading.svg') }}">
+        </div>    
+    </div>
+</div>
+<div id="resizer-demo"><button>Enregistrer et fermer</button></div>

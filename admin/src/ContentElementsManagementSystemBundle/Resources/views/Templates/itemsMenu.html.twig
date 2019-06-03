@@ -1,0 +1,45 @@
+{% set blocText_prototype = null %}
+{% set blocSection_prototype = null %}
+
+{% if  form.blocTexts is defined %}
+	{% set blocText_prototype = form_widget(form.blocTexts.vars.prototype)  %}
+{% endif %}
+{% if  form.blocSections is defined %}
+	{% set blocSection_prototype = form_widget(form.blocSections.vars.prototype)  %}
+{% endif %}
+
+
+
+{% 
+	set data = [
+		{
+			'type':'sectionsBloc',
+			'name_order':0,
+			'entity':'blocSections',
+			'label':'Section',
+			'icon':'fas fa-puzzle-piece',
+			'role':'parent',
+			'current_div_class':'accordionItems',
+			'prototype':blocSection_prototype,
+			'children':null
+		},
+		{
+			'type':'textsBloc',
+			'children':null,
+			'entity':'blocTexts',
+			'label':'Texte',
+			'icon':'fas fa-paragraph',
+			'name_order':0,
+			'role':'parent',
+			'current_div_class':'accordionItems',
+			'prototype':blocText_prototype
+		}
+	]
+%}
+
+{{ render(controller( 
+    'ContentElementsManagementSystemBundle:RenderTemplates:renderBlocBoxes',{ 
+    	'data':data
+    }
+)) }}
+

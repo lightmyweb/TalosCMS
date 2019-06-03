@@ -1,0 +1,168 @@
+@import url("https://fonts.googleapis.com/css?family=Space+Mono|Roboto+Mono");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  position: relative;
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+  /*background: linear-gradient(to right, #c04848, #480048);*/
+  height: 100vh;
+  background-color: #fff;
+}
+
+a {
+  color: #f2f2f2;
+  text-decoration: none;
+  font-size: 13px;
+  letter-spacing: 4px;
+}
+
+form {
+  line-height: 1.4;
+  font-family: "Space Mono", monospace;
+  background: #1d1f20;
+  padding: 25px 35px;
+  width: 500px;
+  top: calc(50vh - 280px);
+  left: calc(50vw - 190px);
+  position: fixed;
+  border-radius: 16px;
+  box-shadow: 0 0 60px -15px black;
+  transform: scale(0);
+  transition: all 0.75s;
+  font-size: 18px;
+}
+
+form.menu_active {
+  transform: scale(1);
+   
+}
+
+form a:hover {
+  color: #dd925f;
+}
+
+h3 {
+  position: fixed;
+  font-family: "Roboto Mono", monospace;
+  font-size: 20px;
+  color: #333;
+  top: calc(50vh - 40px);
+  left: calc(50vw - 126px);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+h3:hover {
+  border-bottom: 6px dotted #333;
+  padding-bottom: 10px;
+  top: calc(50vh - 50px);
+}
+
+p {
+  font-family: "Roboto Mono", monospace;
+  float: right;
+  cursor: pointer;
+  font-size: 20px;
+  color: #cfd8dc;
+  transition: all 0.2s;
+}
+
+p:hover {
+  border-bottom: 2px dotted #cfd8dc;
+  padding-bottom: 5px;
+}
+
+.imgcontainer {
+  text-align: center;
+  margin: 37px 0 15px 0;
+  position: relative;
+}
+
+img.avatar {
+  width: 40%;
+  border-radius: 50%;
+}
+
+.container {
+  padding: 12px;
+}
+
+input[type=text], input[type=password] {
+  font-family: "Roboto Mono", monospace;
+  width: 100%;
+  padding: 12px 20px;
+  margin: 10px 0;
+  display: inline-block;
+  border: 1px solid #ffffff;
+  box-sizing: border-box;
+  border-radius: 10px;
+  background-color: #e6e6e6;
+}
+
+b {
+  color: #f2f2f2;
+}
+
+button {
+  font-family: "Roboto Mono", monospace;
+  height: 100%;
+  color: #818181;
+  background-image: linear-gradient(top, #383838 0%, #1F1F1F 5%, #161616 100%);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#1F1F1F), to(#161616));
+  border-radius: 7px;
+  float: left;
+  box-shadow: 0 0 1px 1px #0a0a0a;
+  cursor: pointer;
+  position: relative;
+  font-size: 20px;
+  padding-left: 5%;
+  padding: 3%;
+  vertical-align: bottom;
+  transition: color .3s ease;
+}
+
+button:hover {
+  color: #4d4d4c;
+}
+
+button:active {
+  box-shadow: 0 0 1px 1px #0a0a0a, inset 0 2px 2px 0px black;
+}
+
+button:before {
+  position: absolute;
+  content: '';
+  right: 5px;
+  top: 5px;
+  width: 12px;
+  height: 12px;
+  background: #646464;
+  background-image: radial-gradient(top, #616161 0%, #616161 20%, #535353 60%);
+  border-radius: 50%;
+  box-shadow: 0 0 5px #1C1C17;
+  transition: all .3s ease;
+}
+
+button:hover:before {
+  background: #008000;
+  box-shadow: 0 0 4px #1C1C17, 0 0 5px #FF4242;
+}
+
+button:active:before {
+  box-shadow: 0 0 4px #1C1C17, inset 0 2px 2px 0px #CC0000;
+}
+
+button:nth-child(1) {
+  width: 50%;
+  margin-right: 2%;
+}
+
+.btndiv {
+  margin-left: 30%;
+  padding-top: 7px;
+}

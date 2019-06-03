@@ -1,0 +1,65 @@
+{% extends 'AdminBundle::_shared.html.twig' %}
+{% block body %}
+<div class="col col_12">
+    <div class="container_box">
+        <div class="box_title">
+            <h3>SEO</h3>
+            <button class="box_delete_btn">X</button>
+            <button class="box_close_btn">
+                <i class="fas fa-sort-down"></i>
+            </button>
+        </div>
+        <div class="box_content">
+            <div class="row">
+                <div class="form_group col col_6">
+                    <label class="input_label">Input</label>
+                    <div class="input_box">
+                        <input type="text" name="" class="form_ctrl">
+                    </div>
+                </div>
+
+                <div class="form_group col col_6">
+                    <label class="input_label">Select</label>
+                    <div class="input_box">
+                        <select class="form_ctrl"> 
+                            <option>A
+                            </option>
+                            <option>B
+                            </option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form_group col col_3">
+                    <label class="input_label">checkbox</label>
+                    <div class="input_box checkOrRadioboxGroup">
+                        <label class="chekbox_container_style">Test One
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="chekbox_container_style">Test Two
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form_group col col_3">
+                    <label class="input_label">Radio</label>
+                    <div class="input_box checkOrRadioboxGroup">
+                        <label class="radio_container_style">Test One
+                            <input type="radio" checked="checked" name="radio">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="radio_container_style">Test Two
+                            <input type="radio" name="radio">
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,13 @@
+
+<label  class="dropdown">
+  <div class="dd-button">
+    Ajouter du contenu
+  </div>
+  <ul class="dd-box" id="btn-add">
+  	{% for item in boxes %}
+
+  	<li  class="contentElement button-bloc" data-json='{{ item|json_encode() }}'><i class="{{item.icon}}"></i> {{item.label}} 
+	</li>
+	{% endfor %}
+  </ul>
+</label>

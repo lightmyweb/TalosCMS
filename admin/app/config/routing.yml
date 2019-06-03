@@ -1,0 +1,26 @@
+media:
+    resource: '@MediaBundle/Controller/'
+    type: annotation
+    prefix: /admin_5TALOS/media
+front:
+    resource: '@FrontBundle/Controller/'
+    type: annotation
+    prefix: '/{_locale}/'
+    requirements: { _locale: fr|gk|en| }
+admin:
+    resource: '@AdminBundle/Controller/'
+    type: annotation
+    prefix: /admin_5TALOS
+admin_login:
+    path: /login_5TALOS/
+    defaults: { _controller: 'AdminBundle:Login:index' }
+admin_mot_passe_oublie:
+    path: /login_5TALOS/motPasseOublie/
+    defaults: { _controller: 'AdminBundle:Login:motPasseOublie' }
+admin_nouveau_mot_passe:
+    path: /login_5TALOS/nouveauMotPasse/
+    defaults: { _controller: 'AdminBundle:Login:nouveauMotPasse' }
+admin_login_check:
+    path: /login_check_5TALOS/
+admin_logout:
+    path: /logout_5TALOS/

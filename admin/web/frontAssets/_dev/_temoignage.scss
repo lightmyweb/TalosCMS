@@ -1,0 +1,132 @@
+.temoignagepage{
+  .titlesGroup{
+    position:relative;
+    width: 100%;
+    &::after{
+      position:absolute;
+      bottom:0px;
+      max-width: 460px;
+      transform: translateX(-50%);
+      content: '';
+      width: calc(100% - 40px);
+      height: 2px;
+      background-color:#ECECEC;
+      opacity: 0;
+    }
+  }
+}
+.temoignagePageFormat{
+  .subTitle{
+    position:relative;
+  }
+  .subTitle::after{
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 3px;
+    background: #000;
+    left: 50%;
+    bottom: -11px;
+    transform: translateX(-50%);
+  }
+	.row{
+		display: block;
+		width: 490px;
+    max-width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 25px;
+    &.page404{
+      margin: 0px;
+      position:absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%,-50%);
+      .titlesGroup{
+        margin-top: 0px;
+      }
+      a.linkfrom404{
+        cursor: pointer;
+      font-family: $typo;
+      font-size:18px;
+      transition: all 0.6s;
+      color: #000;
+      position:relative;
+      top: 15px;
+      &:hover{
+        color: #A0A0A0;
+        transition: all 0.4s;
+      }
+    }
+    }
+  		.element{
+  			width: 100%;
+  			font-family: $typo;
+  			color: #A0A0A0;
+  			margin-bottom: 40px;
+  			.elementEeader{
+  				font-size: 14px;
+  				font-weight: 500;
+  				position: relative;
+  				div{
+  					vertical-align: top;
+  					&.rightTextfield{
+  						position: absolute;
+  						right: 0px;
+  						top: 0px;
+  					}
+  				}
+  				&::after{
+  					position: absolute;
+  					left: 0px;
+  					height: 1px;
+  					width: 100%;
+  					content: '';
+  					background-color: #E6E6E6;
+  					bottom: -3px;
+  				}
+  			}
+  			.elementContent{
+  				font-weight: 300;
+  				font-size: 20px;
+  				margin-top: 17px;
+  			}
+  		}
+	}
+  .requiredInput.active label{
+    color: #ff1c24;
+    transition: color 0.4s;
+  }
+  .msg-OK {
+    font-size: 16px;
+    color: #27ae60;
+    text-align: center;
+    margin-bottom: -20px;
+    opacity: 0;
+    transition: all 0.6s;
+    &.active{
+      opacity: 1;
+      transition: all 0.4s;
+    }
+  }
+  .chekxboxInput{
+    position:relative;
+    width: 100%;
+    #checkbox{
+      position:absolute;
+      left: 0px;
+      top: 0px;
+    }
+    .label-checkbox{
+           position: relative;
+    float: left;
+    left: 22px;
+    width: calc(100% - 31px);
+       font-size: 14px;
+       font-weight: 300;
+       font-family: $typo;
+       color: #000;
+    }
+  }
+  
+}

@@ -1,0 +1,199 @@
+.eventPageFormat{
+	.titlesGroup{
+		.toAllAlbums{
+			text-align: center;
+			font-family: $typo;
+			display: none;
+			font-size: 14px;
+			font-weight: 500;
+			color: #A0A0A0;
+			margin-top: 15px;
+			cursor: pointer;
+			transition: color 0.6s;
+			text-transform: initial;
+			position:relative;
+			letter-spacing: 0.7px;
+			&:hover{
+				color: #000;
+				transition: color 0.4s;
+			}
+			&::after{
+				height: 1px;
+				width: 265px;
+				left: 50%;
+				transform: translateX(-50%);
+				position:absolute;
+				content: '';
+				bottom: -3px;
+				background-color: #e6e6e6;
+			}
+		}
+	}
+	.infoheader{
+		width: 489px;
+		max-width: 100%;
+		margin-right: auto;
+		margin-left: auto;
+		display: block;
+		position: relative;
+		font-family: $typo;
+		font-size: 14px;
+		font-weight: 400;
+		color: #A0A0A0;
+		margin-top: 26px;
+		.toAllAlbums{
+			display: inline-block;
+			margin-right: -4px;
+			position:absolute;
+			left: 0px;
+			cursor: pointer;
+			transition: color 0.6s;
+			&:hover{
+				color: #000;
+				transition: color 0.4s;
+			}
+		}
+		.albumName{
+			display: inline-block;
+			margin-right: 0px;
+			position:absolute;
+			right: 0px;
+		}
+		&::after{
+			height: 1px;
+			width: 100%;
+			left: 0px;
+			position:absolute;
+			content: '';
+			bottom: -22px;
+			background-color: #e6e6e6;
+		}
+	}
+	.swiperContent{
+		position: relative;
+		.cls-1{
+			stroke:transparent !important;
+			transition: all 0.6s;
+		}
+		.swiper-container {
+	      width: 100%;
+	      width: 715px;
+	      max-width: 100%;
+	      height: 541px;
+	      margin-left: auto;
+	      margin-right: auto;
+	      margin-top: 65px;
+	      	.swiper-slide {
+	      		.imgContainer{
+	      			height: 447px;
+	      			width: 715px;
+	      			max-width: 100%;
+	      			background-repeat: no-repeat;
+	      			background-size: cover;
+	      			background-position: center;
+	      			position: relative;
+	      			z-index: 2;
+	      			transition: all 0.6s;
+	      		}
+	      		.bottomHeader{
+	      			height: 25px;
+	      			width: 489px;
+	      			max-width: 100%;
+					margin-right: auto;
+					margin-left: auto;
+					display: block;
+					position: relative;
+					margin-top: 31px;
+					font-family: $typo;
+					font-size: 14px;
+					font-weight: 300;
+					color: #A0A0A0; 
+					&::after{
+						position:absolute;
+						left: 0px;
+						top: -6px;
+						width: 100%;
+						background-color: #E6E6E6;
+						content: '';
+						height: 1px;
+					}
+					div{
+						display: inline-block;
+						margin-right: 0px;
+						vertical-align: top;
+						&.imgnumber{
+							position: absolute;
+							right: 0px;
+							top: -4px;
+						}
+					}
+					span{
+						font-size: 20px;
+					}
+	      		}
+	      		.videoWrapper{
+	      			position: absolute;
+	      			top: 0px;
+	      			left: 0px;
+	      			width: 100%;
+	      			height: 447px;
+	      			overflow: hidden;
+	      			background-color: #fff;
+	      			transition: all 0.8s;
+	      			z-index: 1;
+	      			iframe{
+	      				width: 100%;
+	      				height: 100%;
+	      				opacity: 0;
+	      				transition: all 1.2s;
+	      			}
+	      			&.active{
+	      				iframe{
+	      					opacity: 1;
+	      					transition: all 0.8s;
+	      				}
+	      				z-index: 3;
+	      				transition: all 0.4s;
+	      			}
+	      			
+	      		}
+				
+
+		    }
+	    }
+	    .swiperButtons{
+	    	height: 447px;
+	    	width: 100%;
+	    	position: absolute;
+	    	top: 0px;
+	    	left: 0px;
+	    	.btn{
+	    		position: absolute;
+	    		top: 50%;
+	    		transform: translateY(-50%);
+	    		height: 26px;
+	    		width: 38px;
+	    		background-repeat: no-repeat;
+	    		background-size: cover;
+	    		background-position: center;
+	    		cursor: pointer;
+	    		transition: all 0.6s;
+	    		opacity: 1;
+	    		&.next{
+	    			right: 20px;
+	    		}
+	    		&.prev{
+	    			left: 20px;
+	    			
+	    		}
+	    		&:hover{
+	    			.cls-1{
+	    				transition: all 0.4s;
+	    				fill: #000;
+	    			}
+	    			
+	    		}
+	    	}
+	    }	
+	}
+}

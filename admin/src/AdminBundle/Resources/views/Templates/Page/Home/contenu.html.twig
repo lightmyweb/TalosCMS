@@ -1,0 +1,23 @@
+<div class="Nb">
+	<p>Le changement d'ordre se fait via un drag and drop <span>Ordre Effectué</span> </p>
+</div>
+<div class="row orderPubLictionperTheme">
+	{% for projet in projets if projet.state == true %}
+		<div class="col col_1 publicationsOrderElement parent-img-position-picto" 
+		data-path="{{path('updateProjetPositionInHome', { 'id': projet.id,'position':'element' })}}" 
+		data-id="{{projet.id}}" 
+		data-order="{{projet.position}}"
+		style="width: 200px; background-color:#f7f7f7;margin-left: 9px;">
+			<div class="content">
+				<div class="picto">
+						{% if projet.image.src is defined and  projet.image.src is not null %}
+							<img class="img-position-picto"  src="{{ asset('uploads/'~ projet.image.src) }}">
+						{% else %}
+							<img class="img-position-picto" src="{{ asset('adminTemplateFiles/build/img/noimage.png') }}">
+						{% endif %}
+					</div>
+				<div class="title"><h3>{{projet.translations[app.request.locale].title}}</h3>	</div>
+			</div>
+		</div>
+	{% endfor %}
+</div>

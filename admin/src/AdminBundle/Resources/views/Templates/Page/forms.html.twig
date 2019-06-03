@@ -1,0 +1,81 @@
+<div class="time_line">
+    <div class="line"></div>
+    <a class="part active content-part" href="#content" data-target="content">Contenu</a>
+    <a class="part generale-part" href="#generale" data-target="generale">Général</a>
+    <a class="part seo-part" href="#seo" data-target="seo">Seo</a>
+</div>
+<div class="time_line_target">
+    <div class="part generale-part" data-source="generale">
+        {{ render(controller( 'AdminBundle:RenderTemplate:renderLocales')) }}
+        <div class="row">
+            <div class="col col_10">
+                {{form_row(form.translations)}}
+            </div>
+        </div> 
+        <div class="row">
+            <div class="col col_3">
+                <div class="form_group imgContainer" style="margin-left:20px;">
+                    {% if entity.image is defined and entity.image is not null %}
+                    <img src="{{ asset('uploads/'~ entity.image.src) }}">
+                    <a class="btn-delleteFile" >Supprimer l'image</a>
+                    {% endif %}
+                </div>
+                {{form_row(form.image)}}
+            </div>
+        </div>    
+    </div>
+    <div class="part seo-part" data-source="seo">
+        {{ render(controller( 
+            'AdminBundle:RenderTemplate:renderSeoPart',{ 'form': form}
+        )) }}
+    </div>
+    <div class="part active content-part" data-source="content">
+         {% if  entity.id is defined and entity.id  == 1  %}
+            {{ render(controller( 
+                'AdminBundle:RenderTemplate:renderHomeItem',{ 'entity': entity, 'form':form}
+            )) }}
+            <div class="accordionItems">
+             {{ render(controller( 
+                'ContentElementsManagementSystemBundle:RenderTemplates:renderItemsViewer',{ 'entity': entity, 'form':form}
+            )) }}
+        </div>
+        <div class="buttonsGrid">
+            {{ render(controller( 
+                'ContentElementsManagementSystemBundle:RenderTemplates:renderItemsMenu',{ 'form': form}
+            )) }}
+        </div>
+        {% elseif entity.id is defined and entity.id  == 7 %}
+            {{ render(controller( 
+                'AdminBundle:RenderTemplate:renderRefItem',{ 'entity': entity, 'form':form}
+            )) }}
+        {% elseif entity.id is defined and entity.id  == 8 %}
+            {{ render(controller( 
+                'AdminBundle:RenderTemplate:renderProjetItem',{ 'entity': entity, 'form':form}
+            )) }}
+        {% elseif entity.id is defined and entity.id  == 12 %}
+            {{ render(controller( 
+                'AdminBundle:RenderTemplate:renderFoulardItem',{ 'entity': entity, 'form':form}
+            )) }}
+        {% elseif  entity.id is defined and entity.id  == 45  %}
+        {{ render(controller( 
+            'MediaBundle:RenderTemplates:renderMasonryGrid',{ 'entity': entity,'type':'page'}
+        )) }}
+        
+        {% else %}
+
+        {{ render(controller( 'AdminBundle:RenderTemplate:renderLocales')) }} <br><br>
+        <div class="accordionItems">
+             {{ render(controller( 
+                'ContentElementsManagementSystemBundle:RenderTemplates:renderItemsViewer',{ 'entity': entity, 'form':form}
+            )) }}
+        </div>
+
+        <div class="buttonsGrid">
+            {{ render(controller( 
+                'ContentElementsManagementSystemBundle:RenderTemplates:renderItemsMenu',{ 'form': form}
+            )) }}
+        </div>
+        {% endif %}
+    </div>
+</div>
+<div style="display:none">{{form_rest(form)}}</div>
