@@ -26,51 +26,30 @@ class Settings
     /**
      * @var string
      *
-     * @ORM\Column(name="title", type="string", length=255)
+     * @ORM\Column(name="title", type="string", length=255, nullable=true)
      */
     private $title;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="email", type="string", length=255)
+     * @ORM\Column(name="email", type="string", length=255, nullable=true)
      */
     private $email;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="favicon", type="string", length=255)
+     * @ORM\Column(name="favicon", type="string", length=255, nullable=true)
      */
     private $favicon;
 
     /**
      * @var bool
      *
-     * @ORM\Column(name="installed", type="boolean")
+     * @ORM\Column(name="installed", type="boolean", nullable=true)
      */
     private $installed;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="facebook", type="string", length=255)
-     */
-    private $facebook;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="instagram", type="string", length=255)
-     */
-    private $instagram;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="pinterest", type="string", length=255)
-     */
-    private $pinterest;
 
     /**
      * @var string
@@ -199,54 +178,6 @@ class Settings
     public function getEmail()
     {
         return $this->email;
-    }
-
-    /**
-     * Set facebook
-     *
-     * @param string $facebook
-     *
-     * @return Settings
-     */
-    public function setFacebook($facebook)
-    {
-        $this->facebook = $facebook;
-
-        return $this;
-    }
-
-    /**
-     * Get facebook
-     *
-     * @return string
-     */
-    public function getFacebook()
-    {
-        return $this->facebook;
-    }
-
-    /**
-     * Set instagram
-     *
-     * @param string $instagram
-     *
-     * @return Settings
-     */
-    public function setInstagram($instagram)
-    {
-        $this->instagram = $instagram;
-
-        return $this;
-    }
-
-    /**
-     * Get instagram
-     *
-     * @return string
-     */
-    public function getInstagram()
-    {
-        return $this->instagram;
     }
 
     /**

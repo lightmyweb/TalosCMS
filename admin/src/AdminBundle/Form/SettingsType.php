@@ -51,24 +51,6 @@ class SettingsType extends AbstractType
                 'data-label'=>'Hauteur'
             )
         ))
-        ->add('facebook',null,array(
-            'attr'=>array(
-                'class'=>'form_ctrl required_class ',
-                'data-label'=>'Lien facebook',
-            )
-        ))
-        ->add('instagram',null,array(
-            'attr'=>array(
-                'class'=>'form_ctrl required_class ',
-                'data-label'=>'Lien instagram',
-            )
-        ))
-        ->add('pinterest',null,array(
-            'attr'=>array(
-                'class'=>'form_ctrl required_class ',
-                'data-label'=>'Lien pinterest',
-            )
-        ))
         ->add('email',null,array(
             'attr'=>array(
                 'class'=>'form_ctrl required_class email_class ',
