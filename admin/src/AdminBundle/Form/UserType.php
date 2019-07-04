@@ -10,7 +10,7 @@ use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Security\Core\SecurityContext;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use AdminBundle\Entity\User;
+use AdminBundle\Entity\User; 
 class UserType extends AbstractType
 {
 
