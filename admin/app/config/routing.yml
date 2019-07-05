@@ -1,3 +1,8 @@
+user:
+    resource: "@UserBundle/Controller/"
+    type:     annotation
+    prefix:   /admin_5TALOS/
+    
 media:
     resource: '@MediaBundle/Controller/'
     type: annotation
@@ -11,6 +16,7 @@ admin:
     resource: '@AdminBundle/Controller/'
     type: annotation
     prefix: /admin_5TALOS
+ 
 admin_login:
     path: /login_5TALOS/
     defaults: { _controller: 'AdminBundle:Login:index' }

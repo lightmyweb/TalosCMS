@@ -6,6 +6,7 @@ imports:
     - { resource: '@FrontBundle/Resources/config/services.yml' }
     - { resource: '@ContentElementsManagementSystemBundle/Resources/config/services.yml' }
     - { resource: '@MediaBundle/Resources/config/services.yml' }
+    - { resource: '@UserBundle/Resources/config/services.yml' }
 parameters:
     locale: fr
     uploads_directory: '%kernel.root_dir%/../web/uploads/'
