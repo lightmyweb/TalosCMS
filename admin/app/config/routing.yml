@@ -6,7 +6,7 @@ front:
     resource: '@FrontBundle/Controller/'
     type: annotation
     prefix: '/{_locale}/'
-    requirements: { _locale: fr|gk|en|es| }
+    requirements: { _locale: fr|es|hn| }
 admin:
     resource: '@AdminBundle/Controller/'
     type: annotation
