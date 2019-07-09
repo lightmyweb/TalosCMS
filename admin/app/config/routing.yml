@@ -1,4 +1,3 @@
-
 media:
     resource: '@MediaBundle/Controller/'
     type: annotation
@@ -7,12 +6,11 @@ front:
     resource: '@FrontBundle/Controller/'
     type: annotation
     prefix: '/{_locale}/'
-    requirements: { _locale: fr|gk|en| }
+    requirements: { _locale: fr|gk|en|es| }
 admin:
     resource: '@AdminBundle/Controller/'
     type: annotation
     prefix: /admin_%project_prefix%
- 
 admin_login:
     path: /login_%project_prefix%/
     defaults: { _controller: 'AdminBundle:Login:index' }

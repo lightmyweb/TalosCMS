@@ -13,8 +13,8 @@ class LocaleService{
 	private $routing_path ;
 
 	public function __construct($path){
-		$this->config_path = $path.'config.yml';
-		$this->routing_path = $path.'routing.yml';
+		$this->config_path = $path.'locale.yml';
+		$this->routing_path = $path.'../app/config/routing.yml';
 	}
 
 	public function changeDefaultLocale($locale){

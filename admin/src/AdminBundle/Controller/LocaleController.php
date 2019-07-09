@@ -59,7 +59,7 @@ class LocaleController extends Controller
             $em->persist($locale);
             $em->flush();
             
-            $path = $this->get('kernel')->getRootDir().'/config/';
+            $path = $this->get('kernel')->getRootDir().'/../config/';
             $service = new LocaleService($path);
             $service->setNewLocales($locale->getSlug());
             $this->cacheSys();

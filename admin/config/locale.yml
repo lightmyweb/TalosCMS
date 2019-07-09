@@ -1,0 +1,8 @@
+parameters:
+    locale: fr
+a2lix_translation_form:
+    locale_provider: default
+    locales: [fr, gk, es]
+    default_locale: fr
+    required_locales: [fr]
+    templating: '@A2lixTranslationForm/default.html.twig'

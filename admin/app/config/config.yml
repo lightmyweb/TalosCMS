@@ -2,6 +2,8 @@ imports:
     - { resource: '../../config/app.yml' }
     - { resource: '../../config/database.yml' }
     - { resource: '../../config/mail.yml' }
+    - { resource: '../../config/locale.yml' }
+    - { resource: '../../config/extra.yml' }
     - { resource: security.yml }
     - { resource: services.yml }
     - { resource: '@AdminBundle/Resources/config/services.yml' }
@@ -9,10 +11,6 @@ imports:
     - { resource: '@ContentElementsManagementSystemBundle/Resources/config/services.yml' }
     - { resource: '@MediaBundle/Resources/config/services.yml' }
     - { resource: "@MainBundle/Resources/config/services.yml" }
-parameters:
-    locale: fr
-    uploads_directory: '%kernel.root_dir%/../web/uploads/'
-    app.db.table_prefix: _talos_
 framework:
     secret: '%secret%'
     templating: { engines: [twig] }
@@ -39,20 +37,3 @@ swiftmailer:
     spool: { type: memory }
 sensio_framework_extra:
     router: { annotations: false }
-stfalcon_tinymce:
-    external_plugins: { filemanager: { url: 'asset[bundles/stfalcontinymce/vendor/tinymce/plugins/filemanager/plugin.min.js]' } }
-    selector: .tinymce
-    theme: { simple: { height: 150, plugins: ['advlist autolink lists link image charmap print preview hr anchor pagebreak', 'searchreplace wordcount visualblocks visualchars code fullscreen', 'insertdatetime media nonbreaking save table contextmenu directionality', 'emoticons template paste textcolor jbimages filemanager'], toolbar: 'insertfile undo redo |filemanager| styleselect | forecolor | backcolor | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link jbimages | code | hr', image_advtab: true, relative_urls: false, external_filemanager_path: 'http://127.0.0.1:8000/bundles/stfalcontinymce/vendor/tinymce/plugins/filemanager/', filemanager_title: 'Gestionnaire de fichiers' } }
-knp_doctrine_behaviors:
-    blameable: false
-    geocodable: null
-    loggable: null
-    sluggable: true
-    soft_deletable: true
-    translatable: true
-a2lix_translation_form:
-    locale_provider: default
-    locales: [fr, gk, en]
-    default_locale: fr
-    required_locales: [fr]
-    templating: '@A2lixTranslationForm/default.html.twig'

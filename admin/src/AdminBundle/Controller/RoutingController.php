@@ -58,7 +58,7 @@ class RoutingController extends Controller
         $em = $this->getDoctrine()->getManager();
         $locale = $em->getRepository('AdminBundle:Locale')->findOneById($locale_id);
         if ( $locale ){
-            $path = $this->get('kernel')->getRootDir().'/config/';
+            $path = $this->get('kernel')->getRootDir().'/../config/';
             $service = new LocaleService($path);
             $result = $service->removeLocale( $locale->getSlug() );
             $em->remove($locale);
