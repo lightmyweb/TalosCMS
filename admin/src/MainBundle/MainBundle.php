@@ -1,9 +1,9 @@
 <?php
 
-namespace UserBundle;
+namespace MainBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class UserBundle extends Bundle
+class MainBundle extends Bundle
 {
 }

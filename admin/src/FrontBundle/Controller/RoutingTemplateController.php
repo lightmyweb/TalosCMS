@@ -22,6 +22,7 @@ class RoutingTemplateController extends Controller
     */
     public function homeAction(Request $request)
     {
+      dump($this->container->getParameter('project_name'));die;
       $dataArray = array(
         'result' => 'Hello World'
       );

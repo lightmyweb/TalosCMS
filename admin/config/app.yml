@@ -1,0 +1,5 @@
+parameters:
+  # Project Details #
+  secret: ThisTokenIsNotSoSecretChangeIt
+  project_prefix: 5TALOS
+  project_name: Project Name
