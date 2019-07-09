@@ -1,12 +1,8 @@
-user:
-    resource: "@UserBundle/Controller/"
-    type:     annotation
-    prefix:   /admin_5TALOS/
-    
+
 media:
     resource: '@MediaBundle/Controller/'
     type: annotation
-    prefix: /admin_5TALOS/media
+    prefix: /admin_%project_prefix%/media
 front:
     resource: '@FrontBundle/Controller/'
     type: annotation
@@ -15,18 +11,18 @@ front:
 admin:
     resource: '@AdminBundle/Controller/'
     type: annotation
-    prefix: /admin_5TALOS
+    prefix: /admin_%project_prefix%
  
 admin_login:
-    path: /login_5TALOS/
+    path: /login_%project_prefix%/
     defaults: { _controller: 'AdminBundle:Login:index' }
 admin_mot_passe_oublie:
-    path: /login_5TALOS/motPasseOublie/
+    path: /login_%project_prefix%/motPasseOublie/
     defaults: { _controller: 'AdminBundle:Login:motPasseOublie' }
 admin_nouveau_mot_passe:
-    path: /login_5TALOS/nouveauMotPasse/
+    path: /login_%project_prefix%/nouveauMotPasse/
     defaults: { _controller: 'AdminBundle:Login:nouveauMotPasse' }
 admin_login_check:
-    path: /login_check_5TALOS/
+    path: /login_check_%project_prefix%/
 admin_logout:
-    path: /logout_5TALOS/
+    path: /logout_%project_prefix%/

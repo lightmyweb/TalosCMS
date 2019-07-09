@@ -15,7 +15,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 class ContactController extends Controller
 {
     /**
-     * Lists all contact entities.
      *
      * @Route("/", name="contact_index")
      * @Method("GET")
