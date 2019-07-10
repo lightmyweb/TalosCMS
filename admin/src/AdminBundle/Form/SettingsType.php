@@ -17,20 +17,6 @@ class SettingsType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-        ->add('translations', TranslationsType::class,[
-            'label'=>' ',
-            'fields' =>[
-                'description'=>[
-                    'label' => 'Description bas de page ',
-                    'attr'=>[
-                        "class" =>'form_ctrl textarea_ctrl required_class',
-                        'placeholder' =>'Description bas de page',
-                        'data-label'=>'Description bas de page'
-                    ]
-                ],
-            ]
-
-        ])
         ->add('title',null,array(
             'attr'=>array(
                 'class'=>'form_ctrl required_class ',
