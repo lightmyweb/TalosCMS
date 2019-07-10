@@ -29,7 +29,8 @@ class RenderTemplateController extends Controller
 
         return $this->render(
             'AdminBundle:Templates:Settings/favicon.html.twig',array(
-                'favicon'=>$favicon
+                'favicon'=>$favicon,
+                'project_name' => $this->container->getParameter('project_name') 
             )
         ); 
     }

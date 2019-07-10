@@ -1,11 +1,6 @@
 {% extends 'AdminBundle::_shared.html.twig' %}
 {% block title %}Editer page{% endblock %} 
 
-{% block lib_script %}
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js "></script>
-    {{ tinymce_init() }}
-{% endblock %}
-
 {% block local_script %}
     <script src="{{ asset('adminTemplateFiles/build/js/boxes_script.js') }}" type="text/javascript"></script>
     <script src="{{ asset('adminTemplateFiles/build/js/eventOrder.js') }}" type="text/javascript"></script>
