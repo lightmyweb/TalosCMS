@@ -51,9 +51,10 @@ class HelpController extends Controller
             'edit_form' => $editForm->createView(),
         ));
     }
-    private function getData($element){
+     private function getData($element){
         $dataArray = array();
-        foreach ($element->getSections() as $section) {
+        dump($element);die;
+        foreach ($element->getBlocSections() as $section) {
             $dataArray[]=array(
                 'title'=>$section->getTitle(),
                 'description'=>$section->getDescription(),

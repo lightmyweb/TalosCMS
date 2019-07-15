@@ -28,7 +28,8 @@ class PageType extends AbstractType
                     'attr'=>[
                         "class" =>'form_ctrl required_class theSlugInutWilTakeThisInputValue title_page',
                         'placeholder' =>'Titre (*)',
-                        'data-label'=>'Titre (*)'
+                        'data-label'=>'Titre (*)',
+                        'required' => true
                     ]
                 ],
                 'suptitle'=>[
@@ -37,7 +38,7 @@ class PageType extends AbstractType
                         "class" =>'form_ctrl not_required_class',
                         'placeholder' =>'Sous titre ',
                         'data-label'=>'Sous titre',
-                        'required' => false
+                        'required' => true
                     ]
                 ],
                 'slug'=>[
@@ -46,7 +47,8 @@ class PageType extends AbstractType
                         "class" =>'form_ctrl required_class slugInputFromOriginalTextInput slugTestIfExistInDatabase',
                         'placeholder' =>'Permalien (*)',
                         'data-entity'=>'Page',
-                        'data-label'=>'Permalien (*)'
+                        'data-label'=>'Permalien (*)',
+                        'required' => true
                     ]
                 ],
                 'description'=>[
@@ -54,7 +56,8 @@ class PageType extends AbstractType
                     'attr'=>[
                         "class" =>'form_ctrl textarea_ctrl tinymce',
                         'data-theme' => 'bbcode',
-                        'placeholder' =>'Description'
+                        'placeholder' =>'Description',
+                        'required' => true
                     ]
                 ],
             ]

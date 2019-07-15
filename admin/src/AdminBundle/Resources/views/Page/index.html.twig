@@ -1,14 +1,12 @@
 {% extends 'AdminBundle::_shared.html.twig' %}
 {% block title %}Pages{% endblock %} 
 {% block body %}
-<div class="col col_12">
+<h1 class="mt-4 _pageTitle">Liste des pages</h1>
+<div class="button addNewElement">
+    <a href="{{path('page_new')}}" class="btn btn-primary"><i class="fas fa-plus"></i> Nouvelle page</a> 
+</div>
+<div class="col _colCtn">
     <div class="container_box">
-        <div class="box_title">
-            <h3>Liste des pages</h3>
-            <div class="button addNewElement">
-                <a href="{{path('page_new')}}"><i class="fas fa-plus-circle"></i> Page</a> 
-            </div>
-        </div>
         <div class="box_content">
             <div class="row">
                 <div class="tablesTabs">
@@ -20,7 +18,7 @@
                     <table id="table" class="display" style="width:100%">
                         <thead>
                             <tr>
-                                <!-- <th>#</th> -->
+                                <th>#</th>
                                 <th style="width:1px!important"></th>
                                 <th>Titre</th>
                                 <th>Auteur</th>
@@ -32,7 +30,7 @@
                         <tbody >
                          {% for page in pages %}
                             <tr data-value="{{page.state}}">
-                                <!-- <td><a href="{{ path('page_edit', { 'id': page.id }) }}">{{ page.id }}</a></td> -->
+                                <td>#</td> 
                                 <td>
                                     {% if page.state == 0 %}
                                         <i style="color:#e03131;font-size:12px;" class="fa fa-circle status-published"></i>
@@ -84,7 +82,4 @@
         </div>
     </div>
 </div>
-{% endblock %}
-{% block local_script %}
-    <script type="text/javascript" src="{{ asset('adminTemplateFiles/build/js/data_table_script.js') }}"></script>
 {% endblock %}

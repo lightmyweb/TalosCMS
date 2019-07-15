@@ -1,3 +1,209 @@
+@import "https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css";
+@import "https://use.fontawesome.com/releases/v5.3.1/css/all.css";
+@import "https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css";
+@import url(../../_libs/croppie/croppie.css);
+@import url(../../_libs/pnotify/dist/pnotify.css);
+@import url(../../_libs/pnotify/dist/pnotify.buttons.css);
+@import url(../../_libs/pnotify/dist/pnotify.nonblock.css);
+@import url(../../_libs/sweetalert/sweetalert2.min.css);
+.navbar-light .navbar-nav .nav-link {
+  transition: all 0.6s; }
+  .navbar-light .navbar-nav .nav-link:hover {
+    color: tomato;
+    transition: all 0.4s; }
+
+.bg-light {
+  background-color: #ffffff !important; }
+
+.container-fluid {
+  position: relative; }
+  .container-fluid .addNewElement {
+    position: absolute;
+    right: 15px;
+    top: 40px; }
+  .container-fluid ._pageTitle {
+    display: inline-block; }
+  .container-fluid ._colCtn {
+    margin-top: 30px; }
+  .container-fluid .table-container {
+    width: 100%; }
+  .container-fluid .tablesTabs {
+    display: block;
+    width: 100%; }
+    .container-fluid .tablesTabs button {
+      height: 35px;
+      width: 120px;
+      border: 0px solid transparent;
+      border-bottom: 4px solid #23282d;
+      transition: all 0.4s;
+      margin-right: -8px;
+      color: #23282d;
+      font-size: 15px;
+      cursor: pointer;
+      text-align: left; }
+      .container-fluid .tablesTabs button:focus {
+        outline: none; }
+      .container-fluid .tablesTabs button.active, .container-fluid .tablesTabs button:hover {
+        background-color: #fff;
+        color: #23282d;
+        transition: all 0.4s;
+        border-bottom: 4px solid #ccc; }
+
+._box {
+  padding: 10px; }
+  ._box ._boxContent {
+    padding: 15px;
+    width: calc(100% - 30px);
+    background-color: #fff;
+    border: 1px solid #8080803b;
+    border-radius: 8px; }
+
+.form_group {
+  margin-bottom: 15px;
+  vertical-align: top;
+  position: relative; }
+  .form_group .image {
+    width: 350px;
+    margin-left: 21px; }
+  .form_group input, .form_group select, .form_group textarea {
+    width: 100%;
+    max-width: 100%;
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    min-height: 25px;
+    background-color: transparent;
+    font-size: 17px;
+    color: #333; }
+    .form_group input:focus, .form_group select:focus, .form_group textarea:focus {
+      outline-color: transparent;
+      outline: none; }
+  .form_group .input_label {
+    font-weight: 500;
+    font-size: 17px;
+    color: #23282d;
+    cursor: pointer;
+    transition: all 0.4s;
+    height: 25px;
+    width: calc(100% - 30px);
+    background-color: #fff;
+    z-index: 3;
+    display: none;
+    margin-left: 20px; }
+    .form_group .input_label:hover {
+      color: #f4f9fd;
+      transition: all 0.4s; }
+    .form_group .input_label.displayLabel {
+      display: block; }
+  .form_group .input_box {
+    min-height: 25px;
+    transition: all 0.2s;
+    position: relative;
+    width: calc(100% - 30px);
+    margin-top: 0px; }
+    .form_group .input_box textarea {
+      height: 90px;
+      width: 100%;
+      min-width: 100%;
+      min-height: 150px;
+      max-height: 300px; }
+    .form_group .input_box input, .form_group .input_box textarea, .form_group .input_box select {
+      border-bottom: 2px solid #23282d;
+      margin-top: 5px;
+      margin-left: 20px; }
+  .form_group .required_class.active::placeholder {
+    color: red;
+    opacity: 1;
+    /* Firefox */ }
+  .form_group .required_class.active:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: red; }
+  .form_group .required_class.active::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: red; }
+  .form_group .chekbox_container_style {
+    display: block;
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 7px;
+    cursor: pointer;
+    font-size: 15px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none; }
+    .form_group .chekbox_container_style input {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer; }
+    .form_group .chekbox_container_style .checkmark {
+      position: absolute;
+      top: 2px;
+      left: 0;
+      height: 15px;
+      width: 15px;
+      background-color: #eee; }
+    .form_group .chekbox_container_style:hover input ~ .checkmark {
+      background-color: #ccc; }
+    .form_group .chekbox_container_style input:checked ~ .checkmark {
+      background-color: #23282d; }
+    .form_group .chekbox_container_style .checkmark:after {
+      content: "";
+      position: absolute;
+      display: none; }
+    .form_group .chekbox_container_style input:checked ~ .checkmark:after {
+      display: block; }
+    .form_group .chekbox_container_style .checkmark:after {
+      left: 5px;
+      top: 1px;
+      width: 3px;
+      height: 8px;
+      border: solid white;
+      border-width: 0 2px 2px 0;
+      -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      transform: rotate(45deg); }
+  .form_group .radio_container_style {
+    display: block;
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 7px;
+    cursor: pointer;
+    font-size: 15px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none; }
+    .form_group .radio_container_style input {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer; }
+    .form_group .radio_container_style .checkmark {
+      position: absolute;
+      top: 2px;
+      left: 0;
+      height: 16px;
+      width: 16px;
+      background-color: #23282d;
+      border-radius: 50%; }
+    .form_group .radio_container_style:hover input ~ .checkmark {
+      background-color: #23282d; }
+    .form_group .radio_container_styleinput:checked ~ .checkmark {
+      background-color: #23282d; }
+    .form_group .radio_container_style .checkmark:after {
+      content: "";
+      position: absolute;
+      display: none; }
+    .form_group .radio_container_style input:checked ~ .checkmark:after {
+      display: block; }
+    .form_group .radio_container_style .checkmark:after {
+      top: 3.5px;
+      left: 3.7px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: white; }
+
 body {
   overflow-x: hidden; }
 

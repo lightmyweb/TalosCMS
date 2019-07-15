@@ -43,87 +43,6 @@ class RenderTemplateController extends Controller
         ); 
     }
 
-    public function renderHomeItemAction($entity = null,$form = null){
-        $em = $this->getDoctrine()->getManager();
-        $service = new ProjetService($em);
-        $projets = $service->fetchallProjetRelatedToHomepage();
-        return $this->render(
-            'AdminBundle:Templates:Page/Home/contenu.html.twig',
-            array(
-                'form'=>$form,
-                'entity' =>$entity,
-                'projets'=>$projets
-            )
-        );
-    }
-
-    public function renderRefItemAction($entity = null,$form = null){
-        $em = $this->getDoctrine()->getManager();
-        $service = new ProjetService($em);
-        $projets = $service->fetchallProjetRelatedToRef();
-        return $this->render(
-            'AdminBundle:Templates:Page/Ref/contenu.html.twig',
-            array(
-                'form'=>$form,
-                'entity' =>$entity,
-                'projets'=>$projets
-            )
-        );
-    }
-
-    public function renderFoulardItemAction($entity = null,$form = null){
-        $em = $this->getDoctrine()->getManager();
-        $service = new ProjetService($em);
-        $projets = $service->fetchallProjetRelatedToFoulard();
-        return $this->render(
-            'AdminBundle:Templates:Page/Foulard/contenu.html.twig',
-            array(
-                'form'=>$form,
-                'entity' =>$entity,
-                'projets'=>$projets
-            )
-        );
-    }
-
-    public function renderProjetItemAction($entity = null,$form = null){
-        $em = $this->getDoctrine()->getManager();
-        $service = new ProjetService($em);
-        $projets = $em->getRepository('AdminBundle:Projet')->findBy(array(), array('positionInPageProjet' => 'ASC'));
-        return $this->render(
-            'AdminBundle:Templates:Page/Projet/contenu.html.twig',
-            array(
-                'form'=>$form,
-                'entity' =>$entity,
-                'projets'=>$projets
-            )
-        );
-    }
-
-    public function renderProjetInCategoryAction($entity = null){
-        $em = $this->getDoctrine()->getManager();
-        $service = new ProjetService($em);
-        $projets = $service->fetchallProjetRelatedToCat($entity);
-        return $this->render(
-            'AdminBundle:Templates:Category/allProjetInCat.html.twig',
-            array(
-                "projets"=>$projets,
-                'entity' =>$entity
-            )
-        );
-    }
-
-    public function renderProjetInCategoryFoulardAction($entity = null){
-        $em = $this->getDoctrine()->getManager();
-        $service = new ProjetService($em);
-        $projets = $service->fetchallProjetRelatedToCatFoulard($entity);
-        return $this->render(
-            'AdminBundle:Templates:CategoryFoulard/allProjetInCat.html.twig',
-            array(
-                "projets"=>$projets,
-                'entity' =>$entity
-            )
-        );
-    }
     public function renderProjecttitleAction(){
         $em = $this->getDoctrine()->getManager();
         $settings = $em->getRepository('AdminBundle:Settings')->findOneById(1);
@@ -144,6 +63,7 @@ class RenderTemplateController extends Controller
             array(
                 'localepathForRouteId'=>$localepathForRouteId,
                 'localepathForRoutePath'=>$localepathForRoutePath,
+                'project_name' => $this->container->getParameter('project_name') 
                 
             )
         );
@@ -198,27 +118,6 @@ class RenderTemplateController extends Controller
             )
         );
     }
-
-    public function renderCategoryFormAction($form, $entity = null){
-        return $this->render(
-            'AdminBundle:Templates:Category/forms.html.twig',
-            array(
-                'form'=>$form,
-                'entity' =>$entity
-            )
-        );
-    }
-    public function renderCategoryFoulardFormAction($form, $entity = null){
-        return $this->render(
-            'AdminBundle:Templates:CategoryFoulard/forms.html.twig',
-            array(
-                'form'=>$form,
-                'entity' =>$entity
-            )
-        );
-    }
-
-
 
     public function renderLocaleFormAction($form, $entity = null){
         return $this->render(

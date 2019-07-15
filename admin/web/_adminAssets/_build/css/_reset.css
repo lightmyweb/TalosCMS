@@ -21,8 +21,12 @@ a{
 	color: inherit;
 }
 button:focus,input:focus,textarea:focus,select:focus{
-	outline: 0;
+	outline: 0 !important;
+    box-shadow: none !important;
 }
 .blocPosition{
 	display: none;
+}
+body{
+      background-color: #e4e4e454 !important;
 }

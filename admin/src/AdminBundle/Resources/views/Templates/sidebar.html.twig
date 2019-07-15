@@ -1,61 +1,50 @@
-<div class="header">
-  <a href="#" id="menu-action" class="active">
-    <i class="fa fas fa-caret-left"></i>
-    <span>Réduire le menu</span>
-  </a>
-  <div class="logo">
-    {{ render(controller( 'AdminBundle:RenderTemplate:renderProjecttitle')) }}
-  </div>
-</div>
-<div id="menu" class="sidebar active">
+<div class="sidebar-heading">{{ project_name }} </div>
+<div class="list-group list-group-flush">
   <ul>
-        <li>
-          <a href="{{ path('backend_index') }}" data-class=""  {% if localepathForRoutePath == path('backend_index') %} class="active" {% endif %}><i class="fas fa-tachometer-alt"></i>Dashboard</a>
-        </li>
-        <li>
-          <a href="{{ path('page_edit', { 'id': 1 }) }}" data-class="" {% if localepathForRouteId == 1 %} class="active" {% endif %}><i class="fas fa-home"></i>Home</a>
-        </li>
-
-
-        <li>
-          <a href="{{ path('image_index') }}" data-class="" 
-          {% if localepathForRoutePath == path('image_index')  %}
-           class="active" 
-           {% endif %}>
-           <i class="fas fa-images"></i>Médias</a>
-        </li>
-        <li>
-          <a class="menu-parent" href="#" data-class=""><i class="fa fa fa-newspaper"></i>Langues <i class="fa fa-caret-down"></i></a>
-          <ul class="sousmenu">
-            <li><a href="{{ path('locale_index') }}" data-rel="submenu"><i class="fas fa-list"></i>Toutes les langues</a></li>
-            {% if app.user.role != 'ROLE_EDITOR' %}
-              <li><a href="{{ path('locale_new') }}" data-rel="submenu"><i class="fas fa-plus"></i>Ajouter</a></li>
-            {% endif %}
-          </ul>
-        </li>
-        <li>
-          <a href="{{ path('contact_index') }}" data-class=""><i class="fas fa-envelope-open"></i>Contact</a>
-        </li>
-        {% if app.user.role != 'ROLE_EDITOR' %}
-        <li>
-          <a href="{{ path('admin_users') }}" data-class=""><i class="fa fa-user"></i>Utilisateurs</a>
-        </li>
-        {% endif %}
-        {% if app.user.role == 'ROLE_DEV' %}
-          <!-- <li>
-            <a href="{{ path('exemple_index') }}" data-class=""><i class="fas fa-question-circle"></i>Page Exemple pour LMW</a>
-          </li> -->
-        {% endif %}
-        <!-- <li>
-          <a href="{{ path('help_show',{'id':1}) }}" data-class=""><i class="fa fa-info-circle"></i>Aide</a>
-        </li> -->
-        {% if app.user.role != 'ROLE_EDITOR' %}
-         <li>
-          <a href="{{ path('clearcache') }}" data-class=""><i class="fas fa-exclamation-triangle"></i>Vider le cache</a>
-        </li>
-        <li>
-          <a href="{{ path('settings_edit', { 'id': 1}) }}" data-class=""><i class=" fas fa-cog "></i>Paramètres</a>
-        </li>
-        
-        {% endif %}
+    <li class="list-group-item list-group-item-action bg-light">
+      <i class="fas fa-tachometer-alt"></i>
+      <a href="{{ path('backend_index') }}" data-class=""  {% if localepathForRoutePath == path('backend_index') %} class="active" {% endif %}>Dashboard</a>
+    </li>
+    <li class="list-group-item list-group-item-action bg-light">
+      <i class="fas fa-home"></i>
+      <a href="{{ path('page_index') }}" data-class="" {% if localepathForRouteId == path('page_index') %} class="active" {% endif %}>Pages</a>
+    </li>
+    <li class="list-group-item list-group-item-action bg-light">
+      <i class="fas fa-images"></i>
+      <a href="{{ path('image_index') }}" data-class="" 
+        {% if localepathForRoutePath == path('image_index')  %}
+          class="active" 
+        {% endif %}>
+        Médias
+      </a>
+    </li>
+    <li class="list-group-item list-group-item-action bg-light">
+      <i class="fa fa fa-newspaper"></i>
+      <a class="menu-parent" href="#" data-class="">Langues </a>
+    </li>
+    <li class="list-group-item list-group-item-action bg-light">
+      <i class="fas fa-envelope-open"></i>
+      <a href="{{ path('contact_index') }}" data-class="">Contact</a>
+    </li>
+    {% if app.user.role != 'ROLE_EDITOR' %}
+      <li class="list-group-item list-group-item-action bg-light">
+        <i class="fa fa-user"></i>
+        <a href="{{ path('admin_users') }}" data-class="">Utilisateurs</a>
+      </li>
+    {% endif %}
+    <li class="list-group-item list-group-item-action bg-light">
+      <i class="fa fa-info-circle"></i>
+      <a href="{{ path('help_show',{'id':1}) }}" data-class="">Aide</a>
+    </li>
+    {% if app.user.role != 'ROLE_EDITOR' %}
+      <li class="list-group-item list-group-item-action bg-light">
+        <i class="fas fa-exclamation-triangle"></i>
+        <a href="{{ path('clearcache') }}" data-class="">Vider le cache</a>
+      </li>
+      <li class="list-group-item list-group-item-action bg-light">
+        <i class=" fas fa-cog "></i>
+        <a href="{{ path('settings_edit', { 'id': 1}) }}" data-class="">Paramètres</a>
+      </li>
+    {% endif %}
+  </ul>
 </div>
