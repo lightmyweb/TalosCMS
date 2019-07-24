@@ -1,6 +1,8 @@
 {
     "name": "lightmyweb/TalosCMS",
     "description": "A short description of what your package does",
+    "license": "MIT",
+    "type": "project",
     "require": {
         "php": "^7.2"
     }
