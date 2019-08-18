@@ -1,2 +1,37 @@
-{{form_row(form.translations)}}
+<div class="tab-content">
+	<div id="general" class="tab-pane active">
+		{{form_row(form.translations)}}
+		<hr>
+		<div class="form_group imgContainer" style="margin-left:20px;">
+            {% if entity.image is defined and entity.image is not null %}
+            <img src="{{ asset('uploads/'~ entity.image.src) }}">
+            <a class="btn-delleteFile" >Supprimer l'image</a>
+            {% endif %}
+        </div>
+        {{form_row(form.image)}}
+	</div>
+	<div id="seo" class="tab-pane ">
+		{{ render(controller( 
+            'AdminBundle:RenderTemplate:renderSeoPart',{ 'form': form}
+        )) }}
+	</div>
+	<div id="content" class="tab-pane ">
+		<div class="accordionItems">
+             {{ render(controller( 
+                'ContentElementsManagementSystemBundle:RenderTemplates:renderItemsViewer',{ 'entity': entity, 'form':form}
+            )) }}
+        </div>
+        <div class="buttonsGrid">
+            {{ render(controller( 
+                'ContentElementsManagementSystemBundle:RenderTemplates:renderItemsMenu',{ 'form': form}
+            )) }}
+        </div>
+	</div>
+	<div id="mansory" class="tab-pane ">
+			{{ render(controller( 
+            'MediaBundle:RenderTemplates:renderMasonryGrid',{ 'entity': entity,'type':'page'}
+        )) }}
+	</div>
+</div>
+
 <div style="display:none">{{form_rest(form)}}</div>

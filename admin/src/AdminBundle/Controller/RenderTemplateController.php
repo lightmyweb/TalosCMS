@@ -44,15 +44,9 @@ class RenderTemplateController extends Controller
     }
 
     public function renderProjecttitleAction(){
-        $em = $this->getDoctrine()->getManager();
-        $settings = $em->getRepository('AdminBundle:Settings')->findOneById(1);
-        $title = null;
-        if ( $settings ){
-            $title = $settings->getTitle() ;
-        }
         return $this->render(
             'AdminBundle:Templates:Settings/title.html.twig',array(
-                'title'=>$title
+                'project_name' => $this->container->getParameter('project_name') 
             )
         );
     }
@@ -63,7 +57,7 @@ class RenderTemplateController extends Controller
             array(
                 'localepathForRouteId'=>$localepathForRouteId,
                 'localepathForRoutePath'=>$localepathForRoutePath,
-                'project_name' => $this->container->getParameter('project_name') 
+                
                 
             )
         );

@@ -1,50 +1,43 @@
-<div class="sidebar-heading">{{ project_name }} </div>
 <div class="list-group list-group-flush">
   <ul>
-    <li class="list-group-item list-group-item-action bg-light">
-      <i class="fas fa-tachometer-alt"></i>
-      <a href="{{ path('backend_index') }}" data-class=""  {% if localepathForRoutePath == path('backend_index') %} class="active" {% endif %}>Dashboard</a>
+    <li class="list-group-item list-group-item-action menu-item ">
+      <a href="{{ path('backend_index') }}" data-class=""  {% if localepathForRoutePath == path('backend_index') %} class="active" {% endif %}><i class="fas fa-tachometer-alt"></i>Dashboard</a>
     </li>
-    <li class="list-group-item list-group-item-action bg-light">
-      <i class="fas fa-home"></i>
-      <a href="{{ path('page_index') }}" data-class="" {% if localepathForRouteId == path('page_index') %} class="active" {% endif %}>Pages</a>
+    <li class="list-group-item list-group-item-action menu-item ">
+      <a href="{{ path('page_index') }}" data-class="" {% if localepathForRouteId == path('page_index') %} class="active" {% endif %}><i class="fas fa-home"></i>Pages</a>
     </li>
-    <li class="list-group-item list-group-item-action bg-light">
-      <i class="fas fa-images"></i>
+    <li class="list-group-item list-group-item-action menu-item ">
       <a href="{{ path('image_index') }}" data-class="" 
         {% if localepathForRoutePath == path('image_index')  %}
           class="active" 
         {% endif %}>
-        Médias
+        <i class="fas fa-images"></i>Médias
       </a>
     </li>
-    <li class="list-group-item list-group-item-action bg-light">
-      <i class="fa fa fa-newspaper"></i>
-      <a class="menu-parent" href="#" data-class="">Langues </a>
+    <li class="list-group-item list-group-item-action menu-item ">
+      <a class="menu-parent" href="#" data-class=""><i class="fa fa fa-newspaper"></i>Langues </a>
     </li>
-    <li class="list-group-item list-group-item-action bg-light">
-      <i class="fas fa-envelope-open"></i>
-      <a href="{{ path('contact_index') }}" data-class="">Contact</a>
+    <li class="list-group-item list-group-item-action menu-item ">
+      <a href="{{ path('contact_index') }}" data-class=""> <i class="fas fa-envelope-open"></i>Contact</a>
     </li>
     {% if app.user.role != 'ROLE_EDITOR' %}
-      <li class="list-group-item list-group-item-action bg-light">
-        <i class="fa fa-user"></i>
-        <a href="{{ path('admin_users') }}" data-class="">Utilisateurs</a>
+      <li class="list-group-item list-group-item-action menu-item ">
+        <a href="{{ path('admin_users') }}" data-class=""><i class="fa fa-user"></i>Utilisateurs</a>
       </li>
     {% endif %}
-    <li class="list-group-item list-group-item-action bg-light">
-      <i class="fa fa-info-circle"></i>
-      <a href="{{ path('help_show',{'id':1}) }}" data-class="">Aide</a>
+    <li class="list-group-item list-group-item-action menu-item ">
+      <a href="{{ path('help_show',{'id':1}) }}" data-class=""><i class="fa fa-info-circle"></i>Aide</a>
     </li>
     {% if app.user.role != 'ROLE_EDITOR' %}
-      <li class="list-group-item list-group-item-action bg-light">
-        <i class="fas fa-exclamation-triangle"></i>
-        <a href="{{ path('clearcache') }}" data-class="">Vider le cache</a>
+      <li class="list-group-item list-group-item-action menu-item ">
+        <a href="{{ path('clearcache') }}" data-class=""><i class="fas fa-exclamation-triangle"></i>Vider le cache</a>
       </li>
-      <li class="list-group-item list-group-item-action bg-light">
-        <i class=" fas fa-cog "></i>
-        <a href="{{ path('settings_edit', { 'id': 1}) }}" data-class="">Paramètres</a>
+      <li class="list-group-item list-group-item-action menu-item ">
+        <a href="{{ path('settings_edit', { 'id': 1}) }}" data-class=""><i class=" fas fa-cog "></i>Paramètres</a>
       </li>
     {% endif %}
+    <li class="list-group-item list-group-item-action menu-item ">
+      <a href="{{ path('admin_logout') }}" data-class=""> <i class=" fas fa-cog "></i>Déconnexion</a>
+    </li>
   </ul>
 </div>

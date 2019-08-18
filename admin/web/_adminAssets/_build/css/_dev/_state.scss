@@ -1,0 +1,36 @@
+.entity-action-part {
+    max-width: 100%;
+    .entity-action-title {
+        font-size: 18px;
+        color: $_textColor;
+        font-weight: 500;
+    }
+    .entity-action-body {
+        margin-bottom: 22px;
+        .select_ctrl_state {
+            display: none;
+        }
+        p{
+            margin-top: 5px;
+            line-height: 18px;
+        }
+        ._state{
+            cursor: pointer;
+            .fa{
+                transition:all 0.6s;
+            }
+            &.on-line{
+                .fa{
+                    color: green;
+                    transition: all 0.4s;
+                }
+            }
+            &.off-line{
+                .fa{
+                    color: tomato;
+                    transition: all 0.4s;
+                }
+            }
+        }
+    }
+}

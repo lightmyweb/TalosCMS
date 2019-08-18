@@ -24,7 +24,8 @@ class SeoType extends AbstractType
                         "class" =>'form_ctrl  not_required_class forSlugyInput seo_title',
                         'placeholder' =>'Title (*)',
                         'data-label'=>'Title (*)',
-                        'maxlength'=>70
+                        'maxlength'=>70,
+                        'required'=>'required'
                     ]
                 ],
                 'description'=>[

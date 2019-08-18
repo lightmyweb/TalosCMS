@@ -1,0 +1,209 @@
+.buttonsGrid{
+    width: calc(100% - 40px);
+    position: relative;
+    display: inline-block;
+    marker-start: 0px;
+    padding-bottom: 10px;
+    vertical-align: top;
+    padding-left: 20px;
+    padding-right: 20px;
+	.box{
+		width: 85px;
+		height: 85px;
+		margin-left: auto;
+		margin-right: 25px;
+		background-color: transparent;
+		-webkit-perspective: 1000;
+		perspective: 1000;
+		position: relative;
+		display: inline-block;
+		margin-bottom: 25px;
+		cursor: pointer;
+		vertical-align: top;
+		&:hover .fliper{
+			-webkit-transform: rotateY(180deg);
+			transform: rotateY(180deg);
+		}
+		.button-bloc{
+			position: absolute;
+			z-index: 99;
+			left: -7px;
+			right: -5px;
+			top: 0;
+			bottom: -6px;
+		}
+		.fliper{
+			-webkit-transition: 0.6s;
+			transition: 0.6s;
+			-webkit-transform-style: preserve-3d;
+			transform-style: preserve-3d;
+			position: relative;
+			.back,.face{
+				width: 85px;
+				height: 85px;
+				border:3px solid $border-devider-color;
+				text-align: center;
+				transition: color 0.4s;
+				p{
+					font-size: 12px;
+					font-weight: 400;
+				}
+				i{
+					font-size: 28px;
+				}
+				&:hover{
+					color: $border-color;
+					transition: color 0.4s;
+				}
+			}
+			.back{
+				background-color: #fff;
+				-webkit-transform: rotateY(180deg);
+				transform: rotateY(180deg);
+				-webkit-backface-visibility:hidden;
+				backface-visibility:hidden;
+				
+				i{
+					font-size: 35px;
+					line-height: 85px;
+				}
+
+			}
+			.face{
+				background-color: #fff;
+				-webkit-backface-visibility: hidden;
+				backface-visibility: hidden;
+				position: absolute;
+				top:0;
+				left:0;
+				z-index: 2;
+				i{
+					margin-top: 15px;
+				}
+			}
+		}
+	}
+
+}
+.dropdown {
+    display: inline-block;
+    position: relative;
+    margin-top: 100px;
+}
+.dd-button {
+    display: inline-block;
+    border: 1px solid gray;
+    border-radius: 4px;
+    padding: 10px 30px 10px 20px;
+    background-color: #ffffff;
+    cursor: pointer;
+    white-space: nowrap;
+}
+.dd-box {
+    display: none;
+    width: 100%;
+    position: absolute;
+    bottom: 42px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 0;
+    margin: 2px 0 0 0;
+    box-shadow: 0 0 6px 0 rgba(0,0,0,0.1);
+    background-color: #ffffff;
+    list-style-type: none;
+}
+.dd-box li {
+    padding: 10px 20px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+.accordionItems{
+	display: block;
+	position: relative;
+	vertical-align: top;
+	width: calc(100% - 40px);
+	padding-left: 20px;
+	padding-right: 20px;
+	.panel{
+		width: 100%;
+		min-height: 40px;
+		border: 2px solid $border-devider-color;
+		background-color: #fff;
+		margin-bottom: 15px;
+		position: relative;
+		&::after{
+			content:'';
+			height: 100%;
+			top: 0px;
+			position: absolute;
+			left: 0px;
+			background-color: #fff;
+		}
+		&.removed{
+			&::after{
+				width:100%;
+				z-index: 9;
+			}
+
+		}
+		.panel_header{
+			height:75px;
+			width: 100%;
+			background-color: $hoverbackgroundColor;
+			position: relative;
+			overflow: hidden;
+			h3{
+				display: inline-block;
+				color: $text-color;
+				padding-left: 15px;
+				padding-right: 15px;
+				padding-top: 10px;
+				font-weight: 600;
+    			font-size: 16px;
+			}
+			.editpart{
+				width: 120px;
+				height: 75px;
+				position: absolute;
+				/*right: -150px;*/
+				right: 0;
+				top: 6px;
+				transition: all 0.8s;
+				button{
+					background-color: #fff;
+					border: 1px solid #000;
+					margin-right: 10px;
+					cursor: pointer;
+					text-align: center;
+					font-size: 20px;
+					transition: all 0.8s;
+					&.delete_panel{
+						color: $border-color;
+					}
+					&.drag_panel{
+						cursor: all-scroll;
+						color: $border-color-other;
+						margin-right: 0px;
+					}
+					&:hover{
+						transition: all 0.4s;
+						color: $text-hover-color;
+					}
+					&:focus{
+						outline:none;
+					}
+				}
+			}
+			&:hover{
+				.editpart{
+				transition: all 0.4s;
+					right: 0px;
+				}
+			}
+		}
+		&.closed{
+			height: 40px;
+			overflow: hidden;
+		}
+	}
+}

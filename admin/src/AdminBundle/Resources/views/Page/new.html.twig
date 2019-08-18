@@ -1,20 +1,35 @@
 {% extends 'AdminBundle::_shared.html.twig' %}
+{% block pageTitle %}
+<div class="pageHeader">
+    <h1 class="mt-4 _pageTitle _slugTitle" 
+        data-change="{{ path('slugValidation',{ 'entity': '999-entity','slug':'888-slug'}) }}">
+        Nouvelle Page
+    </h1>
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link active" data-toggle="tab" href="#general">Generale</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#seo">Seo</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#content">Contenu</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#mansory">Mansory</a>
+        </li>
+    </ul>
+</div>
+
+{% endblock %}
 {% block body %}
 {{ form_start(form, {'attr': {'class': 'was-validated'}}) }}
-<h1 class="mt-4 _pageTitle _slugTitle" 
-    data-change="{{ path('slugValidation',{ 'entity': '999-entity','slug':'888-slug'}) }}">
-    Nouvelle Page
-</h1>
-
+{{ render(controller( 
+    'AdminBundle:RenderTemplate:renderState',{ 'form': form, 'entity':page}
+)) }}
+    
 <div class="row">
-  <div class="col-md-6 _box">
-    <div class="_boxContent">
-        {{ render(controller( 
-            'AdminBundle:RenderTemplate:renderPageForm',{ 'form': form}
-        )) }}
-    </div>    
-  </div>
-  <div class="col-md-6 _box">
+  <div class="col-md-8 _box">
     <div class="_boxContent">
         {{ render(controller( 
             'AdminBundle:RenderTemplate:renderPageForm',{ 'form': form}
@@ -22,42 +37,6 @@
     </div>    
   </div>
 </div>
-{#     <div class="action-page">
-        <div class="action-body">
-           {{ render(controller( 
-            'AdminBundle:RenderTemplate:renderState',{ 'form': form, 'entity':page}
-            )) }}
-           <div class="btn-group">
-                {{ render(controller( 
-                    'AdminBundle:RenderTemplate:renderSubmitButtons',{'path':path('page_index')  }
-                )) }}
-           </div>
-        </div>
-    </div> #}
-{# <div class="col col_8">
-     <div class="container_box" data-change="{{ path('slugValidation',{ 'entity': '999-entity','slug':'888-slug'}) }}">
-        <div class="box_title">
-            <h1 class="mt-4 _pageTitle">Liste des pages</h1>
-        </div>
-        <div class="box_content">
-            
-        </div>
-    </div>
-</div>
-<div class="col col_4">
-    <div class="action-page">
-        <div class="action-body">
-           {{ render(controller( 
-            'AdminBundle:RenderTemplate:renderState',{ 'form': form, 'entity':page}
-            )) }}
-           <div class="btn-group">
-                {{ render(controller( 
-                    'AdminBundle:RenderTemplate:renderSubmitButtons',{'path':path('page_index')  }
-                )) }}
-           </div>
-        </div>
-    </div>
-</div> #}
 {{ form_end(form) }}
 {% endblock %}
 
