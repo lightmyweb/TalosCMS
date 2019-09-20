@@ -59,26 +59,9 @@ class PageController extends Controller
                 return $this->redirectToRoute('page_index');
             }
         }
-
         return $this->render('AdminBundle:Page:new.html.twig', array(
             'page' => $page,
             'form' => $form->createView(),
-        ));
-    }
-
-    /**
-     * Finds and displays a page entity.
-     *
-     * @Route("/{id}", name="page_show")
-     * @Method("GET")
-     */
-    public function showAction(Page $page)
-    {
-        $deleteForm = $this->createDeleteForm($page);
-
-        return $this->render('AdminBundle:Page:show.html.twig', array(
-            'page' => $page,
-            'delete_form' => $deleteForm->createView(),
         ));
     }
 

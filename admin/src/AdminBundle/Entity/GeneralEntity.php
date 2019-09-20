@@ -16,12 +16,6 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
  * @ORM\DiscriminatorMap({
     "helpEntity"="Help",
     "pageEntity" = "Page",
-    "pressEntity" = "Press",
-    "homeEntity" = "Home",
-    "locationEntity" = "Location",
-    "clientEntity" = "Client",
-    "projectEntity" = "Project",
-    "categoryEntity" = "Category",
     "generalEntity" = "GeneralEntity"
 })
  */
@@ -101,27 +95,12 @@ class GeneralEntity
     private $blocQuotes;
 
     /**
-     * @ORM\OneToMany(targetEntity="\ContentElementsManagementSystemBundle\Entity\Bloc", mappedBy="entity_withBlocGallery", cascade={"persist", "remove"}, orphanRemoval=true)
-     * 
-     * @ORM\OrderBy({"position"="ASC"})
-     */
-
-    private $blocGalleries;
-
-    /**
      * @ORM\OneToMany(targetEntity="\ContentElementsManagementSystemBundle\Entity\Bloc", mappedBy="entity_withBlocImage", cascade={"persist", "remove"}, orphanRemoval=true)
      * 
      * @ORM\OrderBy({"position"="ASC"})
      */
 
     private $blocImages;
-
-    /**
-     * @ORM\OneToMany(targetEntity="\ContentElementsManagementSystemBundle\Entity\Bloc", mappedBy="entity_withBlocGalleryimage", cascade={"persist", "remove"}, orphanRemoval=true)
-     * 
-     */
-
-    private $blocGalleryimages; 
 
     /**
      * Get id
@@ -140,7 +119,6 @@ class GeneralEntity
     {
         $this->blocTexts = new \Doctrine\Common\Collections\ArrayCollection();
         $this->blocQuotes = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->blocGalleries = new \Doctrine\Common\Collections\ArrayCollection();
         $this->blocImages = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
@@ -400,75 +378,6 @@ class GeneralEntity
     public function getBlocQuotes()
     {
         return $this->blocQuotes;
-    }
-
-    /**
-     * Add blocGallery
-     *
-     * @param \ContentElementsManagementSystemBundle\Entity\Bloc $blocGallery
-     *
-     * @return GeneralEntity
-     */
-    public function addBlocGallery(\ContentElementsManagementSystemBundle\Entity\Bloc $blocGallery)
-    {
-        $blocGallery->setEntityWithBlocGallery($this);
-        $this->blocGalleries[] = $blocGallery;
-    
-        return $this;
-    }
-
-    /**
-     * Remove blocGallery
-     *
-     * @param \ContentElementsManagementSystemBundle\Entity\Bloc $blocGallery
-     */
-    public function removeBlocGallery(\ContentElementsManagementSystemBundle\Entity\Bloc $blocGallery)
-    {
-        $this->blocGalleries->removeElement($blocGallery);
-    }
-
-    /**
-     * Get blocGalleries
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getBlocGalleries()
-    {
-        return $this->blocGalleries;
-    }
-
-    /**
-     * Add blocGalleryimage
-     *
-     * @param \ContentElementsManagementSystemBundle\Entity\Bloc $blocGalleryimage
-     *
-     * @return GeneralEntity
-     */
-    public function addBlocGalleryimage(\ContentElementsManagementSystemBundle\Entity\Bloc $blocGalleryimage)
-    {
-        $this->blocGalleryimages[] = $blocGalleryimage;
-    
-        return $this;
-    }
-
-    /**
-     * Remove blocGalleryimage
-     *
-     * @param \ContentElementsManagementSystemBundle\Entity\Bloc $blocGalleryimage
-     */
-    public function removeBlocGalleryimage(\ContentElementsManagementSystemBundle\Entity\Bloc $blocGalleryimage)
-    {
-        $this->blocGalleryimages->removeElement($blocGalleryimage);
-    }
-
-    /**
-     * Get blocGalleryimages
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getBlocGalleryimages()
-    {
-        return $this->blocGalleryimages;
     }
 
     /**

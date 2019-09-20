@@ -3,37 +3,37 @@
 		{% if content.type == 'textBloc' %}
 			{% for textBloc in form.blocTexts %}
 				{% if textBloc.vars.value.position ==  content.entity.position %}
-					{{ render(controller( 
-	                    'ContentElementsManagementSystemBundle:ElementsFormRender:renderTextBlocForm',
-	                    { 'form': textBloc.vars.form}
-	                )) }}
+						{% include 
+							"ContentElementsManagementSystemBundle:Templates:textBloc.html.twig" with
+							{
+								'form':textBloc.vars.form
+								'type':'parent'
+							}
+						%}
                 {% endif %}
 			{% endfor %}  
 		{% elseif content.type == 'quoteBloc' %}
 			{% for quoteBloc in form.blocQuotes %}
 				{% if quoteBloc.vars.value.position ==  content.entity.position %}
-					{{ render(controller( 
-	                    'ContentElementsManagementSystemBundle:ElementsFormRender:renderQuoteBlocForm',
-	                    { 'form': quoteBloc.vars.form,'entity':content.entity}
-	                )) }}
-                {% endif %}
-			{% endfor %} 
-		{% elseif content.type == 'galleryBloc' %}
-			{% for galleryBloc in form.blocGalleries %}
-				{% if galleryBloc.vars.value.position ==  content.entity.position %}
-					{{ render(controller( 
-	                    'ContentElementsManagementSystemBundle:ElementsFormRender:renderGalleryBlocForm',
-	                    { 'form': galleryBloc.vars.form,'entity':content.entity}
-	                )) }}
+					{% include 
+						"ContentElementsManagementSystemBundle:Templates:quoteBloc.html.twig" with
+						{
+							'form':quoteBloc.vars.form
+							'entity':content.entity
+						}
+					%}
                 {% endif %}
 			{% endfor %} 
 		{% elseif content.type == 'imageBloc' %}
 			{% for imageBloc in form.blocImages %}
 				{% if imageBloc.vars.value.position ==  content.entity.position %}
-					{{ render(controller( 
-	                    'ContentElementsManagementSystemBundle:ElementsFormRender:renderImageBlocForm',
-	                    { 'form': imageBloc.vars.form,'entity':content.entity}
-	                )) }}
+					{% include 
+						"ContentElementsManagementSystemBundle:Templates:imageBloc.html.twig" with
+						{
+							'form':imageBloc.vars.form
+							'entity':content.entity
+						}
+					%}
                 {% endif %}
 			{% endfor %} 
 		{% endif %}

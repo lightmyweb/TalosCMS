@@ -13,8 +13,6 @@ use Doctrine\ORM\Mapping as ORM;
         "bloctext" = "BlocText",
         "blocquote" = "BlocQuote",
         "blocimage" = "BlocImage",
-        "blocgallery" = "BlocGallery",
-        "blocgalleryimage" = "BlocGalleryimage",
         "bloc" = "Bloc"
     })
  */
@@ -54,19 +52,6 @@ class Bloc
      * @ORM\JoinColumn(name="entity_id_withBlocImages", referencedColumnName="id") 
      */
     private $entity_withBlocImage;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="\AdminBundle\Entity\GeneralEntity", inversedBy="blocGalleries" )
-     * @ORM\JoinColumn(name="entity_id_withBlocGalleries", referencedColumnName="id") 
-     */
-    private $entity_withBlocGallery;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="\AdminBundle\Entity\GeneralEntity", inversedBy="blocGalleryimages" )
-     * @ORM\JoinColumn(name="entity_id_withBlocGalleryimages", referencedColumnName="id") 
-     */
-    private $entity_withBlocGalleryimage;
-
 
     /**
      * Get id
@@ -149,54 +134,6 @@ class Bloc
     public function getEntityWithBlocQuote()
     {
         return $this->entity_withBlocQuote;
-    }
-
-    /**
-     * Set entityWithBlocGallery
-     *
-     * @param \AdminBundle\Entity\GeneralEntity $entityWithBlocGallery
-     *
-     * @return Bloc
-     */
-    public function setEntityWithBlocGallery(\AdminBundle\Entity\GeneralEntity $entityWithBlocGallery = null)
-    {
-        $this->entity_withBlocGallery = $entityWithBlocGallery;
-    
-        return $this;
-    }
-
-    /**
-     * Get entityWithBlocGallery
-     *
-     * @return \AdminBundle\Entity\GeneralEntity
-     */
-    public function getEntityWithBlocGallery()
-    {
-        return $this->entity_withBlocGallery;
-    }
-
-    /**
-     * Set entityWithBlocGalleryimage
-     *
-     * @param \AdminBundle\Entity\GeneralEntity $entityWithBlocGalleryimage
-     *
-     * @return Bloc
-     */
-    public function setEntityWithBlocGalleryimage(\AdminBundle\Entity\GeneralEntity $entityWithBlocGalleryimage = null)
-    {
-        $this->entity_withBlocGalleryimage = $entityWithBlocGalleryimage;
-    
-        return $this;
-    }
-
-    /**
-     * Get entityWithBlocGalleryimage
-     *
-     * @return \AdminBundle\Entity\GeneralEntity
-     */
-    public function getEntityWithBlocGalleryimage()
-    {
-        return $this->entity_withBlocGalleryimage;
     }
 
     /**

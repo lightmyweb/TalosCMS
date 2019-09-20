@@ -9,11 +9,6 @@
 </div>
 <div id="menu" class="sidebar active">
     <ul>
-        {# <li>
-            <a href="{{ path('backend_index') }}" data-class="" {% if localepathForRoutePath == path('backend_index') %} class="active" {% endif %}>
-                <i class="fas fa-tachometer-alt"></i>Dashboard
-            </a>
-        </li> #}
 
         <li class="ab-menu{% if localepathForRoutePath == path('backend_index') %} item_active item_master{% endif %}">
 
@@ -21,146 +16,6 @@
                 <i class="fas fa-tachometer-alt"></i>Dashboard
             </a>
 
-        </li>
-
-        <li class="ab-menu{% if localepathForRoutePath == path('home_index') or localepathForRoutePath == path('home_order') or ( localepathForRouteId is defined and localepathForRouteId == 60 and localepathForRoutePath == path('home_edit', { 'id': 60 }) ) %} item_active item_master{% endif %}">
-
-            <span class="ab-item item_header">
-                <i class="fas fa-home"></i>Home<i class="fa fa-caret-down"></i>
-            </span>
-
-            <ul class="ab-submenu">
-                <li class="ab-item{% if localepathForRouteId is defined and localepathForRouteId == 60 and localepathForRoutePath == path('home_edit', { 'id': 60 }) %} ab-item-active{% endif %}">
-                    <a href="{{ path('home_edit', { 'id': 60 }) }}">
-                        <i class="fas fa-edit"></i>Editer home
-                    </a>
-                </li>
-                <li class="ab-item{% if localepathForRoutePath == path('home_order') %} ab-item-active{% endif %}">
-                    <a href="{{ path('home_order') }}">
-                        <i class="fas fa-sort"></i>Ordre des projets
-                    </a>
-                </li>
-            </ul>
-        </li>
-
-        <li class="ab-menu{% if localepathForRoutePath == path('category_index') or localepathForRoutePath == path('category_new') or localepathForRoutePath == path('category_order') or ( localepathForRouteId is defined and localepathForRouteId is not null and localepathForRoutePath == path('category_edit', { 'id': localepathForRouteId }) ) %} item_active item_master{% endif %}">
-
-            <span class="ab-item item_header">
-                <i class="fas fa-folder-plus"></i>Catégories<i class="fa fa-caret-down"></i>
-            </span>
-
-            <ul class="ab-submenu">
-                <li class="ab-item{% if localepathForRoutePath == path('category_index') %} ab-item-active{% endif %}">
-                    <a href="{{ path('category_index') }}">
-                        <i class="fas fa-list"></i>Tous les catégories
-                    </a>
-                </li>
-                <li class="ab-item{% if localepathForRoutePath == path('category_order') %} ab-item-active{% endif %}">
-                    <a href="{{ path('category_order') }}">
-                        <i class="fas fa-sort"></i>Ordre des catégories
-                    </a>
-                </li>
-                <li class="ab-item{% if localepathForRoutePath == path('category_new') %} ab-item-active{% endif %}">
-                    <a href="{{ path('category_new') }}">
-                        <i class="fas fa-plus"></i>Ajouter
-                    </a>
-                </li>
-            </ul>
-        </li>
-
-        <li class="ab-menu{% if localepathForRoutePath == path('client_index') or localepathForRoutePath == path('client_new') or localepathForRoutePath == path('client_order') or ( localepathForRouteId is defined and localepathForRouteId is not null and localepathForRoutePath == path('client_edit', { 'id': localepathForRouteId }) ) %} item_active item_master{% endif %}">
-
-            <span class="ab-item item_header">
-                <i class="fas fa-user-check"></i>Clients<i class="fa fa-caret-down"></i>
-            </span>
-
-            <ul class="ab-submenu">
-                <li class="ab-item{% if localepathForRoutePath == path('client_index') %} ab-item-active{% endif %}">
-                    <a href="{{ path('client_index') }}">
-                        <i class="fas fa-list"></i>Tous les clients
-                    </a>
-                </li>
-                <li class="ab-item{% if localepathForRoutePath == path('client_order') %} ab-item-active{% endif %}">
-                    <a href="{{ path('client_order') }}">
-                        <i class="fas fa-sort"></i>Ordre des client
-                    </a>
-                </li>
-                <li class="ab-item{% if localepathForRoutePath == path('client_new') %} ab-item-active{% endif %}">
-                    <a href="{{ path('client_new') }}">
-                        <i class="fas fa-plus"></i>Ajouter
-                    </a>
-                </li>
-            </ul>
-        </li>
-
-        <li class="ab-menu{% if localepathForRoutePath == path('location_index') or localepathForRoutePath == path('location_new') or ( localepathForRouteId is defined and localepathForRouteId is not null and localepathForRoutePath == path('location_edit', { 'id': localepathForRouteId }) ) %} item_active item_master{% endif %}">
-
-            <span class="ab-item item_header">
-                <i class="fas fa-map-marker-alt"></i>Locations<i class="fa fa-caret-down"></i>
-            </span>
-
-            <ul class="ab-submenu">
-                <li class="ab-item{% if localepathForRoutePath == path('location_index') %} ab-item-active{% endif %}">
-                    <a href="{{ path('location_index') }}">
-                        <i class="fas fa-list"></i>Tous les locations
-                    </a>
-                </li>
-                <li class="ab-item{% if localepathForRoutePath == path('location_new') %} ab-item-active{% endif %}">
-                    <a href="{{ path('location_new') }}">
-                        <i class="fas fa-plus"></i>Ajouter
-                    </a>
-                </li>
-            </ul>
-        </li>
-
-        <li class="ab-menu{% if localepathForRoutePath == path('project_index') or localepathForRoutePath == path('project_new') or localepathForRoutePath == path('project_order') or ( localepathForRouteId is defined and localepathForRouteId is not null and localepathForRoutePath == path('project_edit', { 'id': localepathForRouteId }) ) %} item_active item_master{% endif %}">
-
-            <span class="ab-item item_header">
-                <i class="fas fa-project-diagram"></i>Projets<i class="fa fa-caret-down"></i>
-            </span>
-
-            <ul class="ab-submenu">
-                <li class="ab-item{% if localepathForRoutePath == path('project_index') %} ab-item-active{% endif %}">
-                    <a href="{{ path('project_index') }}">
-                        <i class="fas fa-list"></i>Tous les projets
-                    </a>
-                </li>
-                <li class="ab-item{% if localepathForRoutePath == path('project_order') %} ab-item-active{% endif %}">
-                    <a href="{{ path('project_order') }}">
-                        <i class="fas fa-sort"></i>Ordre des projets
-                    </a>
-                </li>
-                <li class="ab-item{% if localepathForRoutePath == path('project_new') %} ab-item-active{% endif %}">
-                    <a href="{{ path('project_new') }}">
-                        <i class="fas fa-plus"></i>Ajouter
-                    </a>
-                </li>
-            </ul>
-        </li>
-
-        <li class="ab-menu{% if localepathForRoutePath == path('press_index') or localepathForRoutePath == path('press_new') or localepathForRoutePath == path('press_order') or ( localepathForRouteId is defined and localepathForRouteId is not null and localepathForRoutePath == path('press_edit', { 'id': localepathForRouteId }) ) %} item_active item_master{% endif %}">
-
-            <span class="ab-item item_header">
-                <i class="fas fa-newspaper"></i>Presse<i class="fa fa-caret-down"></i>
-            </span>
-
-            <ul class="ab-submenu">
-                <li class="ab-item{% if localepathForRoutePath == path('press_index') %} ab-item-active{% endif %}">
-                    <a href="{{ path('press_index') }}">
-                        <i class="fas fa-list"></i>Tous les presses
-                    </a>
-                </li>
-                <li class="ab-item{% if localepathForRoutePath == path('press_order') %} ab-item-active{% endif %}">
-                    <a href="{{ path('press_order') }}">
-                        <i class="fas fa-sort"></i>Ordre des presses
-                    </a>
-                </li>
-                <li class="ab-item{% if localepathForRoutePath == path('press_new') %} ab-item-active{% endif %}">
-                    <a href="{{ path('press_new') }}">
-                        <i class="fas fa-plus"></i>Ajouter
-                    </a>
-                </li>
-            </ul>
         </li>
 
         <li class="ab-menu{% if localepathForRoutePath == path('page_index') or localepathForRoutePath == path('page_new') or ( localepathForRouteId is defined and localepathForRouteId is not null and localepathForRoutePath == path('page_edit', { 'id': localepathForRouteId }) ) %} item_active item_master{% endif %}">
@@ -211,11 +66,11 @@
             </ul>
         </li>
 
-        {# 
+        
         <li>
             <a href="{{ path('contact_index') }}" data-class=""><i class="fas fa-envelope-open"></i>Contact</a>
         </li>
-        #}
+        
 
         {% if app.user.role != 'ROLE_EDITOR' %}
             <li class="ab-menu{% if localepathForRoutePath == path('admin_users') %} item_active{% endif %}">

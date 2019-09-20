@@ -15,27 +15,17 @@
         <link href="{{ asset('adminTemplateFiles/mediaBuild/css/mediaStyle.css') }}" rel="stylesheet" >
         <link href="{{ asset('adminTemplateFiles/mediaBuild/css/masnoryGridStyle.css') }}" rel="stylesheet" >
         {% block lib_css %}{% endblock %} 
-        <style type="text/css">
-            .dragAnDropContainer > div[data-ss-height="3"]{
-                height: 227px;
-            }
-        </style>
     </head>
  
     <body data-title="{% block title %}{% endblock %}">
         <div class="sidebar_wrapper active">
             {% set localepathForRouteId =  app.request.get('id')  %}
             {% set localepathForRoutePath =  path ( app.request.get('_route'),app.request.get('_route_params'))  %}
-            
-             {{ render(controller( 'AdminBundle:RenderTemplate:renderSideBar',{ 'localepathForRouteId': localepathForRouteId ,
-             'localepathForRoutePath': localepathForRoutePath })) }}
+            {% include "AdminBundle:Templates:sidebar.html.twig" with {'localepathForRoutePath':localepathForRoutePath} %}
         </div>
         <div class="all_warrapers_web_content margin_left_activated">
             <div class="header_wrapper">
- 
-                
-
-                <div class="header_side right_side_header">
+²²          <div class="header_side right_side_header">
                     <a href="{{ path('admin_logout')}}">
                     <span class="user_name" > {{ app.user.username }}
                         <span class="logout_icon"><i class="fas fa-sign-out-alt"></i></span>

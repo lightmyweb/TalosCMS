@@ -40,46 +40,6 @@ class PageType extends AbstractType
                         'data-entity'=>'Page',
                         'data-label'=>'Permalien (*)'
                     ]
-                ],
-                'title1'=>[
-                    'label' => 'Titre',
-                    'attr'=>[
-                        "class" =>'form_ctrl not_required_class',
-                        'data-label'=>'Titre',
-                        'required' => false
-                    ]
-                ],
-                'title2'=>[
-                    'label' => 'Sous titre',
-                    'attr'=>[
-                        "class" =>'form_ctrl not_required_class',
-                        'data-label'=>'Sous titre',
-                        'required' => false
-                    ]
-                ],
-                'email1'=>[
-                    'label' => 'Email 1',
-                    'attr'=>[
-                        "class" =>'form_ctrl not_required_class',
-                        'data-label'=>'Email 1',
-                        'required' => false
-                    ]
-                ],
-                'email2'=>[
-                    'label' => 'Email 2',
-                    'attr'=>[
-                        "class" =>'form_ctrl not_required_class',
-                        'data-label'=>'Email 2',
-                        'required' => false
-                    ]
-                ],
-                'classiceditor'=>[
-                    'label' => 'Contenu',
-                    'attr'=>[
-                        "class" =>'form_ctrl textarea_ctrl tinymce',
-                        'data-theme' => 'bbcode',
-                        'data-label'=>'Contenu'
-                    ]
                 ]
             ]
         ])
@@ -104,27 +64,17 @@ class PageType extends AbstractType
                 'class'=>'select_ctrl_state'
             )
         ));
-
-        if( $page_id == 76 ){
-            $builder = $this->extraBuilderFields( $builder );
-        }
+        //$builder = $this->extraBuilderFields( $builder );
+        /**
+         * to test on page id 
+         * if( $page_id == 1 ){ your code  }
+        **/ 
     }
 
     private function extraBuilderFields( $builder ){
         $builder
         ->add('blocTexts', CollectionType::class, array(
             'entry_type' => \ContentElementsManagementSystemBundle\Form\BlocTextType::class,
-            'allow_add' => true,
-            'allow_delete' => true,
-            'delete_empty'=>true,
-            'by_reference' => false,
-            'prototype' => true,
-            'entry_options'  => array(
-                'attr'      => array('class' => 'textes-box')
-            ),
-        ))
-        ->add('blocGalleries', CollectionType::class, array(
-            'entry_type' => \ContentElementsManagementSystemBundle\Form\BlocGalleryType::class,
             'allow_add' => true,
             'allow_delete' => true,
             'delete_empty'=>true,

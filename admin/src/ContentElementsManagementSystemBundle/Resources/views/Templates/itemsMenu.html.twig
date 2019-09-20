@@ -1,9 +1,7 @@
 {% set blocText_prototype = null %}
 {% set blocQuote_prototype = null %}
 {% set blocImage_prototype = null %}
-{% set blocGallery_prototype = null %}
-{% set blocGalleryimage_prototype = null %}
-{% set blocGalleryimage_blocGallery_prototype = null %}
+{% set blocGallery_prototype = null %}ZZ
 
 {% if  form.blocTexts is defined %}
 	{% set blocText_prototype = form_widget(form.blocTexts.vars.prototype)  %}
@@ -16,16 +14,6 @@
 {% if  form.blocImages is defined %}
 	{% set blocImage_prototype = form_widget(form.blocImages.vars.prototype)  %}
 {% endif %}
-
-{% if  form.blocGalleryimages is defined %}
-	{% set blocGalleryimage_prototype = form_widget(form.blocGalleryimages.vars.prototype)  %}
-{% endif %}
-
-{% if  form.blocGalleries is defined %}
-	{% set blocGalleryimage_blocGallery_prototype = form_widget(form.blocGalleries.vars.prototype.children['galleryimages'].vars.prototype)  %}
-	{% set blocGallery_prototype = form_widget(form.blocGalleries.vars.prototype) %}
-{% endif %} 
-
 
 
 {% 
@@ -53,27 +41,6 @@
 			'children':null
 		},
 		{
-			'type':'galleriesBloc',
-			'name_order':0,
-			'entity':'blocGalleries',
-			'label':'Galerie',
-			'icon':'fas fa-images',
-			'role':'parent',
-			'current_div_class':'accordionItems',
-			'prototype':blocGallery_prototype,
-			'children':{
-				0:{
-					'type':'galleryimages',
-					'label':'Image',
-					'name_order':0,
-					'role':'child',
-					'entity':'galleryimages',
-					'prototype':blocGalleryimage_blocGallery_prototype,
-					'children':null,
-				}
-			}
-		},
-		{
 			'type':'textsBloc',
 			'children':null,
 			'entity':'blocTexts',
@@ -86,9 +53,9 @@
 		}
 	]
 %}
-
-{{ render(controller( 
-    'ContentElementsManagementSystemBundle:RenderTemplates:renderBlocBoxes',{ 
-    	'data':data
-    }
-)) }}
+{% include 
+	"ContentElementsManagementSystemBundle:RenderTemplates:renderBlocBoxes" with
+	{
+		'data':data
+	}
+%}

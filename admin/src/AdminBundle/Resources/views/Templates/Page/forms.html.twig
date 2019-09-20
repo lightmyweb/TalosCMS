@@ -1,18 +1,18 @@
 <div class="time_line">
     <div class="line"></div>
     <a class="part active content-part" href="#content" data-target="content">
-        {% if entity.id is defined and entity.id  == 81  %}
+        {# if entity.id is defined and entity.id  == 81  %}
             Adresse
         {% else %}
             Contenu
-        {% endif %}
+        {% endif #}
     </a>
     <a class="part generale-part" href="#generale" data-target="generale">Général</a>
     <a class="part seo-part" href="#seo" data-target="seo">Seo</a>
 </div>
 <div class="time_line_target">
     <div class="part active content-part" data-source="content">
-        {% if  entity.id is defined and entity.id  == 76  %}
+        {# if  entity.id is defined and entity.id  == 76  %}
             <div class="accordionItems">
                  {{ render(controller( 
                     'ContentElementsManagementSystemBundle:RenderTemplates:renderItemsViewer',{ 'entity': entity, 'form':form}
@@ -28,33 +28,13 @@
             <div class="classiceditor">
                 {{ form_row(form.translations[app.request.locale].classiceditor) }}
             </div>
-        {% endif %}
+        {% endif #}
     </div>
     <div class="part generale-part" data-source="generale">
         {# {{ render(controller( 'AdminBundle:RenderTemplate:renderLocales')) }} #}
         <div class="row">
             <div class="col col_10">
-                {% if  entity.id is defined and entity.id  == 76  %}
-                    {{ form_row(form.translations[app.request.locale].title) }}
-                    {{ form_row(form.translations[app.request.locale].slug) }}
-                    {{ form_row(form.translations[app.request.locale].title1) }}
-                    {{ form_row(form.translations[app.request.locale].title2) }}
-                {% elseif entity.id is defined and entity.id  == 79  %}
-                    {{ form_row(form.translations[app.request.locale].title) }}
-                    {{ form_row(form.translations[app.request.locale].slug) }}
-                    {{ form_row(form.translations[app.request.locale].email1) }}
-                    {{ form_row(form.translations[app.request.locale].email2) }}
-                {% elseif entity.id is defined and entity.id  == 81  %}
-                    {{ form_row(form.translations[app.request.locale].title) }}
-                    {{ form_row(form.translations[app.request.locale].slug) }}
-                    {{ form_row(form.translations[app.request.locale].title1) }}
-                {% else %}
-                    {{ form_row(form.translations[app.request.locale].title) }}
-                    {{ form_row(form.translations[app.request.locale].slug) }}
-                    {{ form_row(form.translations[app.request.locale].title1) }}
-                    {{ form_row(form.translations[app.request.locale].title2) }}
-                    {# {{ form_row(form.translations) }} #}
-                {% endif %}
+               {# {{ form_row(form.translations) }} #}
             </div>
         </div>
         <div class="row block-img">

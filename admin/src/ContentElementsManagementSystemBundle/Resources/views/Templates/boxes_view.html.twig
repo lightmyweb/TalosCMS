@@ -1,14 +1,15 @@
-
 <label  class="dropdown">
-  <div class="dd-button">
-    Ajouter du contenu
-  </div>
-  <ul class="dd-box" id="btn-add">
-  	{% for item in boxes %}
-  	{% if item.prototype is not null %}
-	  	<li  class="contentElement button-bloc" data-json='{{ item|json_encode() }}'><i class="{{item.icon}}"></i> {{item.label}} 
-		</li>
-	{% endif %}
+	<div class="dd-button">
+    	Ajouter du contenu
+  	</div>
+  	<ul class="dd-box" id="btn-add">
+  		{% for item in boxes %}
+  			{% if item.prototype is not null %}
+	  		<li  class="contentElement button-bloc" 
+			  data-json='{{ item|json_encode() }}'>
+			  	<i class="{{item.icon}}"></i> {{item.label}} 
+			</li>
+			{% endif %}
 	{% endfor %}
   </ul>
 </label>
