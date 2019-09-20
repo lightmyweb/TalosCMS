@@ -21,14 +21,40 @@ class ElementsFormRenderController extends Controller
         	)
         );
 	}
-
-	public function renderSectionBlocFormAction($form,$entity){  
-		return $this->render(
-            'ContentElementsManagementSystemBundle:BlocsForm:sectionBloc.html.twig',array(
+    
+    public function renderQuoteBlocFormAction($form,$entity){  
+        return $this->render(
+            'ContentElementsManagementSystemBundle:BlocsForm:quoteBloc.html.twig',array(
                 'form' => $form,
-            	'entity' => $entity
-        	)
+                'entity' => $entity
+            )
         );
-	}
-   
+    }
+
+    public function renderGalleryBlocFormAction($form,$entity){  
+        return $this->render(
+            'ContentElementsManagementSystemBundle:BlocsForm:galleryBloc.html.twig',array(
+                'form' => $form,
+                'entity' => $entity
+            )
+        );
+    }
+
+    public function renderGalleryimageBlocFormAction($form,$entity){  
+        return $this->render(
+            'ContentElementsManagementSystemBundle:BlocsForm:galleryimageBloc.html.twig',array(
+                'form' => $form,
+                'entity' => $entity,
+            )
+        );
+    }
+
+    public function renderImageBlocFormAction($form,$entity){  
+        return $this->render(
+            'ContentElementsManagementSystemBundle:BlocsForm:imageBloc.html.twig',array(
+                'form' => $form,
+                'entity' => $entity,
+            )
+        );
+    }
 }

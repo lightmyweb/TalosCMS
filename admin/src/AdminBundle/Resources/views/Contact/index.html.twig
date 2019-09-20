@@ -44,6 +44,10 @@
     </div>
 </div>
 {% endblock %}
+{% block lib_css %}<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">{% endblock %}
+{% block lib_script %}
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+{% endblock %}
 {% block local_script %}
     <script type="text/javascript" src="{{ asset('adminTemplateFiles/build/js/data_table_script.js') }}"></script>
 {% endblock %}

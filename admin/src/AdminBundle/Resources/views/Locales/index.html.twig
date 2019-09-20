@@ -31,7 +31,14 @@
                             <tr data-value="{{locale.state}}">
                                 <td><a href="{{ path('locale_edit', { 'id': locale.id }) }}">{{ locale.id }}</a></td>
                                 <td>{{ locale.name }}</td>
-                                <td>{{ locale.slug }}</td>
+                                <td>
+                                    {% if locale.slug == 'gb' %}
+                                        {{ 'en' }}
+                                    {% else  %}
+                                        {{ locale.slug }}
+                                    {% endif  %}
+
+                                </td>
                                 <td>
                                     {% if locale.user != null %}
                                         {{ locale.user.firstName }} {{ locale.user.lastName }}
@@ -77,6 +84,8 @@
     </div>
 </div>
 {% endblock %}
+{% block lib_css %}<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">{% endblock %}
+{% block lib_script %}<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>{% endblock %}
 {% block local_script %}
     <script type="text/javascript" src="{{ asset('adminTemplateFiles/build/js/data_table_script.js') }}"></script>
     <script type="text/javascript" src="{{ asset('adminTemplateFiles/build/js/default_locale_script.js') }}"></script>

@@ -1,0 +1,38 @@
+{% extends 'AdminBundle::_shared.html.twig' %}
+{% block lib_script %}
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js "></script>
+{% endblock %}
+
+{% block local_script %}
+    <script src="{{ asset('adminTemplateFiles/build/js/eventOrder.js') }}" type="text/javascript"></script>
+    <script type="text/javascript">
+    updatePositionOnEdit();
+    </script>
+{% endblock %}
+
+{% block body %}
+<div class="Nb">
+    <p>Le changement d'ordre se fait via un drag and drop <span>Ordre Effectué</span> </p>
+</div>
+<div class="row orderPubLictionperTheme">
+    {% for press in presses if press.state == true %}
+        <div class="col col_1 publicationsOrderElement parent-img-position-picto" 
+        data-path="{{path('updatePressPosition', { 'id': press.id,'position':'element' })}}" 
+        data-id="{{press.id}}" 
+        data-order="{{press.position}}">
+            <div class="content">
+                <div class="picto">
+                        {% if press.thumbnail.src is defined and  press.thumbnail.src is not null %}
+                            <img class="img-position-picto" src="{{ asset('uploads/'~ press.thumbnail.src) }}">
+                        {% else %}
+                            <img class="img-position-picto" src="{{ asset('adminTemplateFiles/build/img/noimage.png') }}">
+                        {% endif %}
+                    </div>
+                <div class="title">
+                    <h3>{{press.translations[app.request.locale].name}}</h3>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

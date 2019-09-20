@@ -26,13 +26,6 @@ class PageTranslation
     /**
      * @var string
      *
-     * @ORM\Column(name="suptitle", type="string", length=255, nullable=true)
-     */
-    private $suptitle;
-
-    /**
-     * @var string
-     *
      * @ORM\Column(name="slug", type="string", length=255, nullable=true)
      */
     private $slug;
@@ -40,9 +33,37 @@ class PageTranslation
     /**
      * @var string
      *
-     * @ORM\Column(name="description", type="text", nullable=true)
+     * @ORM\Column(name="title1", type="string", length=255, nullable=true)
      */
-    private $description;
+    private $title1;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="title2", type="string", length=255, nullable=true)
+     */
+    private $title2;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="email1", type="string", length=255, nullable=true)
+     */
+    private $email1;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="email2", type="string", length=255, nullable=true)
+     */
+    private $email2;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="classiceditor", type="text", nullable=true)
+     */
+    private $classiceditor;
 
     public function __call($method, $arguments)
     {
@@ -98,50 +119,122 @@ class PageTranslation
     }
 
     /**
-     * Set description
+     * Set title1
      *
-     * @param string $description
+     * @param string $title1
      *
      * @return PageTranslation
      */
-    public function setDescription($description)
+    public function setTitle1($title1)
     {
-        $this->description = $description;
-
+        $this->title1 = $title1;
+    
         return $this;
     }
 
     /**
-     * Get description
+     * Get title1
      *
      * @return string
      */
-    public function getDescription()
+    public function getTitle1()
     {
-        return $this->description;
+        return $this->title1;
     }
 
     /**
-     * Set suptitle
+     * Set title2
      *
-     * @param string $suptitle
+     * @param string $title2
      *
      * @return PageTranslation
      */
-    public function setSuptitle($suptitle)
+    public function setTitle2($title2)
     {
-        $this->suptitle = $suptitle;
-
+        $this->title2 = $title2;
+    
         return $this;
     }
 
     /**
-     * Get suptitle
+     * Get title2
      *
      * @return string
      */
-    public function getSuptitle()
+    public function getTitle2()
     {
-        return $this->suptitle;
+        return $this->title2;
+    }
+
+    /**
+     * Set classiceditor
+     *
+     * @param string $classiceditor
+     *
+     * @return PageTranslation
+     */
+    public function setClassiceditor($classiceditor)
+    {
+        $this->classiceditor = $classiceditor;
+    
+        return $this;
+    }
+
+    /**
+     * Get classiceditor
+     *
+     * @return string
+     */
+    public function getClassiceditor()
+    {
+        return $this->classiceditor;
+    }
+
+    /**
+     * Set email1
+     *
+     * @param string $email1
+     *
+     * @return PageTranslation
+     */
+    public function setEmail1($email1)
+    {
+        $this->email1 = $email1;
+    
+        return $this;
+    }
+
+    /**
+     * Get email1
+     *
+     * @return string
+     */
+    public function getEmail1()
+    {
+        return $this->email1;
+    }
+
+    /**
+     * Set email2
+     *
+     * @param string $email2
+     *
+     * @return PageTranslation
+     */
+    public function setEmail2($email2)
+    {
+        $this->email2 = $email2;
+    
+        return $this;
+    }
+
+    /**
+     * Get email2
+     *
+     * @return string
+     */
+    public function getEmail2()
+    {
+        return $this->email2;
     }
 }

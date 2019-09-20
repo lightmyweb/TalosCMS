@@ -1,0 +1,18 @@
+<div class="time_line">
+    <div class="line"></div>
+    {# {% if entity.id is defined %}
+    <div class="part active "  data-target="content">Liste</div>
+    {% endif %} #}
+    <div class="part active" data-target="generale">Général</div>
+</div>
+<div class="time_line_target">
+    <div class="part active" data-source="generale">
+        {# {{ render(controller( 'AdminBundle:RenderTemplate:renderLocales')) }} #}
+        <div class="row">
+            <div class="col col_10">
+                {{form_row(form.translations)}}
+            </div>
+        </div>
+    </div>
+</div>
+<div style="display:none">{{form_rest(form)}}</div>

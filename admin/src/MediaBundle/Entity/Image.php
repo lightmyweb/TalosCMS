@@ -63,11 +63,54 @@ class Image
     protected $pages;
 
     /**
-     * @ORM\OneToMany(targetEntity="PageAndImageRelation", mappedBy="image", cascade={"persist", "remove"} , orphanRemoval=true)
-     * @ORM\OrderBy({"orderPosition"="ASC"})
+     * @ORM\OneToMany(targetEntity="\AdminBundle\Entity\Client", mappedBy="image")
+     * @ORM\OrderBy({"position"="ASC"})
      */
+    protected $logoclient;
 
-    private $masnoryrelations;
+    /**
+     * @ORM\OneToMany(targetEntity="\AdminBundle\Entity\Client", mappedBy="image")
+     * @ORM\OrderBy({"position"="ASC"})
+     */
+    protected $thumbnailclient;
+
+    /**
+     * @ORM\OneToMany(targetEntity="\AdminBundle\Entity\Press", mappedBy="image")
+     * @ORM\OrderBy({"position"="ASC"})
+     */
+    protected $pressthumbnail;
+
+    /**
+     * @ORM\OneToMany(targetEntity="\ContentElementsManagementSystemBundle\Entity\BlocGallery", mappedBy="image")
+     * @ORM\OrderBy({"position"="ASC"})
+     */
+    protected $blocgallerythumbnail;
+
+    /**
+     * @ORM\OneToMany(targetEntity="\ContentElementsManagementSystemBundle\Entity\BlocImage", mappedBy="image")
+     * @ORM\OrderBy({"position"="ASC"})
+     */
+    protected $blocimagethumbnail;
+
+    /**
+     * @ORM\OneToMany(targetEntity="\ContentElementsManagementSystemBundle\Entity\BlocGalleryimage", mappedBy="image")
+     * @ORM\OrderBy({"position"="ASC"})
+     */
+    protected $galleryfigures;
+
+    /**
+     * @ORM\OneToMany(targetEntity="\AdminBundle\Entity\Project", mappedBy="image")
+     * @ORM\OrderBy({"position"="ASC"})
+     */
+    protected $projects;
+
+
+    /**
+     * @ORM\OneToMany(targetEntity="\AdminBundle\Entity\Home", mappedBy="image")
+     * @ORM\OrderBy({"position"="ASC"})
+     */
+    protected $homeAboutImage;
+
 
     public function __toString(){
         return $this->getId().'';
@@ -211,6 +254,7 @@ class Image
     public function __construct()
     {
         $this->pages = new \Doctrine\Common\Collections\ArrayCollection;
+        $this->galleryfigures = new \Doctrine\Common\Collections\ArrayCollection;
     }
 
    /**
@@ -238,6 +282,7 @@ class Image
         $this->pages->removeElement($page);
     }
 
+
     /**
      * Get pages
      *
@@ -247,39 +292,277 @@ class Image
     {
         return $this->pages;
     }
-   
+
     /**
-     * Add masnoryrelation
+     * Add project
      *
-     * @param \MediaBundle\Entity\PageAndImageRelation $masnoryrelation
+     * @param \AdminBundle\Entity\Project $project
      *
      * @return Image
      */
-    public function addMasnoryrelation(\MediaBundle\Entity\PageAndImageRelation $masnoryrelation)
+    public function addProject(\AdminBundle\Entity\Project $project)
     {
-        $masnoryrelation->setImage($this);
-        $this->masnoryrelations[] = $masnoryrelation;
-
+        $this->projects[] = $project;
+    
         return $this;
     }
 
     /**
-     * Remove masnoryrelation
+     * Remove project
      *
-     * @param \MediaBundle\Entity\PageAndImageRelation $masnoryrelation
+     * @param \AdminBundle\Entity\Project $project
      */
-    public function removeMasnoryrelation(\MediaBundle\Entity\PageAndImageRelation $masnoryrelation)
+    public function removeProject(\AdminBundle\Entity\Project $project)
     {
-        $this->masnoryrelations->removeElement($masnoryrelation);
+        $this->projects->removeElement($project);
     }
 
     /**
-     * Get masnoryrelations
+     * Get projects
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getMasnoryrelations()
+    public function getProjects()
     {
-        return $this->masnoryrelations;
+        return $this->projects;
+    }
+
+    /**
+     * Add logoclient
+     *
+     * @param \AdminBundle\Entity\Client $logoclient
+     *
+     * @return Image
+     */
+    public function addLogoclient(\AdminBundle\Entity\Client $logoclient)
+    {
+        $this->logoclient[] = $logoclient;
+    
+        return $this;
+    }
+
+    /**
+     * Remove logoclient
+     *
+     * @param \AdminBundle\Entity\Client $logoclient
+     */
+    public function removeLogoclient(\AdminBundle\Entity\Client $logoclient)
+    {
+        $this->logoclient->removeElement($logoclient);
+    }
+
+    /**
+     * Get logoclient
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getLogoclient()
+    {
+        return $this->logoclient;
+    }
+
+    /**
+     * Add thumbnailclient
+     *
+     * @param \AdminBundle\Entity\Client $thumbnailclient
+     *
+     * @return Image
+     */
+    public function addThumbnailclient(\AdminBundle\Entity\Client $thumbnailclient)
+    {
+        $this->thumbnailclient[] = $thumbnailclient;
+    
+        return $this;
+    }
+
+    /**
+     * Remove thumbnailclient
+     *
+     * @param \AdminBundle\Entity\Client $thumbnailclient
+     */
+    public function removeThumbnailclient(\AdminBundle\Entity\Client $thumbnailclient)
+    {
+        $this->thumbnailclient->removeElement($thumbnailclient);
+    }
+
+    /**
+     * Get thumbnailclient
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getThumbnailclient()
+    {
+        return $this->thumbnailclient;
+    }
+
+    /**
+     * Add homeAboutImage
+     *
+     * @param \AdminBundle\Entity\Home $homeAboutImage
+     *
+     * @return Image
+     */
+    public function addHomeAboutImage(\AdminBundle\Entity\Home $homeAboutImage)
+    {
+        $this->homeAboutImage[] = $homeAboutImage;
+    
+        return $this;
+    }
+
+    /**
+     * Remove homeAboutImage
+     *
+     * @param \AdminBundle\Entity\Home $homeAboutImage
+     */
+    public function removeHomeAboutImage(\AdminBundle\Entity\Home $homeAboutImage)
+    {
+        $this->homeAboutImage->removeElement($homeAboutImage);
+    }
+
+    /**
+     * Get homeAboutImage
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getHomeAboutImage()
+    {
+        return $this->homeAboutImage;
+    }
+
+    /**
+     * Add pressthumbnail
+     *
+     * @param \AdminBundle\Entity\Press $pressthumbnail
+     *
+     * @return Image
+     */
+    public function addPressthumbnail(\AdminBundle\Entity\Press $pressthumbnail)
+    {
+        $this->pressthumbnail[] = $pressthumbnail;
+    
+        return $this;
+    }
+
+    /**
+     * Remove pressthumbnail
+     *
+     * @param \AdminBundle\Entity\Press $pressthumbnail
+     */
+    public function removePressthumbnail(\AdminBundle\Entity\Press $pressthumbnail)
+    {
+        $this->pressthumbnail->removeElement($pressthumbnail);
+    }
+
+    /**
+     * Get pressthumbnail
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getPressthumbnail()
+    {
+        return $this->pressthumbnail;
+    }
+
+    /**
+     * Add blocgallerythumbnail
+     *
+     * @param \ContentElementsManagementSystemBundle\Entity\BlocGallery $blocgallerythumbnail
+     *
+     * @return Image
+     */
+    public function addBlocgallerythumbnail(\ContentElementsManagementSystemBundle\Entity\BlocGallery $blocgallerythumbnail)
+    {
+        $this->blocgallerythumbnail[] = $blocgallerythumbnail;
+    
+        return $this;
+    }
+
+    /**
+     * Remove blocgallerythumbnail
+     *
+     * @param \ContentElementsManagementSystemBundle\Entity\BlocGallery $blocgallerythumbnail
+     */
+    public function removeBlocgallerythumbnail(\ContentElementsManagementSystemBundle\Entity\BlocGallery $blocgallerythumbnail)
+    {
+        $this->blocgallerythumbnail->removeElement($blocgallerythumbnail);
+    }
+
+    /**
+     * Get blocgallerythumbnail
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getBlocgallerythumbnail()
+    {
+        return $this->blocgallerythumbnail;
+    }
+
+    /**
+     * Add galleryfigure
+     *
+     * @param \ContentElementsManagementSystemBundle\Entity\BlocGalleryimage $galleryfigure
+     *
+     * @return Image
+     */
+    public function addGalleryfigure(\ContentElementsManagementSystemBundle\Entity\BlocGalleryimage $galleryfigure)
+    {   
+        $galleryfigure->setImage($this);
+        $this->galleryfigures[] = $galleryfigure;
+    
+        return $this;
+    }
+
+    /**
+     * Remove galleryfigure
+     *
+     * @param \ContentElementsManagementSystemBundle\Entity\BlocGalleryimage $galleryfigure
+     */
+    public function removeGalleryfigure(\ContentElementsManagementSystemBundle\Entity\BlocGalleryimage $galleryfigure)
+    {
+        $this->galleryfigures->removeElement($galleryfigure);
+    }
+
+    /**
+     * Get galleryfigures
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getGalleryfigures()
+    {
+        return $this->galleryfigures;
+    }
+
+    /**
+     * Add blocimagethumbnail
+     *
+     * @param \ContentElementsManagementSystemBundle\Entity\BlocImage $blocimagethumbnail
+     *
+     * @return Image
+     */
+    public function addBlocimagethumbnail(\ContentElementsManagementSystemBundle\Entity\BlocImage $blocimagethumbnail)
+    {
+        $this->blocimagethumbnail[] = $blocimagethumbnail;
+    
+        return $this;
+    }
+
+    /**
+     * Remove blocimagethumbnail
+     *
+     * @param \ContentElementsManagementSystemBundle\Entity\BlocImage $blocimagethumbnail
+     */
+    public function removeBlocimagethumbnail(\ContentElementsManagementSystemBundle\Entity\BlocImage $blocimagethumbnail)
+    {
+        $this->blocimagethumbnail->removeElement($blocimagethumbnail);
+    }
+
+    /**
+     * Get blocimagethumbnail
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getBlocimagethumbnail()
+    {
+        return $this->blocimagethumbnail;
     }
 }

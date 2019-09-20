@@ -9,7 +9,14 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity(repositoryClass="ContentElementsManagementSystemBundle\Repository\BlocRepository")
  * @ORM\InheritanceType("JOINED")
  * @ORM\DiscriminatorColumn(name="entity_type", type="string")
- * @ORM\DiscriminatorMap({"bloctext" = "BlocText","blocsection" = "BlocSection","bloc" = "Bloc"})
+ * @ORM\DiscriminatorMap({
+        "bloctext" = "BlocText",
+        "blocquote" = "BlocQuote",
+        "blocimage" = "BlocImage",
+        "blocgallery" = "BlocGallery",
+        "blocgalleryimage" = "BlocGalleryimage",
+        "bloc" = "Bloc"
+    })
  */
  
 class Bloc 
@@ -37,10 +44,29 @@ class Bloc
     private $entity_withBlocText;
 
     /**
-     * @ORM\ManyToOne(targetEntity="\AdminBundle\Entity\GeneralEntity", inversedBy="blocSections" )
-     * @ORM\JoinColumn(name="entity_id_withBlocSections", referencedColumnName="id") 
+     * @ORM\ManyToOne(targetEntity="\AdminBundle\Entity\GeneralEntity", inversedBy="blocQuotes" )
+     * @ORM\JoinColumn(name="entity_id_withBlocQuotes", referencedColumnName="id") 
      */
-    private $entity_withBlocSection;
+    private $entity_withBlocQuote;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="\AdminBundle\Entity\GeneralEntity", inversedBy="blocImages" )
+     * @ORM\JoinColumn(name="entity_id_withBlocImages", referencedColumnName="id") 
+     */
+    private $entity_withBlocImage;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="\AdminBundle\Entity\GeneralEntity", inversedBy="blocGalleries" )
+     * @ORM\JoinColumn(name="entity_id_withBlocGalleries", referencedColumnName="id") 
+     */
+    private $entity_withBlocGallery;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="\AdminBundle\Entity\GeneralEntity", inversedBy="blocGalleryimages" )
+     * @ORM\JoinColumn(name="entity_id_withBlocGalleryimages", referencedColumnName="id") 
+     */
+    private $entity_withBlocGalleryimage;
+
 
     /**
      * Get id
@@ -102,26 +128,98 @@ class Bloc
     }
 
     /**
-     * Set entityWithBlocSection
+     * Set entityWithBlocQuote
      *
-     * @param \AdminBundle\Entity\GeneralEntity $entityWithBlocSection
+     * @param \AdminBundle\Entity\GeneralEntity $entityWithBlocQuote
      *
      * @return Bloc
      */
-    public function setEntityWithBlocSection(\AdminBundle\Entity\GeneralEntity $entityWithBlocSection = null)
+    public function setEntityWithBlocQuote(\AdminBundle\Entity\GeneralEntity $entityWithBlocQuote = null)
     {
-        $this->entity_withBlocSection = $entityWithBlocSection;
-
+        $this->entity_withBlocQuote = $entityWithBlocQuote;
+    
         return $this;
     }
 
     /**
-     * Get entityWithBlocSection
+     * Get entityWithBlocQuote
      *
      * @return \AdminBundle\Entity\GeneralEntity
      */
-    public function getEntityWithBlocSection()
+    public function getEntityWithBlocQuote()
     {
-        return $this->entity_withBlocSection;
+        return $this->entity_withBlocQuote;
+    }
+
+    /**
+     * Set entityWithBlocGallery
+     *
+     * @param \AdminBundle\Entity\GeneralEntity $entityWithBlocGallery
+     *
+     * @return Bloc
+     */
+    public function setEntityWithBlocGallery(\AdminBundle\Entity\GeneralEntity $entityWithBlocGallery = null)
+    {
+        $this->entity_withBlocGallery = $entityWithBlocGallery;
+    
+        return $this;
+    }
+
+    /**
+     * Get entityWithBlocGallery
+     *
+     * @return \AdminBundle\Entity\GeneralEntity
+     */
+    public function getEntityWithBlocGallery()
+    {
+        return $this->entity_withBlocGallery;
+    }
+
+    /**
+     * Set entityWithBlocGalleryimage
+     *
+     * @param \AdminBundle\Entity\GeneralEntity $entityWithBlocGalleryimage
+     *
+     * @return Bloc
+     */
+    public function setEntityWithBlocGalleryimage(\AdminBundle\Entity\GeneralEntity $entityWithBlocGalleryimage = null)
+    {
+        $this->entity_withBlocGalleryimage = $entityWithBlocGalleryimage;
+    
+        return $this;
+    }
+
+    /**
+     * Get entityWithBlocGalleryimage
+     *
+     * @return \AdminBundle\Entity\GeneralEntity
+     */
+    public function getEntityWithBlocGalleryimage()
+    {
+        return $this->entity_withBlocGalleryimage;
+    }
+
+    /**
+     * Set entityWithBlocImage
+     *
+     * @param \AdminBundle\Entity\GeneralEntity $entityWithBlocImage
+     *
+     * @return Bloc
+     */
+    public function setEntityWithBlocImage(\AdminBundle\Entity\GeneralEntity $entityWithBlocImage = null)
+    {
+        $this->entity_withBlocImage = $entityWithBlocImage;
+    
+        return $this;
+    }
+
+    /**
+     * Get entityWithBlocImage
+     *
+     * @return \AdminBundle\Entity\GeneralEntity
+     */
+    public function getEntityWithBlocImage()
+    {
+        return $this->entity_withBlocImage;
     }
 }

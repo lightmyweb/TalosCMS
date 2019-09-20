@@ -1,12 +1,14 @@
 {% extends 'AdminBundle::_shared.html.twig' %}
 {% block title %}Pages{% endblock %} 
 {% block body %}
-<h1 class="mt-4 _pageTitle">Liste des pages</h1>
-<div class="button addNewElement">
-    <a href="{{path('page_new')}}" class="btn btn-primary"><i class="fas fa-plus"></i> Nouvelle page</a> 
-</div>
-<div class="col _colCtn">
+<div class="col col_12">
     <div class="container_box">
+        <div class="box_title">
+            <h3>Liste des pages</h3>
+            <div class="button addNewElement">
+                <a href="{{path('page_new')}}"><i class="fas fa-plus-circle"></i> Page</a> 
+            </div>
+        </div>
         <div class="box_content">
             <div class="row">
                 <div class="tablesTabs">
@@ -18,7 +20,7 @@
                     <table id="table" class="display" style="width:100%">
                         <thead>
                             <tr>
-                                <th>#</th>
+                                <!-- <th>#</th> -->
                                 <th style="width:1px!important"></th>
                                 <th>Titre</th>
                                 <th>Auteur</th>
@@ -30,7 +32,7 @@
                         <tbody >
                          {% for page in pages %}
                             <tr data-value="{{page.state}}">
-                                <td>#</td> 
+                                <!-- <td><a href="{{ path('page_edit', { 'id': page.id }) }}">{{ page.id }}</a></td> -->
                                 <td>
                                     {% if page.state == 0 %}
                                         <i style="color:#e03131;font-size:12px;" class="fa fa-circle status-published"></i>
@@ -67,11 +69,12 @@
                                 <td class="action_td">
                                     <a href="#" class="view_action" target="_blank"><i class="fas fa-eye"></i></a>  -  
                                     <a href="{{ path('page_edit', { 'id': page.id }) }}" class="edit_action"><i class="fas fa-pen-square"></i></a>  
-                                    {% if page.id != 1  and page.id != 7  and page.id != 8  and page.id != 12  and app.user.role != 'ROLE_EDITOR'%}
+                                    {% if app.user.role != 'ROLE_EDITOR'%}
                                         - 
                                         <a data-href="{{ path('element_delete', { 'id': page.id,'entity':'Page' }) }}" class="delete_action entity_delete">
                                         <i class="fas fa-trash-alt"></i></a>  
-                                    {% endif %} 
+                                    {% endif %}
+                                    
                                 </td>
                             </tr>
                         {% endfor %} 
@@ -82,4 +85,9 @@
         </div>
     </div>
 </div>
+{% endblock %}
+{% block lib_css %}<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">{% endblock %}
+{% block lib_script %}<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>{% endblock %}
+{% block local_script %}
+    <script type="text/javascript" src="{{ asset('adminTemplateFiles/build/js/data_table_script.js') }}"></script>
 {% endblock %}

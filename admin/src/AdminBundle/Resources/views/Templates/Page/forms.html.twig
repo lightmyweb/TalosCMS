@@ -1,37 +1,79 @@
-<div class="tab-content">
-	<div id="general" class="tab-pane active">
-		{{form_row(form.translations)}}
-		<hr>
-		<div class="form_group imgContainer" style="margin-left:20px;">
-            {% if entity.image is defined and entity.image is not null %}
-            <img src="{{ asset('uploads/'~ entity.image.src) }}">
-            <a class="btn-delleteFile" >Supprimer l'image</a>
-            {% endif %}
+<div class="time_line">
+    <div class="line"></div>
+    <a class="part active content-part" href="#content" data-target="content">
+        {% if entity.id is defined and entity.id  == 81  %}
+            Adresse
+        {% else %}
+            Contenu
+        {% endif %}
+    </a>
+    <a class="part generale-part" href="#generale" data-target="generale">Général</a>
+    <a class="part seo-part" href="#seo" data-target="seo">Seo</a>
+</div>
+<div class="time_line_target">
+    <div class="part active content-part" data-source="content">
+        {% if  entity.id is defined and entity.id  == 76  %}
+            <div class="accordionItems">
+                 {{ render(controller( 
+                    'ContentElementsManagementSystemBundle:RenderTemplates:renderItemsViewer',{ 'entity': entity, 'form':form}
+                )) }}
+            </div>
+
+            <div class="buttonsGrid">
+                {{ render(controller( 
+                    'ContentElementsManagementSystemBundle:RenderTemplates:renderItemsMenu',{ 'form': form}
+                )) }}
+            </div>
+        {% else %}
+            <div class="classiceditor">
+                {{ form_row(form.translations[app.request.locale].classiceditor) }}
+            </div>
+        {% endif %}
+    </div>
+    <div class="part generale-part" data-source="generale">
+        {# {{ render(controller( 'AdminBundle:RenderTemplate:renderLocales')) }} #}
+        <div class="row">
+            <div class="col col_10">
+                {% if  entity.id is defined and entity.id  == 76  %}
+                    {{ form_row(form.translations[app.request.locale].title) }}
+                    {{ form_row(form.translations[app.request.locale].slug) }}
+                    {{ form_row(form.translations[app.request.locale].title1) }}
+                    {{ form_row(form.translations[app.request.locale].title2) }}
+                {% elseif entity.id is defined and entity.id  == 79  %}
+                    {{ form_row(form.translations[app.request.locale].title) }}
+                    {{ form_row(form.translations[app.request.locale].slug) }}
+                    {{ form_row(form.translations[app.request.locale].email1) }}
+                    {{ form_row(form.translations[app.request.locale].email2) }}
+                {% elseif entity.id is defined and entity.id  == 81  %}
+                    {{ form_row(form.translations[app.request.locale].title) }}
+                    {{ form_row(form.translations[app.request.locale].slug) }}
+                    {{ form_row(form.translations[app.request.locale].title1) }}
+                {% else %}
+                    {{ form_row(form.translations[app.request.locale].title) }}
+                    {{ form_row(form.translations[app.request.locale].slug) }}
+                    {{ form_row(form.translations[app.request.locale].title1) }}
+                    {{ form_row(form.translations[app.request.locale].title2) }}
+                    {# {{ form_row(form.translations) }} #}
+                {% endif %}
+            </div>
         </div>
-        {{form_row(form.image)}}
-	</div>
-	<div id="seo" class="tab-pane ">
-		{{ render(controller( 
+        <div class="row block-img">
+            <div class="col col_3">
+                <label class="input_label displayLabel displayLabelImage">Image à la une</label>
+                <div class="form_group imgContainer" style="margin-left:20px;">
+                    {% if entity.image is defined and entity.image is not null %}
+                    <img src="{{ asset('uploads/'~ entity.image.src) }}">
+                    <a class="btn-delleteFile" >Supprimer l'image</a>
+                    {% endif %}
+                </div>
+                {{form_row(form.image)}}
+            </div>
+        </div> 
+    </div>
+    <div class="part seo-part" data-source="seo">
+        {{ render(controller( 
             'AdminBundle:RenderTemplate:renderSeoPart',{ 'form': form}
         )) }}
-	</div>
-	<div id="content" class="tab-pane ">
-		<div class="accordionItems">
-             {{ render(controller( 
-                'ContentElementsManagementSystemBundle:RenderTemplates:renderItemsViewer',{ 'entity': entity, 'form':form}
-            )) }}
-        </div>
-        <div class="buttonsGrid">
-            {{ render(controller( 
-                'ContentElementsManagementSystemBundle:RenderTemplates:renderItemsMenu',{ 'form': form}
-            )) }}
-        </div>
-	</div>
-	<div id="mansory" class="tab-pane ">
-			{{ render(controller( 
-            'MediaBundle:RenderTemplates:renderMasonryGrid',{ 'entity': entity,'type':'page'}
-        )) }}
-	</div>
+    </div>
 </div>
-
 <div style="display:none">{{form_rest(form)}}</div>

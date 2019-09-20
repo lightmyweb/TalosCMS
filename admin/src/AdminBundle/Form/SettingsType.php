@@ -17,6 +17,19 @@ class SettingsType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+        ->add('translations', TranslationsType::class,[
+            'label'=>' ',
+            'fields' =>[
+                'description'=>[
+                    'label' => 'Description bas de page ',
+                    'attr'=>[
+                        "class" =>'form_ctrl textarea_ctrl required_class',
+                        'data-label'=>'Description bas de page'
+                    ]
+                ],
+            ]
+
+        ])
         ->add('title',null,array(
             'attr'=>array(
                 'class'=>'form_ctrl required_class ',
@@ -26,15 +39,31 @@ class SettingsType extends AbstractType
         ->add('widthForCrop',null,array(
             'attr'=>array(
                 'class'=>'form_ctrl  ',
-                'placeholder' =>'Largeur',
                 'data-label'=>'Largeur'
             )
         ))
         ->add('heigthForCrop',null,array(
             'attr'=>array(
                 'class'=>'form_ctrl  ',
-                'placeholder' =>'Hauteur',
                 'data-label'=>'Hauteur'
+            )
+        ))
+        ->add('facebook',null,array(
+            'attr'=>array(
+                'class'=>'form_ctrl required_class ',
+                'data-label'=>'Lien facebook',
+            )
+        ))
+        ->add('instagram',null,array(
+            'attr'=>array(
+                'class'=>'form_ctrl required_class ',
+                'data-label'=>'Lien instagram',
+            )
+        ))
+        ->add('pinterest',null,array(
+            'attr'=>array(
+                'class'=>'form_ctrl required_class ',
+                'data-label'=>'Lien pinterest',
             )
         ))
         ->add('email',null,array(

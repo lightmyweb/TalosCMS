@@ -1,27 +1,77 @@
 {% set blocText_prototype = null %}
-{% set blocSection_prototype = null %}
+{% set blocQuote_prototype = null %}
+{% set blocImage_prototype = null %}
+{% set blocGallery_prototype = null %}
+{% set blocGalleryimage_prototype = null %}
+{% set blocGalleryimage_blocGallery_prototype = null %}
 
 {% if  form.blocTexts is defined %}
 	{% set blocText_prototype = form_widget(form.blocTexts.vars.prototype)  %}
 {% endif %}
-{% if  form.blocSections is defined %}
-	{% set blocSection_prototype = form_widget(form.blocSections.vars.prototype)  %}
+
+{% if  form.blocQuotes is defined %}
+	{% set blocQuote_prototype = form_widget(form.blocQuotes.vars.prototype)  %}
 {% endif %}
+
+{% if  form.blocImages is defined %}
+	{% set blocImage_prototype = form_widget(form.blocImages.vars.prototype)  %}
+{% endif %}
+
+{% if  form.blocGalleryimages is defined %}
+	{% set blocGalleryimage_prototype = form_widget(form.blocGalleryimages.vars.prototype)  %}
+{% endif %}
+
+{% if  form.blocGalleries is defined %}
+	{% set blocGalleryimage_blocGallery_prototype = form_widget(form.blocGalleries.vars.prototype.children['galleryimages'].vars.prototype)  %}
+	{% set blocGallery_prototype = form_widget(form.blocGalleries.vars.prototype) %}
+{% endif %} 
 
 
 
 {% 
 	set data = [
 		{
-			'type':'sectionsBloc',
+			'type':'imagesBloc',
 			'name_order':0,
-			'entity':'blocSections',
-			'label':'Section',
-			'icon':'fas fa-puzzle-piece',
+			'entity':'blocImages',
+			'label':'Image',
+			'icon':'fas fa-images',
 			'role':'parent',
 			'current_div_class':'accordionItems',
-			'prototype':blocSection_prototype,
+			'prototype':blocImage_prototype,
 			'children':null
+		},
+		{
+			'type':'quotesBloc',
+			'name_order':0,
+			'entity':'blocQuotes',
+			'label':'Citation',
+			'icon':'fas fa-quote-left',
+			'role':'parent',
+			'current_div_class':'accordionItems',
+			'prototype':blocQuote_prototype,
+			'children':null
+		},
+		{
+			'type':'galleriesBloc',
+			'name_order':0,
+			'entity':'blocGalleries',
+			'label':'Galerie',
+			'icon':'fas fa-images',
+			'role':'parent',
+			'current_div_class':'accordionItems',
+			'prototype':blocGallery_prototype,
+			'children':{
+				0:{
+					'type':'galleryimages',
+					'label':'Image',
+					'name_order':0,
+					'role':'child',
+					'entity':'galleryimages',
+					'prototype':blocGalleryimage_blocGallery_prototype,
+					'children':null,
+				}
+			}
 		},
 		{
 			'type':'textsBloc',
@@ -42,4 +92,3 @@
     	'data':data
     }
 )) }}
-

@@ -1,0 +1,59 @@
+{% extends 'AdminBundle::_shared.html.twig' %}
+{% block title %}Editer Home{% endblock %} 
+{% block lib_css %}
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/css/select2.min.css" rel="stylesheet" />
+{% endblock %}
+{% block lib_script %}
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/js/select2.min.js"></script>
+    {{ tinymce_init() }}
+{% endblock %}
+
+{% block local_script %}
+    <script src="{{ asset('adminTemplateFiles/build/js/boxes_script.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('adminTemplateFiles/build/js/eventOrder.js') }}" type="text/javascript"></script>
+    <script type="text/javascript">
+    updatePositionOnEdit();
+    </script>
+    <script type="text/javascript">
+    $(".cat").select2({
+        maximumSelectionSize: 10
+    });
+    </script>
+{% endblock %}
+
+{% block body %}
+{{ form_start(edit_form) }}
+<div class="col col_8">
+     <div class="container_box">
+        <div class="box_title"> 
+            <h3>Editer Home</h3>
+        </div>
+        <div class="box_content">
+            <div class="row">
+                {{ render(controller( 
+                    'AdminBundle:RenderTemplate:renderHomeForm',{ 'form': edit_form, 'entity':home, 'data':null }
+                )) }}
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col col_4">
+    
+    <div class="action-page">
+        <div class="action-body">
+           <div class="btn-group">
+                {{ render(controller( 
+                    'AdminBundle:RenderTemplate:renderSubmitButtons',{'path':path('home_index')  }
+                )) }}
+           </div>
+        </div>
+    </div>
+</div>
+{{ form_end(edit_form) }}
+
+{% endblock %}
+
+{% block media_content %}
+    {% include 'MediaBundle:Templates:medias.html.twig'%}
+{% endblock %}

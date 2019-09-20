@@ -1,0 +1,46 @@
+<div class="time_line">
+    <div class="line"></div>
+    <a class="part active content-part" href="#content" data-target="content">Projets dans home</a>
+    <a class="part generale-part" href="#generale" data-target="generale">Général</a>
+    <a class="part seo-part" href="#seo" data-target="seo">Seo</a>
+</div>
+<div class="time_line_target">
+
+    <div class="part content-part active" data-source="content">
+        <div class="row">
+            <div class="col col_5">
+                <div class="catgory-tag simple-cat">
+                    {{form_row(form.projects, { 'attr': {'class': 'select-tag-cat cat'} }) }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="part generale-part" data-source="generale">
+        {# {{ render(controller( 'AdminBundle:RenderTemplate:renderLocales')) }} #}
+        <div class="row">
+            <div class="col col_10">
+                {{form_row(form.translations)}}
+            </div>
+        </div> 
+        <div class="row block-img">
+            <div class="col col_3">
+                <label class="input_label displayLabel displayLabelImage">Bloc à propos - Image</label>
+                <div class="form_group imgContainer" style="margin-left:20px;">
+                    {% if entity.aboutImage is defined and entity.aboutImage is not null %}
+                    <img src="{{ asset('uploads/'~ entity.aboutImage.src) }}">
+                    <a class="btn-delleteFile" >Supprimer l'image</a>
+                    {% endif %}
+                </div>
+                {{form_row(form.aboutImage)}}
+            </div>
+        </div>
+    </div>
+
+    <div class="part seo-part" data-source="seo">
+        {{ render(controller( 
+            'AdminBundle:RenderTemplate:renderSeoPart',{ 'form': form}
+        )) }}
+    </div>
+</div>
+<div style="display:none">{{form_rest(form)}}</div>

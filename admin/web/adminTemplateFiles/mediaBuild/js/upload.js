@@ -4,16 +4,19 @@ $(document).ready(function() {
 	var clickedPart = false;
 	var fileUploadElement = false;
 	var partId  = 0;
+	var dragAndDropBtnClicked =false;
 	$('body').on('change','.file',function(event){
 		resize = false;
 		const file = event.target.files[0];
-		
 		$(this).parent().removeClass('danger')
 		$(this).parent().attr('data-label','Importer une image')
 		displayImageAfterUpload($(this), event)
 		fileUploadElement = this
 		$('.uploadedImageDivision').show()
-		if( this.files[0].size >  999999 ){
+		if( this.files[0].size >  2000000  ){
+			alert('Veillez réduire la taille de l\'image avant de l\'uploader ( taille optimale  < 1MO ) ')
+			
+		}else if( this.files[0].size <  2000000 && this.files[0].size > 999999 ){
 			$('.cropUploadedImage').trigger('click')
 		}
 		
@@ -56,6 +59,21 @@ $(document).ready(function() {
 		parent.attr('data-label',label)
 		parent.attr('data-id',partId + 1)
 	});
+	$('body').on('click','.addNewImageToDragAndDrop',function(e){
+		clickedPart = $(this)
+		dragAndDropBtnClicked = true
+		$('.blockRow').addClass('active')
+		$('._mediaModel').addClass('active')
+		$('.loading_part.modalLoading').addClass('active')
+		if( $(this).find('select').val() != '' ){
+			mediaAjaxCall(
+				mediaAjxUrl,
+				-1,
+				$('._mediaModel').find('.box_content').find('.list')
+			)
+		} 
+		return false;
+	})
 	$('body').on('click','.fileUploadTriggerDiv',function(e){
 		if($(this).parent().find('.imgContainer').length == 0 && $(this).parent().parent().parent().find('.imgContainer').length == 0){
 			$(this).parent().append('<div class="form_group imgContainer" style="margin-left:20px;"></div>');
@@ -86,15 +104,31 @@ $(document).ready(function() {
 		$('.blockRow').removeClass('active')
 	})
 	$('body').on('click','._mediaModel .selectMediaIcon',function(){
-		$('._mediaModel .mediaBordered').each(function(index, el) {
-			$(this).removeClass('selected')
-		});
-		clickedPart.find('select').val($(this).data('id'));
 		$(this).parent().parent().parent().parent().addClass('selected')
 		var clone = $(this).parent().parent().parent().parent().find('img').clone()
-		clickedPart.parent().parent().find('.imgContainer').empty();
-		clickedPart.parent().parent().find('.imgContainer').append( clone )
-		clickedPart.parent().parent().find('.imgContainer').append('<a class="btn-delleteFile" >Supprimer l\'image</a>')
+		if( dragAndDropBtnClicked != true ){
+			$('._mediaModel .mediaBordered').each(function(index, el) {
+				$(this).removeClass('selected')
+			});
+			clickedPart.find('select').val($(this).data('id'));
+			clickedPart.parent().parent().find('.imgContainer').empty();
+			clickedPart.parent().parent().find('.imgContainer').append( clone )
+			clickedPart.parent().parent().find('.imgContainer').append('<a class="btn-delleteFile" >Supprimer l\'image</a>')
+		}else{
+			
+
+			var contentToInsert = '<div class="addedFromImage"  data-id="'+$(this).data('id')+'" ></div>'
+			$('#secondList').append(contentToInsert)
+			$('#secondList div[data-id="'+$(this).data('id')+'"]').last().append(clone)
+			callDragAndDropShiftFunction()
+			_callDragAndDropThingFunction($('#secondList div[data-id="'+$(this).data('id')+'"]').last())
+			setNewValueInJsonFormat($('#secondList'))
+			dragAndDropBtnClicked = false;
+		}
+		$('.blockRow').removeClass('active')
+		$('._mediaModel').removeClass('active')
+		$('.loading_part.modalLoading').removeClass('active')
+		return false;
 	})
 	$('body').on('click','._mediaModel .newFormModal',function(){
 		$('.loading_part.modalLoading').addClass('active')
@@ -146,7 +180,9 @@ $(document).ready(function() {
 	  		localStorage.setItem('mediaBox',1)
 	  	}
 	  	if( resize !== false ){
+			data.delete('src')
 	  		sendRequestAjaxForCroppedImage(resize,data)
+
 	  	}else{
 	  		simpleAjaxSendFunction(data)
 	  	}

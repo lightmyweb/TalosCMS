@@ -1,4 +1,9 @@
 <div class="submitResetModifBtnsSections">
-    <input type="submit" name="saveAndLeave" class="submitBtn"/>    
-    <input type="submit" name="saveAndStay" class="submitBtn"/>    
+    <input type="submit" value="Enregistrer"  class="btn btn-submit"/>
+    <span class="btn-show-liste"><i class="fa fa-caret-down"></i></span>
+    <div class="btn-hidden">
+        <input type="submit" value="Enregistrer et rester" name="saveAndStay"  class="btn btn-submitsaveAndStay" title="Enregistrer et rester" />
+        
+    <input type="reset" value="Annuler"  class="btn btn-reset" data-href="{{ path }}" title="Annuler"  />
+    </div>
 </div>

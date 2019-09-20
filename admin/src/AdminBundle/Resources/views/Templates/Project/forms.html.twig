@@ -1,0 +1,73 @@
+<div class="time_line">
+    <div class="line"></div>
+    <a class="part active content-part" href="#content" data-target="content">Contenu</a>
+    <a class="part generale-part" href="#generale" data-target="generale">Général</a>
+    <a class="part seo-part" href="#seo" data-target="seo">Seo</a>
+</div>
+<div class="time_line_target">
+    <div class="part active content-part" data-source="content">
+        <div class="accordionItems">
+             {{ render(controller( 
+                'ContentElementsManagementSystemBundle:RenderTemplates:renderItemsViewer',{ 'entity': entity, 'form':form}
+            )) }}
+        </div>
+
+        <div class="buttonsGrid">
+            {{ render(controller( 
+                'ContentElementsManagementSystemBundle:RenderTemplates:renderItemsMenu',{ 'form': form}
+            )) }}
+        </div>
+    </div>
+
+    <div class="part generale-part" data-source="generale">
+        {# {{ render(controller( 'AdminBundle:RenderTemplate:renderLocales')) }} #}
+        <div class="row">
+            <div class="col col_10">
+                {{form_row(form.translations)}}
+            </div>
+        </div> 
+        <div class="row block-img">
+            <div class="col col_3">
+                <label class="input_label displayLabel displayLabelImage">Image à la une</label>
+                <div class="form_group imgContainer" style="margin-left:20px;">
+                    {% if entity.image is defined and entity.image is not null %}
+                    <img src="{{ asset('uploads/'~ entity.image.src) }}">
+                    <a class="btn-delleteFile" >Supprimer l'image</a>
+                    {% endif %}
+                </div>
+                {{form_row(form.image)}}
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col col_5">
+                <div class="catgory-tag simple-cat">
+                    {{form_row(form.client, { 'attr': {'class': 'select-tag-cat client'} }) }}
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col col_5">
+                <div class="catgory-tag simple-cat">
+                    {{form_row(form.category, { 'attr': {'class': 'select-tag-cat cat'} }) }}
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col col_5">
+                <div class="catgory-tag simple-cat">
+                    {{form_row(form.location, { 'attr': {'class': 'select-tag-cat location'} }) }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="part seo-part" data-source="seo">
+        {{ render(controller( 
+            'AdminBundle:RenderTemplate:renderSeoPart',{ 'form': form}
+        )) }}
+    </div>
+</div>
+<div style="display:none">{{form_rest(form)}}</div>

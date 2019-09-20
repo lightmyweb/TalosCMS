@@ -20,6 +20,9 @@ class Help extends GeneralEntity
      */
     private $title;
 
+
+
+
     /**
      * Set title
      *

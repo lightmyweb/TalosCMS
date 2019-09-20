@@ -9,12 +9,30 @@
 	                )) }}
                 {% endif %}
 			{% endfor %}  
-		{% elseif content.type == 'sectionBloc' %}
-			{% for sectiontBloc in form.blocSections %}
-				{% if sectiontBloc.vars.value.position ==  content.entity.position %}
+		{% elseif content.type == 'quoteBloc' %}
+			{% for quoteBloc in form.blocQuotes %}
+				{% if quoteBloc.vars.value.position ==  content.entity.position %}
 					{{ render(controller( 
-	                    'ContentElementsManagementSystemBundle:ElementsFormRender:renderSectionBlocForm',
-	                    { 'form': sectiontBloc.vars.form,'entity':content.entity}
+	                    'ContentElementsManagementSystemBundle:ElementsFormRender:renderQuoteBlocForm',
+	                    { 'form': quoteBloc.vars.form,'entity':content.entity}
+	                )) }}
+                {% endif %}
+			{% endfor %} 
+		{% elseif content.type == 'galleryBloc' %}
+			{% for galleryBloc in form.blocGalleries %}
+				{% if galleryBloc.vars.value.position ==  content.entity.position %}
+					{{ render(controller( 
+	                    'ContentElementsManagementSystemBundle:ElementsFormRender:renderGalleryBlocForm',
+	                    { 'form': galleryBloc.vars.form,'entity':content.entity}
+	                )) }}
+                {% endif %}
+			{% endfor %} 
+		{% elseif content.type == 'imageBloc' %}
+			{% for imageBloc in form.blocImages %}
+				{% if imageBloc.vars.value.position ==  content.entity.position %}
+					{{ render(controller( 
+	                    'ContentElementsManagementSystemBundle:ElementsFormRender:renderImageBlocForm',
+	                    { 'form': imageBloc.vars.form,'entity':content.entity}
 	                )) }}
                 {% endif %}
 			{% endfor %} 

@@ -1,0 +1,185 @@
+<div class="header">
+  <a href="#" id="menu-action" class="active">
+    <i class="fa fas fa-caret-left"></i>
+    <span>Réduire le menu</span>
+  </a>
+  <div class="logo">
+    {{ render(controller( 'AdminBundle:RenderTemplate:renderProjecttitle')) }}
+  </div>
+</div>
+<div id="menu" class="sidebar active">
+  <ul>
+        <li>
+          <a href="{{ path('backend_index') }}" data-class=""  {% if localepathForRoutePath == path('backend_index') %} class="active" {% endif %}><i class="fas fa-tachometer-alt"></i>Dashboard</a>
+        </li>
+        <li>
+          <a href="{{ path('page_edit', { 'id': 1 }) }}" data-class="" {% if localepathForRouteId == 1 %} class="active" {% endif %}><i class="fas fa-home"></i>Home</a>
+        </li>
+        <li>
+          <a class="menu-parent" href="#" data-class="" 
+          {% if localepathForRoutePath == path('category_index') or localepathForRoutePath == path('category_new')  %}
+           class="active" {% endif %}>
+           <i class="fas fa-folder-plus"></i>Catégories 
+           {% if localepathForRoutePath == path('category_index')
+              or localepathForRoutePath == path('category_new')   %}
+              <i class="fa fa-caret-up"> </i>
+          {% else %} 
+               <i class="fa fa-caret-down"></i>
+          {% endif %}</a>
+          <ul class="sousmenu 
+          {% if localepathForRoutePath == path('category_index') or localepathForRoutePath == path('category_new')  %}
+          open active
+          {% endif %}" 
+          >
+            <li {% if localepathForRoutePath == path('category_index') %} class="tag-active" {% endif %} ><a href="{{ path('category_index') }}" data-rel="submenu"><i class="fas fa-list"></i>Tous les catégories</a></li>
+            <li {% if localepathForRoutePath == path('category_new') %} class="tag-active" {% endif %}><a href="{{ path('category_new') }}" data-rel="submenu"><i class="fas fa-plus"></i>Ajouter</a></li>
+          </ul>
+        </li>
+        <li>
+          <a class="menu-parent" href="#" data-class=""  
+          {% if localepathForRouteId == 8
+            or localepathForRoutePath == path('projet_index') 
+            or localepathForRoutePath == path('projet_new')  %}
+            class="active" 
+          {% endif %} >
+          <i class="fas fa-project-diagram"></i>Projets 
+          {% if localepathForRouteId == 8  
+              or localepathForRoutePath == path('projet_index')
+              or localepathForRoutePath == path('projet_new')   %}
+              <i class="fa fa-caret-up"> </i>
+          {% else %} 
+               <i class="fa fa-caret-down"></i>
+          {% endif %}</a>
+          <ul class="sousmenu
+          {% if localepathForRouteId == 8 
+            or localepathForRoutePath == path('projet_index')  
+            or localepathForRoutePath == path('projet_new') %}
+            open active
+          {% endif %}">
+            <li {% if localepathForRouteId == 8 %} class="tag-active" {% endif %}>
+              <a href="{{ path('page_edit', { 'id': 8 }) }}" data-rel="submenu"><i class="fas fa-sort-amount-up"></i>Page Projet</a>
+            </li>
+            <li {% if localepathForRoutePath == path('projet_index') %} class="tag-active" {% endif %}>
+              <a href="{{ path('projet_index') }}" data-rel="submenu"><i class="fas fa-list"></i>Tous les projets</a>
+            </li>
+            <li {% if localepathForRoutePath == path('projet_new') %} class="tag-active" {% endif %}>
+              <a href="{{ path('projet_new') }}" data-rel="submenu"><i class="fas fa-plus"></i>Ajouter</a>
+            </li>
+          </ul>
+        </li>
+
+        <li>
+          <a class="menu-parent" href="#" data-class="" 
+          {% if localepathForRouteId == 12  
+            or localepathForRoutePath == path('categoryfoulard_index')   
+            or localepathForRoutePath ==  path('categoryfoulard_new')  %}
+             class="active" 
+             {% endif %}>
+             <i class="fas fa-folder-plus"></i>Foulard  
+             {% if localepathForRouteId == 12  
+              or localepathForRoutePath == path('categoryfoulard_index')
+              or localepathForRoutePath == path('categoryfoulard_new')   %}
+              <i class="fa fa-caret-up"> </i>
+          {% else %} 
+               <i class="fa fa-caret-down"></i>
+          {% endif %}</a>
+          <ul class="sousmenu
+          {% if localepathForRouteId == 12 
+            or localepathForRoutePath == path('categoryfoulard_index') 
+            or localepathForRoutePath == path('categoryfoulard_projects_index') 
+            or localepathForRoutePath == path('categoryfoulard_new') %}
+            open active
+          {% endif %}">
+            <li {% if localepathForRouteId == 12 %} class="tag-active" {% endif %}>
+              <a href="{{ path('page_edit', { 'id': 12 }) }}" data-rel="submenu"><i class="fas fa-sort-amount-up"></i>Page Foulard</a>
+            </li>
+            <li {% if localepathForRoutePath == path('categoryfoulard_index') %} class="tag-active" {% endif %}>
+              <a href="{{ path('categoryfoulard_index') }}" data-rel="submenu"><i class="fas fa-list"></i>Tous les catégories</a>
+            </li>
+            <li {% if localepathForRoutePath == path('categoryfoulard_index') %} class="tag-active" {% endif %}>
+              <a href="{{ path('categoryfoulard_projects_index') }}" data-rel="submenu"><i class="fas fa-list"></i>Projets foulard </a>
+            </li>
+            <li {% if localepathForRoutePath == path('categoryfoulard_new') %} class="tag-active" {% endif %}>
+              <a href="{{ path('categoryfoulard_new') }}" data-rel="submenu"><i class="fas fa-plus"></i>Ajouter Catégorie</a>
+            </li>
+          </ul>
+        </li>
+        
+        <li>
+          <a href="{{ path('page_edit', { 'id': 7 }) }}" data-class=""  {% if localepathForRouteId == 7 %} class="active" {% endif %}><i class="fas fa-asterisk"></i>Référence</a>
+        </li>
+
+        <li>
+          <a class="menu-parent" href="#" data-class="" 
+          {% if localepathForRoutePath == path('page_index')    
+          or localepathForRoutePath == path('page_new')   %} 
+          class="active" 
+          {% endif %}>
+          <i class="fas fa-copy"></i>Pages
+           {% if localepathForRoutePath == path('page_index')
+              or localepathForRoutePath == path('page_new')   %}
+              <i class="fa fa-caret-up"> </i>
+          {% else %} 
+               <i class="fa fa-caret-down"></i>
+          {% endif %}</a>
+          <ul class="sousmenu 
+          {% if  localepathForRoutePath == path('page_index')  
+              or localepathForRoutePath == path('page_new') %}
+              open active
+          {% endif %}">
+            <li {% if localepathForRoutePath == path('page_index') %} class="tag-active" {% endif %}>
+              <a href="{{ path('page_index') }}" data-rel="submenu"><i class="fas fa-list"></i>Toutes les pages</a>
+            </li>
+            <li {% if localepathForRoutePath == path('page_new') %} class="tag-active" {% endif %}>
+              <a href="{{ path('page_new') }}" data-rel="submenu"><i class="fas fa-plus"></i>Ajouter</a>
+            </li>
+          </ul>
+        </li>
+
+        <li>
+          <a href="{{ path('image_index') }}" data-class="" 
+          {% if localepathForRoutePath == path('image_index')  %}
+           class="active" 
+           {% endif %}>
+           <i class="fas fa-images"></i>Médias</a>
+        </li>
+        <li>
+          <a class="menu-parent" href="#" data-class=""><i class="fa fa fa-newspaper"></i>Langues <i class="fa fa-caret-down"></i></a>
+          <ul class="sousmenu">
+            <li><a href="{{ path('locale_index') }}" data-rel="submenu"><i class="fas fa-list"></i>Toutes les langues</a></li>
+            {% if app.user.role != 'ROLE_EDITOR' %}
+              <li><a href="{{ path('locale_new') }}" data-rel="submenu"><i class="fas fa-plus"></i>Ajouter</a></li>
+            {% endif %}
+          </ul>
+        </li>
+        {# <li>
+          <a href="{{ path('contact_index') }}" data-class=""><i class="fas fa-envelope-open"></i>Contact</a>
+        </li> #}
+        {% if app.user.role != 'ROLE_EDITOR' %}
+        <li>
+          <a href="{{ path('admin_users') }}" data-class=""><i class="fa fa-user"></i>Utilisateurs</a>
+        </li>
+        {% endif %}
+        {% if app.user.role == 'ROLE_DEV' %}
+          <!-- <li>
+            <a href="{{ path('exemple_index') }}" data-class=""><i class="fas fa-question-circle"></i>Page Exemple pour LMW</a>
+          </li> -->
+        {% endif %}
+        {% if app.user.role == 'ROLE_SUPER_ADMIN' or app.user.role == 'ROLE_DEV' %}
+        <li>
+          <a href="{{ path('help_edit',{'id':47}) }}" data-class=""><i class="fa fa-info-circle"></i>Aide Remplissage</a>
+        </li>
+        {% endif %}
+        <li>
+          <a href="{{ path('help_show',{'id':47}) }}" data-class=""><i class="fa fa-info-circle"></i>Aide</a>
+        </li> 
+        {% if app.user.role != 'ROLE_EDITOR' %}
+         <li>
+          <a href="{{ path('clearcache') }}" data-class=""><i class="fas fa-exclamation-triangle"></i>Vider le cache</a>
+        </li>
+        <li>
+          <a href="{{ path('settings_edit', { 'id': 1}) }}" data-class=""><i class=" fas fa-cog "></i>Paramètres</a>
+        </li>
+        
+        {% endif %}
+</div>

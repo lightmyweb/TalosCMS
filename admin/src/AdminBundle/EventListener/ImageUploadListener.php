@@ -16,6 +16,8 @@ use AdminBundle\Entity\Publication;
 use AdminBundle\Entity\PublicationCategory;
 use AdminBundle\Entity\Settings;
 
+use AdminBundle\Entity\Press;
+
 use ContentElementsManagementSystemBundle\Entity\BlocTeamMember;
 
 use MediaBundle\Entity\Image;
@@ -62,6 +64,17 @@ class ImageUploadListener
                 $entity->setFavicon($fileName);
             }
         }
+
+        if ($entity instanceof Press) {
+            
+            $file_pdf = $entity->getPdf();
+
+            if ($file_pdf instanceof UploadedFile) {
+                $fileName = $this->uploader->upload($file_pdf,$date,'pdf');
+                $entity->setPdf($fileName);
+            }
+        }
+
 
         if ($entity instanceof Image) {
             

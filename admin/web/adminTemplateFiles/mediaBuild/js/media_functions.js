@@ -1,21 +1,19 @@
  function getWidthAndHeigth(route){
-   // if( localStorage.getItem('optimalWidth') == undefined && localStorage.getItem('optimalHeigth') == undefined  ){
-         $.ajax({ 
-            url: route,
-            dataType: "json",
-            type:'GET',
-            success: function (data) {
-                console.log(data)
-                if (data.result == 1){
-                    localStorage.setItem('optimalWidth',data.width)
-                    localStorage.setItem('optimalHeigth',data.heigth)
+     $.ajax({ 
+        url: route,
+        dataType: "json",
+        type:'GET',
+        success: function (data) {
+            console.log(data)
+            if (data.result == 1){
+                localStorage.setItem('optimalWidth',data.width)
+                localStorage.setItem('optimalHeigth',data.heigth)
 
-                }
-            },
-            error: function (request,error){
-            }       
-        });    
-   // }
+            }
+        },
+        error: function (request,error){
+        }       
+    });    
 }
 function displayImageAfterUpload(element,event){
     var reader = new FileReader();
@@ -94,12 +92,16 @@ function simpleAjaxSendFunction(data){
 }
 function sendRequestAjaxForCroppedImage(resize,data){
     resize.result({
-        type: 'blob'
+        type: 'blob',
+        size: 'original'
     }).then(function (blob) {
         var file = new File([blob], localStorage.getItem('filename'), {
           type: "image/png",
         })
         data.append('fileCroped',file)
+        for (var value of data.values()) {
+   console.log(value); 
+}
         simpleAjaxSendFunction(data)
     });
 }
@@ -148,7 +150,8 @@ function readFile(input,resultDiv,resize) {
         },
         showZoomer: true,
         enableOrientation: true,
-        mouseWheelZoom: 'ctrl'
+        mouseWheelZoom: 'ctrl',
+        enableResize: true,
       });
     }
     reader.onload = function (e) {
@@ -172,7 +175,7 @@ function saveCroppedImage(resize){
 }
 function paginationFunction(){
     var options = {
-        page: 6,
+        page: 8,
         pagination: true
     };
     var userList = new List('allmedias', options);
@@ -223,6 +226,7 @@ function editMediaAjaxFunction(image_id,element= null,url,whereToAdd){
     });
 }
 function mediaAjaxCall(route,id = 0,WhereToAdd){
+    console.log(id)
     $.ajax({ 
         url: route,
         dataType: "json",

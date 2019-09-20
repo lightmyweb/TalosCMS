@@ -32,7 +32,6 @@ class LoginController extends Controller
             // last username entered by the user
             'last_username' => $session->get(Security::LAST_USERNAME),
             'error'         => $error,
-            'project_name' => $this->container->getParameter('project_name') 
         ));
 
     }

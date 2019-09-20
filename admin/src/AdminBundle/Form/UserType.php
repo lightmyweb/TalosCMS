@@ -10,7 +10,7 @@ use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Security\Core\SecurityContext;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use AdminBundle\Entity\User; 
+use AdminBundle\Entity\User;
 class UserType extends AbstractType
 {
 
@@ -25,7 +25,6 @@ class UserType extends AbstractType
                 'attr'=>array(
                     'class'=>'form_ctrl required_class',
                     'required' => true,
-                    'placeholder' => 'Prénom (*)'
                ))
             )
             ->add('last_name', null, array(
@@ -33,21 +32,18 @@ class UserType extends AbstractType
                 'attr'=>array(
                     'class'=>'form_ctrl required_class',
                     'required' => true,
-                    'placeholder' => 'Nom (*)'
                 )
             ))
             ->add('username', null, array(
                 'label' => 'Login (Nom d\'utilisateur) *',
                 'attr'=>array(
                     'class'=>'form_ctrl required_class',
-                    'placeholder' => 'Login (Nom d\'utilisateur) (*)'
                 )
             ))
             ->add('email', null, array(
                 'label' => "Email *" ,
                 'attr'=>array(
                     'class'=>'form_ctrl required_class',
-                    'placeholder' => 'Email (*)'
                 )
             ))
             ->add('password', PasswordType::class, array(
@@ -55,7 +51,6 @@ class UserType extends AbstractType
                 'attr'=>array(
                     'class'=>'form_ctrl ',
                     'required' => true,
-                    'placeholder' => 'Mot de passe (*)',
                     'data-validate-length-range' => '6,255'
                 )
             ));
@@ -72,7 +67,8 @@ class UserType extends AbstractType
                 'choices' => array( 
                     'Editeur' => 'ROLE_EDITOR', 
                     'Administrateur' => 'ROLE_ADMIN',
-                    'Developpeur' => 'ROLE_DEV' 
+                    'Developpeur' => 'ROLE_DEV' ,
+                    'Super Administrateur' => 'ROLE_SUPER_ADMIN' 
                 ),
                 'attr'=>array(
                 'class'=>'form_ctrl required_class',

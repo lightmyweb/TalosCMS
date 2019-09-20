@@ -1,0 +1,24 @@
+<div class="panel closed" data-role="child" >
+	<div class="panel_header" data-role="child">
+		<h3>Image</h3>
+		<div class="editpart">
+			<button class="toglle_panel"><i class="fas fa-chevron-down"></i></button>
+			<button class="delete_panel" style="margin-right:0px"><i class="far fa-times-circle"></i></button>
+		</div>
+	</div>
+	<div class="panel_content">
+        <div class="row block-img">
+            <div class="col col_3">
+                {# {{dump(form.figure.vars.data)}} #}
+                <div class="form_group imgContainer" style="margin-left:20px;">
+                    {% if form.figure.vars.data.src is defined and form.figure.vars.data.src is not null %}
+                    <img src="{{ asset('uploads/'~ form.figure.vars.data.src) }}">
+                    {# <a class="btn-delleteFile" >Supprimer l'image</a> #}
+                    {% endif %}
+                </div>
+                {{form_row(form.figure)}}
+            </div>
+        </div>
+		{{form_widget(form.position)}}
+	</div>
+</div>

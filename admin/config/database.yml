@@ -1,9 +1,9 @@
 parameters:
-  database_host: 127.0.0.1
+  database_host: localhost
   database_port: null
-  database_name: talos_database
-  database_user: root
-  database_password: null
+  database_name: rev_project
+  database_user: salim
+  database_password: 44129221
 doctrine:
     dbal: 
        driver: pdo_mysql

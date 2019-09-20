@@ -1,0 +1,419 @@
+/**new update*/
+.header_wrapper .header_side.left_side_header{left: -35px;}
+.header_wrapper .header_side.left_side_header .menu_humbegrer_toggle.active .bar{background-color: #f7f7f7;}
+.header_wrapper .header_side.left_side_header .menu_humbegrer_toggle .bar{height: 2px;}
+.header_wrapper .header_side.left_side_header .menu_humbegrer_toggle{width: 25px;}
+.action-page .action-body .submitResetModifBtnsSections span{border-bottom: 3px solid #1c9e3d;border-top: 2.5px solid #1c9e3d;}
+body {
+  background: #f5f5f5;
+  padding: 0;
+  margin: 0;
+  font-family: "Lato", sans-serif;
+}
+
+i.fa {
+  font-size: 16px;
+}
+
+p {
+  font-size: 16px;
+  line-height: 1.428571429;
+}
+
+.header {
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  background: #23282d;
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  color: #fff;
+}
+.header .logo {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.header #menu-action {
+  display: block;
+  float: left;
+  width: 60px;
+  height: 50px;
+  line-height: 50px;
+  margin-right: 15px;
+  color: #fff;
+  text-decoration: none;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.15);
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+.header #menu-action i {
+  display: inline-block;
+  margin: 0 5px;
+}
+.header #menu-action span {
+  font-size: 10px;
+  width: 0px;
+  display: none;
+  overflow: hidden;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+.header #menu-action:hover {
+  background: rgba(0, 0, 0, 0.25);
+}
+.header #menu-action.active {
+  width: 199px;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+.header #menu-action.active span {
+  display: inline;
+  width: auto;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.sidebar {
+  position: fixed;
+  z-index: 10;
+  left: 0;
+  top: 50px;
+  height: 100%;
+  width: 60px;
+  background: #23282d;
+  border-right: 1px solid #ddd;
+  text-align: center;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+.sidebar:hover, .sidebar.active, .sidebar.hovered {
+  width: 199px;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.sidebar ul li a {
+  display: block;
+  position: relative;
+  white-space: nowrap;
+  overflow: hidden;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+.sidebar ul li a i {
+  display: inline-block;
+  width: 60px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  -webkit-animation-duration: 0.7s;
+  -moz-animation-duration: 0.7s;
+  -o-animation-duration: 0.7s;
+  animation-duration: 0.7s;
+  -webkit-animation-fill-mode: both;
+  -moz-animation-fill-mode: both;
+  -o-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+.sidebar ul li a span {
+  display: inline-block;
+  height: 60px;
+  line-height: 60px;
+}
+.main {
+  position: relative;
+  display: block;
+  top: 50px;
+  left: 0;
+  padding: 15px;
+  padding-left: 75px;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+.main.active {
+  padding-left: 275px;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+.main .jumbotron {
+  background-color: #fff;
+  padding: 30px !important;
+  border: 1px solid #dfe8f1;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+.main .jumbotron h1 {
+  font-size: 24px;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 12px;
+}
+
+.sidebar_wrapper{
+	margin-left: -139px;
+}
+.all_warrapers_web_content.margin_left_activated.main-active {
+    width: calc(100% - 65px)!important;
+}
+.sousmenu{ 
+	display: none;
+}
+.sousmenuactive{ 
+	display: block;
+}
+ul.sousmenu li a{
+	background: #cccccc;
+    color: #23282d;
+    font-size: 13px;
+}
+.accordionItems .panel .panel_header{
+	height: 50px;
+}
+.accordionItems .panel .panel_header .editpart button:hover {
+    transition: all .4s;
+    color: #f4f9fd;
+    background-color: #23282d;
+}
+.wrapper {
+  position: relative;
+}
+
+.heading {
+  margin: 25px 0;
+  font-size: 24px;
+  padding-left: 8px;
+}
+
+.dashboard-stat {
+  position: relative;
+  display: block;
+  margin: 0 10px 25px;
+  overflow: hidden;
+  border-radius: 4px;
+}
+.dashboard-stat .visual {
+  width: 80px;
+  height: 80px;
+  display: block;
+  float: left;
+  padding-top: 10px;
+  padding-left: 15px;
+  margin-bottom: 15px;
+  font-size: 35px;
+  line-height: 35px;
+}
+.dashboard-stat .visual > i {
+  margin-left: -15px;
+  font-size: 110px;
+  line-height: 110px;
+  color: #fff;
+  opacity: 0.1;
+}
+.dashboard-stat .details {
+  position: absolute;
+  right: 15px;
+  padding-right: 15px;
+  color: #ccc;
+}
+.dashboard-stat .details .number {
+  padding-top: 25px;
+  text-align: right;
+  font-size: 34px;
+  line-height: 36px;
+  letter-spacing: -1px;
+  margin-bottom: 0;
+  font-weight: 300;
+}
+.dashboard-stat .details .number .desc {
+  text-transform: capitalize;
+  text-align: right;
+  font-size: 16px;
+  letter-spacing: 0;
+  font-weight: 300;
+}
+
+.purple {
+  background-color: #23282d;
+  transition: all .4s;
+}
+.purple:hover{
+   opacity: 0.8;
+   transition: all .4s;
+}
+.header_wrapper .header_side.right_side_header{
+    top: 15px;
+    right: 10px;
+}
+.sticky-footer{
+	position: fixed;
+	bottom: 37px;
+	right: 15px;
+}
+.sous-list-box{
+  	list-style: none;
+    background-color: #c9c9c9;
+}
+.dropdown {
+  display: inline-block;
+  position: relative;
+  margin-top: 100px;
+}
+
+.dd-button {
+  display: inline-block;
+  border: 1px solid gray;
+  border-radius: 4px;
+  padding: 10px 30px 10px 20px;
+  background-color: #ffffff;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.dd-button:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  width: 0; 
+  height: 0; 
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid black;
+}
+
+.dd-button:hover {
+  background-color: #eeeeee;
+}
+
+
+.dd-box {
+  display: none;
+  width: 100%;
+  position: absolute;
+  bottom: 42px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 0;
+  margin: 2px 0 0 0;
+  box-shadow: 0 0 6px 0 rgba(0,0,0,0.1);
+  background-color: #ffffff;
+  list-style-type: none;
+}
+
+
+.dd-box li {
+  padding: 10px 20px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.dd-box li:hover {
+  background-color: #f6f6f6;
+}
+
+.dd-box li a {
+  display: block;
+  margin: -10px -20px;
+  padding: 10px 20px;
+}
+.select-tag-cat{
+	margin:0;
+}
+#menu{
+	overflow-y: auto;
+}
+.img-position-picto{
+	height: 120px;
+	width: auto;
+}
+.parent-img-position-picto{
+	width: 200px!important; 
+	background-color:#f7f7f7!important;
+	margin-left: 9px!important;
+}
+#menu a.active{
+	background-color: #eee;
+	color: #000;
+}
+.tag-active{
+	position: relative;
+ }
+.tag-active:after {
+    right: 0;
+    border: solid 8px transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    border-right-color: #f1f1f1;
+    top: 50%;
+    margin-top: -8px;
+}
+.input-new{
+	padding-left:20px;
+}
+.input-new input {
+    height: 20px;
+    width: 20px;
+}
+.input-new label{
+	padding-left:10px;
+	font-weight: 500;
+	font-size: 17px;
+	color: #23282d;
+	top: -4px;
+}
+.orderPubLictionperTheme .publicationsOrderElement .content .title {
+    overflow: hidden;
+    white-space: nowrap;
+}
+p.lastsaved{
+	line-height: 22px;
+}
+.fileUploadTriggerDiv::after{
+    background-color: #e2dada;
+    border: 2px solid #23282d;
+}
+.action-page .action-body .submitResetModifBtnsSections .btn-hidden input{
+    background-color: #aaaaaa45;
+    width: calc(80% + 31px);
+}
+.header_wrapper .header_side.right_side_header{
+	position: fixed;
+}
+.toolLabel{
+	z-index: -1;
+}
+.loading_part.modalLoading{
+	height: auto;
+}
+
+.blockRow ._mediaModel.active{
+	height: auto;
+}
+.sousmenu.open{
+	display: block
+}
+div#lastsavedstatus {
+    line-height: 22px;
+}
+.blockRow ._mediaModel.active {
+    height: 80vh!important;
+}
+.blockRow ._mediaModel {
+    left: calc(50% - 100px)!important;
+}
+.row.blockRow.active{
+    position: fixed!important;
+    height: 100vh!important;
+    width: 100%!important;
+}

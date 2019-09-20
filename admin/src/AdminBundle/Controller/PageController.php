@@ -7,7 +7,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
-use MediaBundle\Service\MasnoryGridService;
 
 /**
  * Page controller.
@@ -53,14 +52,7 @@ class PageController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($page);
             $em->flush();
-            if(  $request->request->get('resultMasnory') != ''){
-                $json = $request->request->get('resultMasnory');
-                $json = str_replace('','\"',$json);
-                $finalArray = json_decode($json, true);
-                $service = new MasnoryGridService($this->getDoctrine()->getManager());
-                
-                $service->setNewEntries($finalArray,$page,'page');
-            }
+
             if( $request->request->get('saveAndStay') ){
                 return $this->redirectToRoute('page_edit', array('id' => $page->getId()));
             }else{
@@ -104,13 +96,6 @@ class PageController extends Controller
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
 
-            if(  $request->request->get('resultMasnory') != ''){
-                $json = $request->request->get('resultMasnory');
-                $json = str_replace('','\"',$json);
-                $finalArray = json_decode($json, true);
-                $service = new MasnoryGridService($this->getDoctrine()->getManager());
-                $service->setNewEntries($finalArray,$page,'page');
-            }
             $page->setUpdatedAt(new \DateTime("now"));
             $page->setUpdateuser( $this->getUser() );
             $this->getDoctrine()->getManager()->flush();

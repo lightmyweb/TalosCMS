@@ -28,15 +28,48 @@ class TestifContentExistControllor extends Controller
           }
    		}
 
-      //sectionBloc
-      if ( method_exists($entity,'getBlocSections' ) ){
-        foreach ($entity->getBlocSections() as $sectionBloc) {
+      //quoteBloc
+      if ( method_exists($entity,'getBlocQuotes' ) ){
+        foreach ($entity->getBlocQuotes() as $quoteBloc) {
                 $dataArray[] =  array(
-                    'type' => 'sectionBloc', 
-                    'entity' => $sectionBloc, 
-                    'position' => $sectionBloc->getPosition() 
+                    'type' => 'quoteBloc', 
+                    'entity' => $quoteBloc, 
+                    'position' => $quoteBloc->getPosition() 
                 );
             }
+      }
+
+      //imageBloc
+      if ( method_exists($entity,'getBlocImages' ) ){
+        foreach ($entity->getBlocImages() as $imageBloc) {
+                $dataArray[] =  array(
+                    'type' => 'imageBloc', 
+                    'entity' => $imageBloc, 
+                    'position' => $imageBloc->getPosition() 
+                );
+            }
+      }
+
+      //galleryBloc
+      if ( method_exists($entity,'getBlocGalleries' ) ){
+        foreach ($entity->getBlocGalleries() as $galleryBloc) {
+                $dataArray[] =  array(
+                    'type' => 'galleryBloc', 
+                    'entity' => $galleryBloc, 
+                    'position' => $galleryBloc->getPosition() 
+                );
+            }
+      }
+
+      //galleryimageBloc
+      if ( method_exists($entity,'getBlocGalleryimages' ) ){
+          foreach ($entity->getBlocGalleryimages() as $galleryimageBloc) {
+              $dataArray[] =  array(
+                  'type' => 'galleryimageBloc', 
+                  'entity' => $galleryimageBloc, 
+                  'position' => $galleryimageBloc->getPosition() 
+              );
+          }
       }
 
    		/** order by position **/

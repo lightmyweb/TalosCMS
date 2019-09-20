@@ -1,0 +1,24 @@
+<div class="panel closed" data-role="parent" >
+	<div class="panel_header" data-role="parent">
+		<h3>Image</h3>
+		<div class="editpart">
+			<button class="toglle_panel"><i class="fas fa-chevron-down"></i></button>
+			<button class="delete_panel" style="margin-right:0px"><i class="far fa-times-circle"></i></button>
+		</div>
+	</div>
+	<div class="panel_content">
+		<div class="row block-img">
+            <div class="col col_3">
+            	<label class="input_label displayLabel displayLabelImage">Image principale</label>
+                <div class="form_group imgContainer" style="margin-left:20px;">
+                    {% if entity.thumbnail is defined and entity.thumbnail is not null %}
+                        <img src="{{ asset('uploads/'~ entity.thumbnail.src) }}">
+                        <a class="btn-delleteFile" >Supprimer l'image</a>
+                    {% endif %}
+                </div>
+                {{form_row(form.thumbnail)}}
+            </div>
+        </div> 
+		{{form_widget(form.position)}}
+	</div>
+</div>

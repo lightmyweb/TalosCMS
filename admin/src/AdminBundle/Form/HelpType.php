@@ -27,7 +27,6 @@ class HelpType extends AbstractType
             'label'=> ' ',
             'attr'=> array(
                 'class'=> 'form_ctrl required_class',
-                'placeholder'=>'Titre de la section (*)',
                 'required'=>'required',
                 'data-label'=>'Titre de la section (*)'
             )
