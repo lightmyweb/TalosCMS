@@ -62,15 +62,10 @@ class Image
      */
     protected $pages;
 
-    /**
-     * @ORM\OneToMany(targetEntity="PageAndImageRelation", mappedBy="image", cascade={"persist", "remove"} , orphanRemoval=true)
-     * @ORM\OrderBy({"orderPosition"="ASC"})
-     */
 
-    private $masnoryrelations;
 
     public function __toString(){
-        return $this->getId().'';
+        return $this->getAlt().'';
     }
 
 
@@ -205,7 +200,7 @@ class Image
     {
         return $this->heigth;
     }
-/**
+    /**
      * Constructor
      */
     public function __construct()
@@ -238,6 +233,7 @@ class Image
         $this->pages->removeElement($page);
     }
 
+
     /**
      * Get pages
      *
@@ -247,39 +243,5 @@ class Image
     {
         return $this->pages;
     }
-   
-    /**
-     * Add masnoryrelation
-     *
-     * @param \MediaBundle\Entity\PageAndImageRelation $masnoryrelation
-     *
-     * @return Image
-     */
-    public function addMasnoryrelation(\MediaBundle\Entity\PageAndImageRelation $masnoryrelation)
-    {
-        $masnoryrelation->setImage($this);
-        $this->masnoryrelations[] = $masnoryrelation;
 
-        return $this;
-    }
-
-    /**
-     * Remove masnoryrelation
-     *
-     * @param \MediaBundle\Entity\PageAndImageRelation $masnoryrelation
-     */
-    public function removeMasnoryrelation(\MediaBundle\Entity\PageAndImageRelation $masnoryrelation)
-    {
-        $this->masnoryrelations->removeElement($masnoryrelation);
-    }
-
-    /**
-     * Get masnoryrelations
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getMasnoryrelations()
-    {
-        return $this->masnoryrelations;
-    }
 }

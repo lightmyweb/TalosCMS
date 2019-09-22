@@ -1,0 +1,15 @@
+{% set panelTitle = form.translations[app.request.locale].content.vars.value %}
+<div class="panel closed" data-role="parent" >
+	<div class="panel_header" data-role="parent">
+		<h3>Citation : {{ panelTitle|striptags|slice(0, 60)|raw }}...</h3>
+		<div class="editpart">
+			<button class="toglle_panel"><i class="fas fa-chevron-down"></i></button>
+			<button class="delete_panel" style="margin-right:0px"><i class="far fa-times-circle"></i></button>
+		</div>
+		
+	</div>
+	<div class="panel_content">
+		{{form_row(form.translations)}}
+		{{form_widget(form.position)}}
+	</div>
+</div>

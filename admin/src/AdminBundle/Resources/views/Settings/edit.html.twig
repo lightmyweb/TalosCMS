@@ -45,12 +45,12 @@
                 <div class="part" data-source="seo">
                     <div class="row">
                         <div class="col col_5 form_group">
-                            <label class="input_label displayLabel">Taille Optimale pour les images</label>
+                            <label class="input_label displayLabel">Taille optimale pour les images</label>
                             <div class="row">
-                                <div class="col col_4 form_group">
+                                <div class="col col_4 form_group" style="top:0px;">
                                     <div class="input_box">{{form_widget(edit_form.widthForCrop)}}</div>
                                 </div>
-                                <div class="col col_4 form_group">
+                                <div class="col col_4 form_group" style="top:0px;">
                                     <div class="input_box">{{form_widget(edit_form.heigthForCrop)}}</div>
                                 </div>
                             </div>  
@@ -58,7 +58,27 @@
                     </div>                     
                 </div>
                 <div class="part " data-source="content">
-
+                    <div class="row">
+                        <div class="form_group col col_5">
+                            <div class="input_box">
+                                {{ form_widget(edit_form.facebook, { 'attr': {'placeholder': 'lien facebook (*)'}} ) }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form_group col col_5">
+                            <div class="input_box">
+                                {{ form_widget(edit_form.instagram, { 'attr': {'placeholder': 'lien instagram (*)'}} ) }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form_group col col_5">
+                            <div class="input_box">
+                                {{ form_widget(edit_form.pinterest, { 'attr': {'placeholder': 'lien pinterest (*)'}} ) }}
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div style="display:none">{{form_rest(edit_form)}}</div>

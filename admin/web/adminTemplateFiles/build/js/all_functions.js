@@ -93,23 +93,25 @@ function generateContentBloc(element_id,label,form, elementRole = null){
 }
 function updateBoxPosition(){
     $(function  () {
-        $(".accordionItems").sortable({ 
-            handle: '.panel_header[data-role="parent"]',
-            cancel: ".mce-tinymce, input, textarea, select",
-            start: function (event, ui) {
-               if( $(ui.item[0]).find('.tinymce') ){
-                    //tinyMCE.execCommand( 'mceRemoveEditor', false,  jQuery('textarea',ui.item)[0].id );  
-               } 
-            } ,
-            stop: function(event, ui) {
-                $('.panel[data-role="parent"]').each(function(index, el) {
-                    var panel_position = $(this).index();
-                    $(this).find('.blocPosition').val(panel_position)
-                    tinymce.remove();
-                    initTinyMCE();
-                });
-            },
-        });
+        if ($(".accordionItems").length) {
+            $(".accordionItems").sortable({ 
+                handle: '.panel_header[data-role="parent"]',
+                cancel: ".mce-tinymce, input, textarea, select",
+                start: function (event, ui) {
+                   if( $(ui.item[0]).find('.tinymce') ){
+                        //tinyMCE.execCommand( 'mceRemoveEditor', false,  jQuery('textarea',ui.item)[0].id );  
+                   } 
+                } ,
+                stop: function(event, ui) {
+                    $('.panel[data-role="parent"]').each(function(index, el) {
+                        var panel_position = $(this).index();
+                        $(this).find('.blocPosition').val(panel_position)
+                        tinymce.remove();
+                        initTinyMCE();
+                    });
+                },
+            });
+        }
         $('.sub_line_childrenContent').each(function(){
             var parent = $(this)
             parent.sortable({ 
@@ -170,7 +172,7 @@ function generleLocaleFunction(route){
         }       
     }); 
 }
-function affectThemeFunction(route,element){
+function affectThemeFunction(route,element){ 
     $.ajax({ 
         url: route,
         dataType: "json",
@@ -341,3 +343,18 @@ function successAlert(){
 function generate_element_id(id_panel,type,count){
     return type+'_'+count+'_'+id_panel;
 }
+function delleteFile(route){
+    $.ajax({ 
+        url: route,
+        dataType: "json",
+        type:'GET',
+        success: function (data) {
+         console.log('1');
+        },
+        error: function (request,error){
+            console.log('0');
+        }       
+    }); 
+}
+
+

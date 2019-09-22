@@ -9,7 +9,12 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity(repositoryClass="ContentElementsManagementSystemBundle\Repository\BlocRepository")
  * @ORM\InheritanceType("JOINED")
  * @ORM\DiscriminatorColumn(name="entity_type", type="string")
- * @ORM\DiscriminatorMap({"bloctext" = "BlocText","blocsection" = "BlocSection","bloc" = "Bloc"})
+ * @ORM\DiscriminatorMap({
+        "bloctext" = "BlocText",
+        "blocquote" = "BlocQuote",
+        "blocimage" = "BlocImage",
+        "bloc" = "Bloc"
+    })
  */
  
 class Bloc 
@@ -37,10 +42,16 @@ class Bloc
     private $entity_withBlocText;
 
     /**
-     * @ORM\ManyToOne(targetEntity="\AdminBundle\Entity\GeneralEntity", inversedBy="blocSections" )
-     * @ORM\JoinColumn(name="entity_id_withBlocSections", referencedColumnName="id") 
+     * @ORM\ManyToOne(targetEntity="\AdminBundle\Entity\GeneralEntity", inversedBy="blocQuotes" )
+     * @ORM\JoinColumn(name="entity_id_withBlocQuotes", referencedColumnName="id") 
      */
-    private $entity_withBlocSection;
+    private $entity_withBlocQuote;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="\AdminBundle\Entity\GeneralEntity", inversedBy="blocImages" )
+     * @ORM\JoinColumn(name="entity_id_withBlocImages", referencedColumnName="id") 
+     */
+    private $entity_withBlocImage;
 
     /**
      * Get id
@@ -102,26 +113,50 @@ class Bloc
     }
 
     /**
-     * Set entityWithBlocSection
+     * Set entityWithBlocQuote
      *
-     * @param \AdminBundle\Entity\GeneralEntity $entityWithBlocSection
+     * @param \AdminBundle\Entity\GeneralEntity $entityWithBlocQuote
      *
      * @return Bloc
      */
-    public function setEntityWithBlocSection(\AdminBundle\Entity\GeneralEntity $entityWithBlocSection = null)
+    public function setEntityWithBlocQuote(\AdminBundle\Entity\GeneralEntity $entityWithBlocQuote = null)
     {
-        $this->entity_withBlocSection = $entityWithBlocSection;
-
+        $this->entity_withBlocQuote = $entityWithBlocQuote;
+    
         return $this;
     }
 
     /**
-     * Get entityWithBlocSection
+     * Get entityWithBlocQuote
      *
      * @return \AdminBundle\Entity\GeneralEntity
      */
-    public function getEntityWithBlocSection()
+    public function getEntityWithBlocQuote()
     {
-        return $this->entity_withBlocSection;
+        return $this->entity_withBlocQuote;
+    }
+
+    /**
+     * Set entityWithBlocImage
+     *
+     * @param \AdminBundle\Entity\GeneralEntity $entityWithBlocImage
+     *
+     * @return Bloc
+     */
+    public function setEntityWithBlocImage(\AdminBundle\Entity\GeneralEntity $entityWithBlocImage = null)
+    {
+        $this->entity_withBlocImage = $entityWithBlocImage;
+    
+        return $this;
+    }
+
+    /**
+     * Get entityWithBlocImage
+     *
+     * @return \AdminBundle\Entity\GeneralEntity
+     */
+    public function getEntityWithBlocImage()
+    {
+        return $this->entity_withBlocImage;
     }
 }

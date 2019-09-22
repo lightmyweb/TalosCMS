@@ -31,7 +31,14 @@
                             <tr data-value="{{locale.state}}">
                                 <td><a href="{{ path('locale_edit', { 'id': locale.id }) }}">{{ locale.id }}</a></td>
                                 <td>{{ locale.name }}</td>
-                                <td>{{ locale.slug }}</td>
+                                <td>
+                                    {% if locale.slug == 'gb' %}
+                                        {{ 'en' }}
+                                    {% else  %}
+                                        {{ locale.slug }}
+                                    {% endif  %}
+
+                                </td>
                                 <td>
                                     {% if locale.user != null %}
                                         {{ locale.user.firstName }} {{ locale.user.lastName }}

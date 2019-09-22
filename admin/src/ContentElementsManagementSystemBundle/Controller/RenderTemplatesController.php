@@ -9,14 +9,6 @@ use ContentElementsManagementSystemBundle\Service\TestifContentExistControllor;
 
 
 class RenderTemplatesController extends Controller{
-
-	public function renderItemsMenuAction($form){  
-		return $this->render(
-            'ContentElementsManagementSystemBundle:Templates:itemsMenu.html.twig',array(
-            	'form' => $form,
-        	)
-        );
-	}
 	public function renderItemsViewerAction($entity = null,$form = null){  
 		$dataArray = array(
 			'edit'=> 0
@@ -29,14 +21,6 @@ class RenderTemplatesController extends Controller{
 		}
 		return $this->render(
             'ContentElementsManagementSystemBundle:Templates:items_viewer.html.twig',$dataArray 
-        );
-	}
-
-	public function renderBlocBoxesAction($data = null ){
-		return $this->render(
-            'ContentElementsManagementSystemBundle:Templates:boxes_view.html.twig',array(
-            	'boxes'=>$data
-            ) 
         );
 	}
 }

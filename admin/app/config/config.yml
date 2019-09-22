@@ -4,13 +4,13 @@ imports:
     - { resource: '../../config/mail.yml' }
     - { resource: '../../config/locale.yml' }
     - { resource: '../../config/extra.yml' }
+    - { resource: parameters.yml }
     - { resource: security.yml }
     - { resource: services.yml }
     - { resource: '@AdminBundle/Resources/config/services.yml' }
     - { resource: '@FrontBundle/Resources/config/services.yml' }
     - { resource: '@ContentElementsManagementSystemBundle/Resources/config/services.yml' }
     - { resource: '@MediaBundle/Resources/config/services.yml' }
-    - { resource: "@MainBundle/Resources/config/services.yml" }
 framework:
     secret: '%secret%'
     templating: { engines: [twig] }

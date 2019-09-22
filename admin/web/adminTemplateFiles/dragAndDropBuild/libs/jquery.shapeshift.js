@@ -144,7 +144,8 @@
           min_columns = options.minColumns;
           if (colspan > columns && colspan > min_columns) {
             options.minColumns = colspan;
-            _results.push(console.error("Shapeshift ERROR: There are child elements that have a larger colspan than the minimum columns set through options.\noptions.minColumns has been set to " + colspan));
+            _results.push(0);
+            //_results.push(console.error("Shapeshift ERROR: There are child elements that have a larger colspan than the minimum columns set through options.\noptions.minColumns has been set to " + colspan));
           } else {
             _results.push(void 0);
           }

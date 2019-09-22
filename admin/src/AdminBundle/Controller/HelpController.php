@@ -36,7 +36,9 @@ class HelpController extends Controller
      */
     public function editAction(Request $request, Help $help)
     {
+
         $editForm = $this->createForm('AdminBundle\Form\HelpType', $help);
+        //dump('hello');die;
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
@@ -53,7 +55,7 @@ class HelpController extends Controller
     }
     private function getData($element){
         $dataArray = array();
-        foreach ($element->getSections() as $section) {
+        foreach ($element->getBlocSections() as $section) {
             $dataArray[]=array(
                 'title'=>$section->getTitle(),
                 'description'=>$section->getDescription(),

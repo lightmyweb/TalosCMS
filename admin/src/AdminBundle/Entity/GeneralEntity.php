@@ -87,13 +87,20 @@ class GeneralEntity
     private $blocTexts; 
 
     /**
-     * @ORM\OneToMany(targetEntity="\ContentElementsManagementSystemBundle\Entity\Bloc", mappedBy="entity_withBlocSection", cascade={"persist", "remove"}, orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity="\ContentElementsManagementSystemBundle\Entity\Bloc", mappedBy="entity_withBlocQuote", cascade={"persist", "remove"}, orphanRemoval=true)
      * 
      * @ORM\OrderBy({"position"="ASC"})
      */
 
-    private $blocSections; 
+    private $blocQuotes;
 
+    /**
+     * @ORM\OneToMany(targetEntity="\ContentElementsManagementSystemBundle\Entity\Bloc", mappedBy="entity_withBlocImage", cascade={"persist", "remove"}, orphanRemoval=true)
+     * 
+     * @ORM\OrderBy({"position"="ASC"})
+     */
+
+    private $blocImages;
 
     /**
      * Get id
@@ -111,7 +118,8 @@ class GeneralEntity
     public function __construct()
     {
         $this->blocTexts = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->blocSections = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->blocQuotes = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->blocImages = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -312,40 +320,6 @@ class GeneralEntity
         return $this->blocTexts;
     }
 
-    /**
-     * Add blocSection
-     *
-     * @param \ContentElementsManagementSystemBundle\Entity\Bloc $blocSection
-     *
-     * @return GeneralEntity
-     */
-    public function addBlocSection(\ContentElementsManagementSystemBundle\Entity\Bloc $blocSection)
-    {
-        $blocSection->setEntityWithBlocSection($this);
-        $this->blocSections[] = $blocSection;
-
-        return $this;
-    }
-
-    /**
-     * Remove blocSection
-     *
-     * @param \ContentElementsManagementSystemBundle\Entity\Bloc $blocSection
-     */
-    public function removeBlocSection(\ContentElementsManagementSystemBundle\Entity\Bloc $blocSection)
-    {
-        $this->blocSections->removeElement($blocSection);
-    }
-
-    /**
-     * Get blocSections
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getBlocSections()
-    {
-        return $this->blocSections;
-    }
 
     /**
      * Set updateuser
@@ -369,5 +343,75 @@ class GeneralEntity
     public function getUpdateuser()
     {
         return $this->updateuser;
+    }
+
+    /**
+     * Add blocQuote
+     *
+     * @param \ContentElementsManagementSystemBundle\Entity\Bloc $blocQuote
+     *
+     * @return GeneralEntity
+     */
+    public function addBlocQuote(\ContentElementsManagementSystemBundle\Entity\Bloc $blocQuote)
+    {
+
+        $blocQuote->setEntityWithBlocQuote($this);
+        $this->blocQuotes[] = $blocQuote;
+        return $this;
+    }
+
+    /**
+     * Remove blocQuote
+     *
+     * @param \ContentElementsManagementSystemBundle\Entity\Bloc $blocQuote
+     */
+    public function removeBlocQuote(\ContentElementsManagementSystemBundle\Entity\Bloc $blocQuote)
+    {
+        $this->blocQuotes->removeElement($blocQuote);
+    }
+
+    /**
+     * Get blocQuotes
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getBlocQuotes()
+    {
+        return $this->blocQuotes;
+    }
+
+    /**
+     * Add blocImage
+     *
+     * @param \ContentElementsManagementSystemBundle\Entity\Bloc $blocImage
+     *
+     * @return GeneralEntity
+     */
+    public function addBlocImage(\ContentElementsManagementSystemBundle\Entity\Bloc $blocImage)
+    {   
+        $blocImage->setEntityWithBlocImage($this);
+        $this->blocImages[] = $blocImage;
+    
+        return $this;
+    }
+
+    /**
+     * Remove blocImage
+     *
+     * @param \ContentElementsManagementSystemBundle\Entity\Bloc $blocImage
+     */
+    public function removeBlocImage(\ContentElementsManagementSystemBundle\Entity\Bloc $blocImage)
+    {
+        $this->blocImages->removeElement($blocImage);
+    }
+
+    /**
+     * Get blocImages
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getBlocImages()
+    {
+        return $this->blocImages;
     }
 }

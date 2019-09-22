@@ -27,12 +27,11 @@ class HelpType extends AbstractType
             'label'=> ' ',
             'attr'=> array(
                 'class'=> 'form_ctrl required_class',
-                'placeholder'=>'Titre de la section (*)',
                 'required'=>'required',
                 'data-label'=>'Titre de la section (*)'
             )
         ))
-        ->add('blocs', CollectionType::class, array(
+        ->add('blocSections', CollectionType::class, array(
             'entry_type' => \ContentElementsManagementSystemBundle\Form\BlocSectionType::class,
             'allow_add' => true,
             'allow_delete' => true,

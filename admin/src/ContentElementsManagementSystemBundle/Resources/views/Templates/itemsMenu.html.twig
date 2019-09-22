@@ -1,26 +1,42 @@
 {% set blocText_prototype = null %}
-{% set blocSection_prototype = null %}
+{% set blocQuote_prototype = null %}
+{% set blocImage_prototype = null %}
 
 {% if  form.blocTexts is defined %}
 	{% set blocText_prototype = form_widget(form.blocTexts.vars.prototype)  %}
 {% endif %}
-{% if  form.blocSections is defined %}
-	{% set blocSection_prototype = form_widget(form.blocSections.vars.prototype)  %}
+
+{% if  form.blocQuotes is defined %}
+	{% set blocQuote_prototype = form_widget(form.blocQuotes.vars.prototype)  %}
 {% endif %}
 
+{% if  form.blocImages is defined %}
+	{% set blocImage_prototype = form_widget(form.blocImages.vars.prototype)  %}
+{% endif %}
 
 
 {% 
 	set data = [
 		{
-			'type':'sectionsBloc',
+			'type':'imagesBloc',
 			'name_order':0,
-			'entity':'blocSections',
-			'label':'Section',
-			'icon':'fas fa-puzzle-piece',
+			'entity':'blocImages',
+			'label':'Image',
+			'icon':'fas fa-images',
 			'role':'parent',
 			'current_div_class':'accordionItems',
-			'prototype':blocSection_prototype,
+			'prototype':blocImage_prototype,
+			'children':null
+		},
+		{
+			'type':'quotesBloc',
+			'name_order':0,
+			'entity':'blocQuotes',
+			'label':'Citation',
+			'icon':'fas fa-quote-left',
+			'role':'parent',
+			'current_div_class':'accordionItems',
+			'prototype':blocQuote_prototype,
 			'children':null
 		},
 		{
@@ -36,10 +52,9 @@
 		}
 	]
 %}
-
-{{ render(controller( 
-    'ContentElementsManagementSystemBundle:RenderTemplates:renderBlocBoxes',{ 
-    	'data':data
-    }
-)) }}
-
+{% include 
+	"ContentElementsManagementSystemBundle:Templates:boxes_view.html.twig" with
+	{
+		'boxes':data
+	}
+%}

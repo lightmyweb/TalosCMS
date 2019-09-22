@@ -111,18 +111,6 @@ class RenderTemplateController extends Controller
         );
     }
 
-    public function renderProjetInCategoryFoulardAction($entity = null){
-        $em = $this->getDoctrine()->getManager();
-        $service = new ProjetService($em);
-        $projets = $service->fetchallProjetRelatedToCatFoulard($entity);
-        return $this->render(
-            'AdminBundle:Templates:CategoryFoulard/allProjetInCat.html.twig',
-            array(
-                "projets"=>$projets,
-                'entity' =>$entity
-            )
-        );
-    }
     public function renderProjecttitleAction(){
         $em = $this->getDoctrine()->getManager();
         $settings = $em->getRepository('AdminBundle:Settings')->findOneById(1);
@@ -178,6 +166,56 @@ class RenderTemplateController extends Controller
         );
 	}
 
+    public function renderHomeFormAction($form, $entity = null){
+        return $this->render(
+            'AdminBundle:Templates:Home/forms.html.twig',
+            array(
+                'form'=>$form,
+                'entity' =>$entity
+            )
+        );
+    }
+
+    public function renderProjectFormAction($form, $entity = null){
+        return $this->render(
+            'AdminBundle:Templates:Project/forms.html.twig',
+            array(
+                'form'=>$form,
+                'entity' =>$entity
+            )
+        );
+    }
+
+    public function renderClientFormAction($form, $entity = null){
+        return $this->render(
+            'AdminBundle:Templates:Client/forms.html.twig',
+            array(
+                'form'=>$form,
+                'entity' =>$entity
+            )
+        );
+    }
+
+    public function renderPressFormAction($form, $entity = null){
+        return $this->render(
+            'AdminBundle:Templates:Press/forms.html.twig',
+            array(
+                'form'=>$form,
+                'entity' =>$entity
+            )
+        );
+    }
+
+    public function renderLocationFormAction($form, $entity = null){
+        return $this->render(
+            'AdminBundle:Templates:Location/forms.html.twig',
+            array(
+                'form'=>$form,
+                'entity' =>$entity
+            )
+        );
+    }
+
     public function renderStateAction($form, $entity = null){
         return $this->render(
             'AdminBundle:Templates:state.html.twig',
@@ -207,16 +245,6 @@ class RenderTemplateController extends Controller
             )
         );
     }
-    public function renderCategoryFoulardFormAction($form, $entity = null){
-        return $this->render(
-            'AdminBundle:Templates:CategoryFoulard/forms.html.twig',
-            array(
-                'form'=>$form,
-                'entity' =>$entity
-            )
-        );
-    }
-
 
 
     public function renderLocaleFormAction($form, $entity = null){

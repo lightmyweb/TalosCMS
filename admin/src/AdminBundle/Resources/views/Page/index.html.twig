@@ -69,11 +69,12 @@
                                 <td class="action_td">
                                     <a href="#" class="view_action" target="_blank"><i class="fas fa-eye"></i></a>  -  
                                     <a href="{{ path('page_edit', { 'id': page.id }) }}" class="edit_action"><i class="fas fa-pen-square"></i></a>  
-                                    {% if page.id != 1  and page.id != 7  and page.id != 8  and page.id != 12  and app.user.role != 'ROLE_EDITOR'%}
+                                    {% if app.user.role != 'ROLE_EDITOR'%}
                                         - 
                                         <a data-href="{{ path('element_delete', { 'id': page.id,'entity':'Page' }) }}" class="delete_action entity_delete">
                                         <i class="fas fa-trash-alt"></i></a>  
-                                    {% endif %} 
+                                    {% endif %}
+                                    
                                 </td>
                             </tr>
                         {% endfor %} 

@@ -1,6 +1,6 @@
 parameters:
   secret: ThisTokenIsNotSoSecretChangeIt
   project_prefix: 5TALOS
-  project_name: Project Name
+  project_name: Project Name X
   app.db.table_prefix: _talos_
   uploads_directory: '%kernel.root_dir%/../web/uploads/'

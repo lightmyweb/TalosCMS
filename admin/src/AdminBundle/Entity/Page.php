@@ -21,13 +21,6 @@ class Page extends GeneralEntity
      */
     private $image;
 
-    /**
-     * @ORM\OneToMany(targetEntity="\MediaBundle\Entity\PageAndImageRelation", mappedBy="page", cascade={"persist", "remove"} , orphanRemoval=true)
-     * @ORM\OrderBy({"orderPosition"="ASC"})
-     */
-
-    private $masnoryrelations;
-
     public function __toString(){
         return $this->getTitle().'';
     }
@@ -60,41 +53,4 @@ class Page extends GeneralEntity
     {
         return $this->image;
     }
-
-    
-    /**
-     * Add masnoryrelation
-     *
-     * @param \MediaBundle\Entity\PageAndImageRelation $masnoryrelation
-     *
-     * @return Page
-     */
-    public function addMasnoryrelation(\MediaBundle\Entity\PageAndImageRelation $masnoryrelation)
-    {
-        $masnoryrelation->setPage($this);
-        $this->masnoryrelations[] = $masnoryrelation;
-
-        return $this;
-    } 
-
-    /**
-     * Remove masnoryrelation
-     *
-     * @param \MediaBundle\Entity\PageAndImageRelation $masnoryrelation
-     */
-    public function removeMasnoryrelation(\MediaBundle\Entity\PageAndImageRelation $masnoryrelation)
-    {
-        $this->masnoryrelations->removeElement($masnoryrelation);
-    }
-
-    /**
-     * Get masnoryrelations
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getMasnoryrelations()
-    {
-        return $this->masnoryrelations;
-    }
-
 }

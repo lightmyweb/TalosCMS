@@ -17,19 +17,23 @@ class MasnoryGridService{
     public function setNewEntries($array,$entity,$type){
         $fetchedArray = $this->checkIfExiste($entity,$type);
         foreach ($array as $element) {
-            $relation = new PageAndImageRelation();
-            $relation->setOrderPosition($element['position']);
-            $relation->setLeftPosition($element['left']);
-            $relation->setTopPosition($element['top']);
-            $relation->setImageType($element['type']);
-            if( $type == 'page' ){
-                $relation->setPage($entity);
-            }else{
-                $relation->setProjet($entity);
+            if ( isset( $element['position'] )  ){
+                $relation = new PageAndImageRelation();
+                $relation->setOrderPosition($element['position']);
+                $relation->setLeftPosition($element['left']);
+                $relation->setTopPosition($element['top']);
+                $relation->setImageType($element['type']);
+                $relation->setMansoryHeight($element['mansoryHeight']);
+                if( $type == 'page' ){
+                    $relation->setPage($entity);
+                }else{
+                    $relation->setProjet($entity);
+                }
+                $relation->setImage($this->findImageById($element['id']));
+                $this->em->persist($relation);
+                $this->em->flush();
             }
-            $relation->setImage($this->findImageById($element['id']));
-            $this->em->persist($relation);
-            $this->em->flush();
+            
         }
     }
     public function findImageById($id){

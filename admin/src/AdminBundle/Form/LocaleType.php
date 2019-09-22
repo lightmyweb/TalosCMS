@@ -19,7 +19,6 @@ class LocaleType extends AbstractType
                 'label'=> ' ',
                 'attr'=> array(
                     'class'=> 'form_ctrl required_class',
-                    'placeholder'=>'Nom (*)',
                     'required'=>'required',
                     'data-label'=>'Nom (*)'
                 )
@@ -28,7 +27,6 @@ class LocaleType extends AbstractType
                 'label'=> ' ',
                 'attr'=> array(
                     'class'=> ' form_ctrl required_class slugTestIfExistInDatabase',
-                    'placeholder'=>'Permalien (*)',
                     'required'=>'required',
                     'data-entity'=>'Locale',
                     'data-label'=>'Permalien (*)'

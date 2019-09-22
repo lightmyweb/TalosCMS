@@ -26,23 +26,9 @@ class PageTranslation
     /**
      * @var string
      *
-     * @ORM\Column(name="suptitle", type="string", length=255, nullable=true)
-     */
-    private $suptitle;
-
-    /**
-     * @var string
-     *
      * @ORM\Column(name="slug", type="string", length=255, nullable=true)
      */
     private $slug;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="description", type="text", nullable=true)
-     */
-    private $description;
 
     public function __call($method, $arguments)
     {
@@ -97,51 +83,4 @@ class PageTranslation
         return $this->slug;
     }
 
-    /**
-     * Set description
-     *
-     * @param string $description
-     *
-     * @return PageTranslation
-     */
-    public function setDescription($description)
-    {
-        $this->description = $description;
-
-        return $this;
-    }
-
-    /**
-     * Get description
-     *
-     * @return string
-     */
-    public function getDescription()
-    {
-        return $this->description;
-    }
-
-    /**
-     * Set suptitle
-     *
-     * @param string $suptitle
-     *
-     * @return PageTranslation
-     */
-    public function setSuptitle($suptitle)
-    {
-        $this->suptitle = $suptitle;
-
-        return $this;
-    }
-
-    /**
-     * Get suptitle
-     *
-     * @return string
-     */
-    public function getSuptitle()
-    {
-        return $this->suptitle;
-    }
 }
