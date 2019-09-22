@@ -6,7 +6,7 @@
 						{% include 
 							"ContentElementsManagementSystemBundle:Templates:textBloc.html.twig" with
 							{
-								'form':textBloc.vars.form
+								'form':textBloc.vars.form,
 								'type':'parent'
 							}
 						%}
@@ -18,7 +18,7 @@
 					{% include 
 						"ContentElementsManagementSystemBundle:Templates:quoteBloc.html.twig" with
 						{
-							'form':quoteBloc.vars.form
+							'form':quoteBloc.vars.form,
 							'entity':content.entity
 						}
 					%}
@@ -30,7 +30,7 @@
 					{% include 
 						"ContentElementsManagementSystemBundle:Templates:imageBloc.html.twig" with
 						{
-							'form':imageBloc.vars.form
+							'form':imageBloc.vars.form,
 							'entity':content.entity
 						}
 					%}

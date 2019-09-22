@@ -29,8 +29,6 @@ framework:
 twig:
     debug: '%kernel.debug%'
     strict_variables: '%kernel.debug%'
-    form_themes: 
-        - '@AdminBundle\Resources\views\Default\forms.html.twig'
 swiftmailer:
     transport: '%mailer_transport%'
     host: '%mailer_host%'

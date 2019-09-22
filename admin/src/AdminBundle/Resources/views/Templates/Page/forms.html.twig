@@ -1,34 +1,19 @@
 <div class="time_line">
     <div class="line"></div>
-    <a class="part active content-part" href="#content" data-target="content">
-        {# if entity.id is defined and entity.id  == 81  %}
-            Adresse
-        {% else %}
-            Contenu
-        {% endif #}
-    </a>
+    <a class="part active content-part" href="#content" data-target="content">Contenu</a>
     <a class="part generale-part" href="#generale" data-target="generale">Général</a>
     <a class="part seo-part" href="#seo" data-target="seo">Seo</a>
 </div>
 <div class="time_line_target">
     <div class="part active content-part" data-source="content">
-        {# if  entity.id is defined and entity.id  == 76  %}
-            <div class="accordionItems">
-                 {{ render(controller( 
-                    'ContentElementsManagementSystemBundle:RenderTemplates:renderItemsViewer',{ 'entity': entity, 'form':form}
-                )) }}
-            </div>
+       
 
-            <div class="buttonsGrid">
-                {{ render(controller( 
-                    'ContentElementsManagementSystemBundle:RenderTemplates:renderItemsMenu',{ 'form': form}
-                )) }}
-            </div>
-        {% else %}
-            <div class="classiceditor">
-                {{ form_row(form.translations[app.request.locale].classiceditor) }}
-            </div>
-        {% endif #}
+        {% include 
+            "ContentElementsManagementSystemBundle:Templates:itemsMenu.html.twig" with
+            {
+                'form':form
+            }
+        %}
     </div>
     <div class="part generale-part" data-source="generale">
         {# {{ render(controller( 'AdminBundle:RenderTemplate:renderLocales')) }} #}

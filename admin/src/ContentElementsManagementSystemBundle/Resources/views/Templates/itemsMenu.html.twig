@@ -1,7 +1,6 @@
 {% set blocText_prototype = null %}
 {% set blocQuote_prototype = null %}
 {% set blocImage_prototype = null %}
-{% set blocGallery_prototype = null %}ZZ
 
 {% if  form.blocTexts is defined %}
 	{% set blocText_prototype = form_widget(form.blocTexts.vars.prototype)  %}
@@ -54,8 +53,8 @@
 	]
 %}
 {% include 
-	"ContentElementsManagementSystemBundle:RenderTemplates:renderBlocBoxes" with
+	"ContentElementsManagementSystemBundle:Templates:boxes_view.html.twig" with
 	{
-		'data':data
+		'boxes':data
 	}
 %}
