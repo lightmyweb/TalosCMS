@@ -6,8 +6,6 @@
 </div>
 <div class="time_line_target">
     <div class="part active content-part" data-source="content">
-       
-
         {% include 
             "ContentElementsManagementSystemBundle:Templates:itemsMenu.html.twig" with
             {
@@ -16,10 +14,9 @@
         %}
     </div>
     <div class="part generale-part" data-source="generale">
-        {# {{ render(controller( 'AdminBundle:RenderTemplate:renderLocales')) }} #}
         <div class="row">
             <div class="col col_10">
-               {# {{ form_row(form.translations) }} #}
+               {{ form_row(form.translations) }} 
             </div>
         </div>
         <div class="row block-img">
@@ -36,9 +33,12 @@
         </div> 
     </div>
     <div class="part seo-part" data-source="seo">
-        {{ render(controller( 
-            'AdminBundle:RenderTemplate:renderSeoPart',{ 'form': form}
-        )) }}
+        {% include 
+            "AdminBundle:Templates:Forms/seo_part.html.twig" with
+            {
+                'form':form
+            }
+        %}
     </div>
 </div>
 <div style="display:none">{{form_rest(form)}}</div>
