@@ -6,9 +6,12 @@
             )) }}
         </div>
          <div class="buttonsGrid">
-            {{ render(controller( 
-                'ContentElementsManagementSystemBundle:RenderTemplates:renderItemsMenu',{ 'form': form}
-            )) }}
+            {% include 
+            "ContentElementsManagementSystemBundle:Templates:itemsMenu.html.twig" with
+            {
+                'form':form
+            }
+        %}
         </div>   
     </div>
 </div>

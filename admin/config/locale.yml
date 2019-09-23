@@ -4,7 +4,7 @@ a2lix_translation_form:
     locale_provider: default
     locales: [fr]
     default_locale: fr
-    #templating: '@AdminBundle\Resources\views\Templates\Locales\translations_forms.html.twig'
-    templating: '@A2lixTranslationForm/default.html.twig'
+    templating: '@AdminBundle\Resources\views\Templates\Locales\translations_forms.html.twig'
+    required_locales: [fr]
 framework:
     translator: { fallbacks: [fr] }

@@ -1,8 +1,5 @@
 <?php
 namespace AdminBundle\Service;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-
 
 use Symfony\Component\Yaml\Yaml;
 use Symfony\Component\Yaml\Exception\ParseException;
@@ -13,10 +10,9 @@ class LocaleService{
 	private $routing_path ;
 
 	public function __construct($path){
-		$this->config_path = $path.'config.yml';
-		$this->routing_path = $path.'routing.yml';
+		$this->config_path = $path.'locale.yml';
+		$this->routing_path = $path.'../app/config/routing.yml';
 	}
-
 	public function changeDefaultLocale($locale){
 		$data = Yaml::parseFile($this->config_path);
 		$data['parameters']['locale'] = $locale;

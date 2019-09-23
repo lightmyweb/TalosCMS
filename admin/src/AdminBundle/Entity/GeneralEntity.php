@@ -103,6 +103,14 @@ class GeneralEntity
     private $blocImages;
 
     /**
+     * @ORM\OneToMany(targetEntity="\ContentElementsManagementSystemBundle\Entity\Bloc", mappedBy="entity_withBlocSection", cascade={"persist", "remove"}, orphanRemoval=true)
+     * 
+     * @ORM\OrderBy({"position"="ASC"})
+     */
+
+    private $blocSections; 
+
+    /**
      * Get id
      *
      * @return int
@@ -120,6 +128,7 @@ class GeneralEntity
         $this->blocTexts = new \Doctrine\Common\Collections\ArrayCollection();
         $this->blocQuotes = new \Doctrine\Common\Collections\ArrayCollection();
         $this->blocImages = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->blocSections = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -413,5 +422,40 @@ class GeneralEntity
     public function getBlocImages()
     {
         return $this->blocImages;
+    }
+
+    /**
+     * Add blocSection
+     *
+     * @param \ContentElementsManagementSystemBundle\Entity\Bloc $blocSection
+     *
+     * @return GeneralEntity
+     */
+    public function addBlocSection(\ContentElementsManagementSystemBundle\Entity\Bloc $blocSection)
+    {
+        $blocSection->setEntityWithBlocSection($this);
+        $this->blocSections[] = $blocSection;
+
+        return $this;
+    }
+
+    /**
+     * Remove blocSection
+     *
+     * @param \ContentElementsManagementSystemBundle\Entity\Bloc $blocSection
+     */
+    public function removeBlocSection(\ContentElementsManagementSystemBundle\Entity\Bloc $blocSection)
+    {
+        $this->blocSections->removeElement($blocSection);
+    }
+
+    /**
+     * Get blocSections
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getBlocSections()
+    {
+        return $this->blocSections;
     }
 }

@@ -53,13 +53,14 @@ class LocaleController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            
             $em = $this->getDoctrine()->getManager();
             $locale->setUser( $this->getUser() );
             $locale->setCreatedAt( new \DateTime("now") );
             $em->persist($locale);
             $em->flush();
             
-            $path = $this->get('kernel')->getRootDir().'/config/';
+            $path = $this->get('kernel')->getRootDir().'/../config/';
             $service = new LocaleService($path);
             $service->setNewLocales($locale->getSlug());
             $this->cacheSys();

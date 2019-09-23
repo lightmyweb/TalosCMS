@@ -22,15 +22,11 @@ class HelpType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        $builder = $this->extraBuilderFields($builder);
+        
+    }
+    private function extraBuilderFields( $builder ){
         $builder
-        ->add('title',null,array(
-            'label'=> ' ',
-            'attr'=> array(
-                'class'=> 'form_ctrl required_class',
-                'required'=>'required',
-                'data-label'=>'Titre de la section (*)'
-            )
-        ))
         ->add('blocSections', CollectionType::class, array(
             'entry_type' => \ContentElementsManagementSystemBundle\Form\BlocSectionType::class,
             'allow_add' => true,
@@ -42,7 +38,10 @@ class HelpType extends AbstractType
                 'attr'      => array('class' => 'sections-box')
             ),
         ));
-    }/**
+
+        return $builder;
+    }
+    /**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)

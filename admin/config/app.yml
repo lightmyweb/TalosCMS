@@ -4,3 +4,8 @@ parameters:
   project_name: Project Name X
   app.db.table_prefix: _talos_
   uploads_directory: '%kernel.root_dir%/../web/uploads/'
+twig:
+    globals:
+        project_name: %project_name%
+    form_themes: 
+        - '@AdminBundle\Resources\views\Default\forms.html.twig'

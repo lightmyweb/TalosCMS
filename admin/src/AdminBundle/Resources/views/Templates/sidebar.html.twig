@@ -4,7 +4,7 @@
         <span>Réduire le menu</span>
     </a>
     <div class="logo">
-        {{ render(controller( 'AdminBundle:RenderTemplate:renderProjecttitle')) }}
+        {{ project_name }}
     </div>
 </div>
 <div id="menu" class="sidebar active">
@@ -74,7 +74,7 @@
 
         {% if app.user.role != 'ROLE_EDITOR' %}
             <li class="ab-menu{% if localepathForRoutePath == path('admin_users') %} item_active{% endif %}">
-                <a class="ab-item item_header{% if localepathForRoutePath == path('admin_users') %} ab-item-active{% endif %}">
+                <a class="ab-item item_header{% if localepathForRoutePath == path('admin_users') %} ab-item-active{% endif %}" href="{{ path('admin_users') }}">
                     <i class="fas fa-user-tag"></i>Utilisateurs
                 </a>
             </li>

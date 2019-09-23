@@ -50,27 +50,18 @@ class TestifContentExistControllor extends Controller
             }
       }
 
-      //galleryBloc
-      if ( method_exists($entity,'getBlocGalleries' ) ){
-        foreach ($entity->getBlocGalleries() as $galleryBloc) {
+      //sectionBloc
+      if ( method_exists($entity,'getBlocSections' ) ){
+        foreach ($entity->getBlocSections() as $sectionBloc) {
                 $dataArray[] =  array(
-                    'type' => 'galleryBloc', 
-                    'entity' => $galleryBloc, 
-                    'position' => $galleryBloc->getPosition() 
+                    'type' => 'sectionBloc', 
+                    'entity' => $sectionBloc, 
+                    'position' => $sectionBloc->getPosition() 
                 );
             }
       }
 
-      //galleryimageBloc
-      if ( method_exists($entity,'getBlocGalleryimages' ) ){
-          foreach ($entity->getBlocGalleryimages() as $galleryimageBloc) {
-              $dataArray[] =  array(
-                  'type' => 'galleryimageBloc', 
-                  'entity' => $galleryimageBloc, 
-                  'position' => $galleryimageBloc->getPosition() 
-              );
-          }
-      }
+     
 
    		/** order by position **/
       $dataArray = $this->setPositionOrder($dataArray);

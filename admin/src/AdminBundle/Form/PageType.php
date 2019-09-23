@@ -64,7 +64,7 @@ class PageType extends AbstractType
                 'class'=>'select_ctrl_state'
             )
         ));
-        //$builder = $this->extraBuilderFields( $builder );
+        $builder = $this->extraBuilderFields( $builder );
         /**
          * to test on page id 
          * if( $page_id == 1 ){ your code  }

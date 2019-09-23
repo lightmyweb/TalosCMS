@@ -9,6 +9,3 @@ knp_doctrine_behaviors:
     sluggable: true
     soft_deletable: true
     translatable: true
-#twig:
-    #form_themes: 
-        #- '@AdminBundle\Resources\views\Default\forms.html.twig'

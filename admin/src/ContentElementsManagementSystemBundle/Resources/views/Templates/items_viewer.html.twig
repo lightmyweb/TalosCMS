@@ -4,7 +4,7 @@
 			{% for textBloc in form.blocTexts %}
 				{% if textBloc.vars.value.position ==  content.entity.position %}
 						{% include 
-							"ContentElementsManagementSystemBundle:Templates:textBloc.html.twig" with
+							"ContentElementsManagementSystemBundle:BlocsForm:textBloc.html.twig" with
 							{
 								'form':textBloc.vars.form,
 								'type':'parent'
@@ -16,9 +16,21 @@
 			{% for quoteBloc in form.blocQuotes %}
 				{% if quoteBloc.vars.value.position ==  content.entity.position %}
 					{% include 
-						"ContentElementsManagementSystemBundle:Templates:quoteBloc.html.twig" with
+						"ContentElementsManagementSystemBundle:BlocsForm:quoteBloc.html.twig" with
 						{
 							'form':quoteBloc.vars.form,
+							'entity':content.entity
+						}
+					%}
+                {% endif %}
+			{% endfor %} 
+		{% elseif content.type == 'sectionBloc' %}
+			{% for sectiontBloc in form.blocSections %}
+				{% if sectiontBloc.vars.value.position ==  content.entity.position %}
+					{% include 
+						"ContentElementsManagementSystemBundle:BlocsForm:sectionBloc.html.twig" with
+						{
+							'form':sectiontBloc.vars.form,
 							'entity':content.entity
 						}
 					%}
@@ -28,7 +40,7 @@
 			{% for imageBloc in form.blocImages %}
 				{% if imageBloc.vars.value.position ==  content.entity.position %}
 					{% include 
-						"ContentElementsManagementSystemBundle:Templates:imageBloc.html.twig" with
+						"ContentElementsManagementSystemBundle:BlocsForm:imageBloc.html.twig" with
 						{
 							'form':imageBloc.vars.form,
 							'entity':content.entity
