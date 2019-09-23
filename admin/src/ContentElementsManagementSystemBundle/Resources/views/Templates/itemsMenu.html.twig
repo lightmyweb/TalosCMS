@@ -1,6 +1,7 @@
 {% set blocText_prototype = null %}
 {% set blocQuote_prototype = null %}
 {% set blocImage_prototype = null %}
+{% set blocSection_prototype = null %}
 
 {% if  form.blocTexts is defined %}
 	{% set blocText_prototype = form_widget(form.blocTexts.vars.prototype)  %}
@@ -14,9 +15,23 @@
 	{% set blocImage_prototype = form_widget(form.blocImages.vars.prototype)  %}
 {% endif %}
 
+{% if  form.blocSections is defined %}
+	{% set blocSection_prototype = form_widget(form.blocSections.vars.prototype)  %}
+{% endif %}
 
 {% 
 	set data = [
+		{
+			'type':'sectionsBloc',
+			'children':null,
+			'entity':'blocSections',
+			'label':'Section ',
+			'icon':'fas fa-paragraph',
+			'name_order':0,
+			'role':'parent',
+			'current_div_class':'accordionItems',
+			'prototype':blocSection_prototype
+		},
 		{
 			'type':'imagesBloc',
 			'name_order':0,

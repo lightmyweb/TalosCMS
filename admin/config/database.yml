@@ -1,7 +1,7 @@
 parameters:
   database_host: localhost
   database_port: null
-  database_name: rev_project
+  database_name: talos_dev_database
   database_user: salim
   database_password: 44129221
 doctrine:

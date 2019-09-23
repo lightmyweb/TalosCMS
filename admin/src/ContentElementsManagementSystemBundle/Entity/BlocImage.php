@@ -13,11 +13,6 @@ use Doctrine\Common\Collections\ArrayCollection;
  */
 class BlocImage extends Bloc
 {   
-    /**
-     * @ORM\ManyToOne(targetEntity="\MediaBundle\Entity\Image", inversedBy="blocimagethumbnail")
-     * @ORM\JoinColumn(name="image", referencedColumnName="id")
-     */
-    private $thumbnail; 
 
     /**
      * @var int
@@ -37,29 +32,5 @@ class BlocImage extends Bloc
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set thumbnail
-     *
-     * @param \MediaBundle\Entity\Image $thumbnail
-     *
-     * @return BlocImage
-     */
-    public function setThumbnail(\MediaBundle\Entity\Image $thumbnail = null)
-    {
-        $this->thumbnail = $thumbnail;
-    
-        return $this;
-    }
-
-    /**
-     * Get thumbnail
-     *
-     * @return \MediaBundle\Entity\Image
-     */
-    public function getThumbnail()
-    {
-        return $this->thumbnail;
     }
 }

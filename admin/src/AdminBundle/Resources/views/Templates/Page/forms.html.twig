@@ -6,6 +6,11 @@
 </div>
 <div class="time_line_target">
     <div class="part active content-part" data-source="content">
+        <div class="accordionItems">
+                {{ render(controller( 
+                'ContentElementsManagementSystemBundle:RenderTemplates:renderItemsViewer',{ 'entity': entity, 'form':form}
+            )) }}
+        </div>
         {% include 
             "ContentElementsManagementSystemBundle:Templates:itemsMenu.html.twig" with
             {

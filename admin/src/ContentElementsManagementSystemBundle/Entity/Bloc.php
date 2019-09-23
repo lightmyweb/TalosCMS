@@ -13,6 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
         "bloctext" = "BlocText",
         "blocquote" = "BlocQuote",
         "blocimage" = "BlocImage",
+        "blocsection" = "BlocSection",
         "bloc" = "Bloc"
     })
  */
@@ -52,6 +53,12 @@ class Bloc
      * @ORM\JoinColumn(name="entity_id_withBlocImages", referencedColumnName="id") 
      */
     private $entity_withBlocImage;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="\AdminBundle\Entity\GeneralEntity", inversedBy="blocSections" )
+     * @ORM\JoinColumn(name="entity_id_withBlocSections", referencedColumnName="id") 
+     */
+    private $entity_withBlocSection;
 
     /**
      * Get id
@@ -158,5 +165,29 @@ class Bloc
     public function getEntityWithBlocImage()
     {
         return $this->entity_withBlocImage;
+    }
+
+    /**
+     * Set entityWithBlocSection
+     *
+     * @param \AdminBundle\Entity\GeneralEntity $entityWithBlocSection
+     *
+     * @return Bloc
+     */
+    public function setEntityWithBlocSection(\AdminBundle\Entity\GeneralEntity $entityWithBlocSection = null)
+    {
+        $this->entity_withBlocSection = $entityWithBlocSection;
+
+        return $this;
+    }
+
+    /**
+     * Get entityWithBlocSection
+     *
+     * @return \AdminBundle\Entity\GeneralEntity
+     */
+    public function getEntityWithBlocSection()
+    {
+        return $this->entity_withBlocSection;
     }
 }
