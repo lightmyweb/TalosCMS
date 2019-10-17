@@ -36,7 +36,7 @@
         <div class="action-body">
 
            {% include  
-                "AdminBundle:Templates:state.html.twig" with
+                "CoreSystemBundle:Templates:state.html.twig" with
                 {
                     'form':form,
                     'entity':page
@@ -44,7 +44,7 @@
             %} 
            <div class="btn-group">
                 {% include  
-                    "AdminBundle:Templates:submitButtons.html.twig" with
+                    "CoreSystemBundle:Templates:submitButtons.html.twig" with
                     {
                         'path':path('page_index')
                     }

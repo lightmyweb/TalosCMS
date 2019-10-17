@@ -1,12 +1,12 @@
 core_system:
     resource: "@CoreSystemBundle/Controller/"
     type:     annotation
-    prefix:   /admin/%project_prefix%
+    prefix:   /admin/%project_prefix%/
 
 media:
     resource: '@MediaBundle/Controller/'
     type: annotation
-    prefix: /admin_%project_prefix%/media
+    prefix: /admin/%project_prefix%/media
 front:
     resource: '@FrontBundle/Controller/'
     type: annotation
@@ -15,17 +15,17 @@ front:
 admin:
     resource: '@AdminBundle/Controller/'
     type: annotation
-    prefix: /admin/gestion/%project_prefix%
+    prefix: /admin/gestion/%project_prefix%/
 admin_login:
-    path: /login_%project_prefix%/
+    path: /admin/login/%project_prefix%/
     defaults: { _controller: 'CoreSystemBundle:Login:index' }
 admin_mot_passe_oublie:
-    path: /login_%project_prefix%/motPasseOublie/
+    path: /admin/login/%project_prefix%/motPasseOublie/
     defaults: { _controller: 'CoreSystemBundle:Login:motPasseOublie' }
 admin_nouveau_mot_passe:
-    path: /login_%project_prefix%/nouveauMotPasse/
+    path: /admin/login/%project_prefix%/nouveauMotPasse/
     defaults: { _controller: 'CoreSystemBundle:Login:nouveauMotPasse' }
 admin_login_check:
-    path: /login_check_%project_prefix%/
+    path: /admin/login/check/%project_prefix%/
 admin_logout:
-    path: /logout_%project_prefix%/
+    path: /admin/logout/%project_prefix%/

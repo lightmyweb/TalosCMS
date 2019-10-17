@@ -22,14 +22,15 @@ security:
             provider: db_provider
             # user_checker: app.user_checker
             form_login:
-                login_path:  /login_%project_prefix%/
-                check_path:  /login_check_%project_prefix%/
+                login_path:  /admin/login/%project_prefix%/
+                check_path:  /admin/login/check/%project_prefix%/
                 always_use_default_target_path: true
-                default_target_path: /login_%project_prefix%/
+                default_target_path: /admin/login/%project_prefix%/
             logout:
-                path: /logout_%project_prefix%/
-                target: /login_%project_prefix%/
+                path: /admin/logout/%project_prefix%/
+                target: /admin/login/%project_prefix%/
                 invalidate_session: false
     access_control:
         - { path: ^/admin/%project_prefix%/, roles: ROLE_USER }
-        - { path: ^/login_%project_prefix%/, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/admin/gestion/%project_prefix%/, roles: ROLE_USER }
+        - { path: ^/admin/login/%project_prefix%/, roles: IS_AUTHENTICATED_ANONYMOUSLY }

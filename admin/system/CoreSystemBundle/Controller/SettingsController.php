@@ -31,7 +31,6 @@ class SettingsController extends Controller
 
             return $this->redirectToRoute('settings_edit', array('id' => $setting->getId()));
         }
-
         return $this->render('CoreSystemBundle:Settings:edit.html.twig', array(
             'setting' => $setting,
             'edit_form' => $editForm->createView(),

@@ -8,4 +8,4 @@ twig:
     globals:
         project_name: %project_name%
     form_themes: 
-        - '@AdminBundle\Resources\views\Default\forms.html.twig'
+        - '@CoreSystemBundle\Resources\views\Default\forms.html.twig'

@@ -7,7 +7,7 @@
         "psr-4": {
             "AdminBundle\\": "src/AdminBundle",
             "FrontBundle\\": "src/FrontBundle",
-            "MediaBundle\\": "src/MediaBundle",
+            "MediaBundle\\": "system/MediaBundle",
             "CoreSystemBundle\\": "system/CoreSystemBundle",
             "ContentElementsManagementSystemBundle\\": "system/ContentElementsManagementSystemBundle"
         },
