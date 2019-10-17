@@ -14,7 +14,7 @@
         "classmap": [ "app/AppKernel.php", "app/AppCache.php" ]
     },
     "autoload-dev": {
-        "psr-4": { "Tests\\": "tests/" },
+        "psr-4": { "Tests\\": "default/tests/" },
         "files": [ "vendor/symfony/symfony/src/Symfony/Component/VarDumper/Resources/functions/dump.php" ]
     },
     "require": {
@@ -62,10 +62,10 @@
     },
     "extra": {
         "symfony-app-dir": "app",
-        "symfony-bin-dir": "bin",
+        "symfony-bin-dir": "app/bin",
         "symfony-var-dir": "var",
         "symfony-web-dir": "web",
-        "symfony-tests-dir": "tests",
+        "symfony-tests-dir": "app/tests",
         "symfony-assets-install": "relative",
         "branch-alias": {
             "dev-master": "3.4-dev"
