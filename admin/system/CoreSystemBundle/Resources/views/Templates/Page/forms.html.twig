@@ -1,0 +1,49 @@
+<div class="time_line">
+    <div class="line"></div>
+    <a class="part active content-part" href="#content" data-target="content">Contenu</a>
+    <a class="part generale-part" href="#generale" data-target="generale">Général</a>
+    <a class="part seo-part" href="#seo" data-target="seo">Seo</a>
+</div>
+<div class="time_line_target">
+    <div class="part active content-part" data-source="content">
+        <div class="accordionItems">
+                {{ render(controller( 
+                'ContentElementsManagementSystemBundle:RenderTemplates:renderItemsViewer',{ 'entity': entity, 'form':form}
+            )) }}
+        </div>
+        {% include 
+            "ContentElementsManagementSystemBundle:Templates:itemsMenu.html.twig" with
+            {
+                'form':form
+            }
+        %}
+    </div>
+    <div class="part generale-part" data-source="generale">
+        <div class="row">
+            <div class="col col_10">
+               {{ form_row(form.translations) }} 
+            </div>
+        </div>
+        <div class="row block-img">
+            <div class="col col_3">
+                <label class="input_label displayLabel displayLabelImage">Image à la une</label>
+                <div class="form_group imgContainer" style="margin-left:20px;">
+                    {% if entity.image is defined and entity.image is not null %}
+                    <img src="{{ asset('uploads/'~ entity.image.src) }}">
+                    <a class="btn-delleteFile" >Supprimer l'image</a>
+                    {% endif %}
+                </div>
+                {{form_row(form.image)}}
+            </div>
+        </div> 
+    </div>
+    <div class="part seo-part" data-source="seo">
+        {% include 
+            "CoreSystemBundle:Templates:Forms/seo_part.html.twig" with
+            {
+                'form':form
+            }
+        %}
+    </div>
+</div>
+<div style="display:none">{{form_rest(form)}}</div>

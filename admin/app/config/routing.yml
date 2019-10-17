@@ -1,3 +1,8 @@
+core_system:
+    resource: "@CoreSystemBundle/Controller/"
+    type:     annotation
+    prefix:   /admin/%project_prefix%
+
 media:
     resource: '@MediaBundle/Controller/'
     type: annotation
@@ -7,19 +12,19 @@ front:
     type: annotation
     prefix: '/{_locale}/'
     requirements: { _locale: fr|es| }
-admin:
-    resource: '@AdminBundle/Controller/'
-    type: annotation
-    prefix: /admin_%project_prefix%
+# admin:
+#     resource: '@AdminBundle/Controller/'
+#     type: annotation
+#     prefix: /admin_%project_prefix%
 admin_login:
     path: /login_%project_prefix%/
-    defaults: { _controller: 'AdminBundle:Login:index' }
+    defaults: { _controller: 'CoreSystemBundle:Login:index' }
 admin_mot_passe_oublie:
     path: /login_%project_prefix%/motPasseOublie/
-    defaults: { _controller: 'AdminBundle:Login:motPasseOublie' }
+    defaults: { _controller: 'CoreSystemBundle:Login:motPasseOublie' }
 admin_nouveau_mot_passe:
     path: /login_%project_prefix%/nouveauMotPasse/
-    defaults: { _controller: 'AdminBundle:Login:nouveauMotPasse' }
+    defaults: { _controller: 'CoreSystemBundle:Login:nouveauMotPasse' }
 admin_login_check:
     path: /login_check_%project_prefix%/
 admin_logout:

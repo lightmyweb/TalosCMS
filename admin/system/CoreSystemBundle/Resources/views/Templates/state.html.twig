@@ -1,0 +1,30 @@
+{{ form_widget(form.state ) }}
+<div class="action-page">
+  <div class="action-title">
+      <span>Actions</span>
+  </div>
+  <div class="action-body">
+    <div id="lastsavedstatus" title="Click to change current status.">
+        {{ render(controller( 'CoreSystemBundle:RenderTemplate:renderLocales')) }}
+        Visibilité :
+        <strong class="status {% if entity.state == 1 %}on-line{% else %}off-line{% endif %} " data-value="{% if entity.state == 1 %}0{% else %}1{% endif %}">
+        <i class="fa fa-circle status-published"></i>
+        <span>{% if entity.state == 1 %}on-line{% else %}off-line{% endif %}</span>
+        </strong>
+    </div>
+     <p class="lastsaved">
+        {% if entity.createdAt %}
+          Publié : <strong>{{ entity.createdAt|date('m/d/y à H:i:s') }}</strong>
+          {% if entity.user != null %}
+          <br>Auteur : {{ entity.user.firstName }} {{ entity.user.lastName }}
+          {% endif %}
+        {% endif %}
+        {% if entity.updatedAt %}
+          <br>Dernière modification : <strong>{{ entity.updatedAt|date('m/d/y à H:i:s')}}</strong>
+          {% if entity.updateuser.firstName != null %}
+            <br><small>(par {{ entity.user.firstName }} {{ entity.user.lastName }} )</small>
+           {% endif %}
+        {% endif %}
+     </p>
+  </div>
+</div>

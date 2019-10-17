@@ -8,7 +8,8 @@
             "AdminBundle\\": "src/AdminBundle",
             "FrontBundle\\": "src/FrontBundle",
             "MediaBundle\\": "src/MediaBundle",
-            "ContentElementsManagementSystemBundle\\": "src/ContentElementsManagementSystemBundle"
+            "CoreSystemBundle\\": "system/CoreSystemBundle",
+            "ContentElementsManagementSystemBundle\\": "system/ContentElementsManagementSystemBundle"
         },
         "classmap": [ "app/AppKernel.php", "app/AppCache.php" ]
     },

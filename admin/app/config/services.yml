@@ -10,15 +10,15 @@ services:
         autoconfigure: true
         public: false
     app.tblprefix_subscriber:
-        class: AdminBundle\Subscriber\TablePrefixSubscriber
+        class: CoreSystemBundle\Subscriber\TablePrefixSubscriber
         arguments: [%app.db.table_prefix%]
         tags:
             - { name: doctrine.event_subscriber }
     admin.image_uploader:
-        class: AdminBundle\Service\FileUploader
+        class: CoreSystemBundle\Service\FileUploader
         arguments: ['%uploads_directory%']
     admin.doctrine_image_listener:
-        class: AdminBundle\EventListener\ImageUploadListener
+        class: CoreSystemBundle\EventListener\ImageUploadListener
         arguments: ['@admin.image_uploader']
         tags:
             - { name: doctrine.event_listener, event: prePersist }

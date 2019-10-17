@@ -1,0 +1,93 @@
+{% extends 'CoreSystemBundle::_shared.html.twig' %}
+{% block title %}Langues{% endblock %} 
+{% block body %}
+<div class="col col_12">
+    <div class="container_box">
+        <div class="box_title">
+            <h3>Liste des langues</h3>
+            {% if app.user.role != 'ROLE_EDITOR' %}
+                <button class="addNewElement">
+                    <a href="{{path('locale_new')}}"><i class="fas fa-plus-circle"></i> Langue</a> 
+                </button>
+            {% endif %}
+        </div>
+        <div class="box_content">
+            <div class="row">
+                <div class="table-container">
+                    <table id="table" class="display" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Nom</th>
+                                <th>Slug</th>
+                                <th>Auteur</th>
+                                <th>Langue par défaut ?</th>
+                                <th>Etat</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody  >
+                        {% for locale in locales %}
+                            <tr data-value="{{locale.state}}">
+                                <td><a href="{{ path('locale_edit', { 'id': locale.id }) }}">{{ locale.id }}</a></td>
+                                <td>{{ locale.name }}</td>
+                                <td>
+                                    {% if locale.slug == 'gb' %}
+                                        {{ 'en' }}
+                                    {% else  %}
+                                        {{ locale.slug }}
+                                    {% endif  %}
+
+                                </td>
+                                <td>
+                                    {% if locale.user != null %}
+                                        {{ locale.user.firstName }} {{ locale.user.lastName }}
+                                    {% endif %}
+                                </td>
+                                <td>
+                                    {% if app.user.role != 'ROLE_EDITOR' %}
+                                        <a class="activeThisLangue localeAction {% if locale.def == 1 %}active{% endif %}" 
+                                            data-id="{{locale.id }}" data-href="{{ path('updateDefaultLocale', { 'id': locale.id }) }}">
+                                            <i class="fas fa-bullseye"  ></i>
+                                        </a>
+                                    {% else %}
+                                        <a class="activeThisLangue  {% if locale.def == 1 %}active{% endif %}" >
+                                            <i class="fas fa-bullseye"  ></i>
+                                        </a>
+                                    {% endif %}
+                                </td>
+                                <td>
+                                    {% if locale.state == -1 %}
+                                       Brouillon
+                                    {% elseif locale.state == 0 %}
+                                        Non Visibile
+                                    {% else %}
+                                        Visible
+                                    {% endif %}
+                                </td>
+                                <td class="action_td"> 
+                                    {% if app.user.role != 'ROLE_EDITOR' %}
+                                        {% if locale.def != 1 %}
+                                        <a class="delete_action localeAction" data-href="{{ path('deleteLocale', { 'id': locale.id }) }}">
+                                            <i class="fas fa-trash-alt"></i>       
+                                        </a> 
+                                        {% endif %} 
+                                    {% endif %}
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div> 
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block lib_css %}<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">{% endblock %}
+{% block lib_script %}<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>{% endblock %}
+{% block local_script %}
+    <script type="text/javascript" src="{{ asset('adminTemplateFiles/build/js/data_table_script.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('adminTemplateFiles/build/js/default_locale_script.js') }}"></script>
+{% endblock %}
+

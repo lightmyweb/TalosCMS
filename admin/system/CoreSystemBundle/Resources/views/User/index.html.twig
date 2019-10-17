@@ -1,0 +1,118 @@
+{% extends 'CoreSystemBundle::_shared.html.twig' %}
+{% block title %}Utilisateurs{% endblock %} 
+{% block body %}
+<div class="col col_12">
+    <div class="container_box">
+        <div class="box_title">
+            <h3>Utilisateurs</h3>
+            {% if current_user_role == 'ROLE_DEV' or current_user_role == 'ROLE_ADMIN' %}
+                <div class="button addNewElement">
+                    <a href="{{path('admin_new_user')}}"><i class="fas fa-plus-circle"></i> Utilisateur</a> 
+                </div>
+            {% else %}
+                <button class="box_delete_btn">X</button>
+                <button class="box_close_btn">
+                    <i class="fas fa-sort-down"></i>
+                </button>
+            {% endif %}
+            
+        </div>
+        <div class="box_content">
+            <div class="row">
+                <div class="tablesTabs">
+                    <button data-value="all" class="active">Tout</button>
+                    <button data-value="ROLE_ADMIN">Administrateur</button>
+                    <button data-value="ROLE_EDITOR">Éditeur</button>
+                    {% if app.user.role == 'ROLE_DEV' %}
+                        <button data-value="ROLE_DEV">Développeur</button>
+                    {% endif %}
+                </div> 
+                <table id="table" class="display" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Prénom</th>
+                            <th>Nom</th>
+                            <th>Identifiant</th>
+                            <th>Email</th>
+                            <th>Role</th>
+                            <th>Date de Creation</th>
+                            <th>Active</th>
+                            <th width="10%">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for user in users %}
+                            <tr data-value="{{user.role}}">
+                                <td>{{ user.idUser }}</td>
+                                <td>{{ user.firstName }}</td>
+                                <td>{{ user.lastName }}</td>
+                                <td>{{ user.username }}</td>
+                                <td>{{ user.email }}</td>
+                                <td>{{ user.role }}</td>
+                                <td>{% if user.dateCreate %}{{ user.dateCreate|date("d/m/Y H:i") }}{% endif %}</td>
+                                <td>
+                                    {% if 
+                                        ((current_user_role == 'ROLE_DEV') or 
+                                        (current_user_role == 'ROLE_ADMIN') or 
+                                        (app.user.idUser == user.idUser)) 
+                                    %}
+                                        {% if user.role != 'ROLE_DEV' %}
+                                            <a href="{{ path('admin_updatestate_user', { 'id': user.idUser })}}">
+                                                {% if user.isActive == 1 %}
+                                                    <h4 class="text-success"><i class="fa fa-check"></i></h4>
+                                                {% else %}
+                                                    <h4 class="text-danger"><i class="fa fa-times"></i></h4>
+                                                {% endif %}
+                                            </a>
+                                        {% endif %}
+                                    {% endif %}
+                                </td>
+                                <td>
+                                    {% if 
+                                        ((current_user_role == 'ROLE_DEV') or 
+                                        (current_user_role == 'ROLE_ADMIN') or 
+                                        (app.user.idUser == user.idUser)) 
+                                    %}
+                                        <div class="btn-group btn-group-sm">
+                                            {% if (current_user_role == 'ROLE_ADMIN' and 
+                                                user.role != 'ROLE_DEV')  or 
+                                                (current_user_role == 'ROLE_ADMIN' and 
+                                                app.user.idUser == user.idUser) or 
+                                                current_user_role == 'ROLE_DEV' 
+                                            %}
+                                                <a class="btn btn-default btn-theme01" 
+                                                href="{{ path('admin_edit_user', { 'id': user.idUser }) }}" 
+                                                data-toggle="tooltip" title="Modifier">
+                                                    <i class="fa fa-edit"></i>
+                                                </a>
+                                            {% endif %}
+                                            {% if current_user_role == 'ROLE_DEV' and 
+                                                user.role != 'ROLE_DEV' and 
+                                                app.user.idUser != user.idUser 
+                                            %}
+                                                <a class="btn btn-default btn-theme01" 
+                                                href="{{ path('admin_delete_user', { 'id': user.idUser }) }}" 
+                                                data-toggle="tooltip" title="Supprimer" 
+                                                onclick="return confirm('Êtes-vous sûr de vouloir supprimer définitivement l\'élément ?')">
+                                                    <i class="fa fa-trash"></i> 
+                                                </a>
+                                            {% endif %}
+                                        </div>
+                                    {% endif %}
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 
+{% block lib_css %}<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">{% endblock %}
+{% block lib_script %}<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>{% endblock %}
+{% block local_script %}
+    <script type="text/javascript" src="{{ asset('adminTemplateFiles/build/js/data_table_script.js') }}"></script>
+{% endblock %}
+

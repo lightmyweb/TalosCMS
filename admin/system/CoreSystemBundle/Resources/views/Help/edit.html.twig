@@ -1,0 +1,38 @@
+{% extends 'CoreSystemBundle::_shared.html.twig' %}
+{% block title %}Editer Aide{% endblock %} 
+{% block body %}
+{{ form_start(edit_form) }}
+<div class="col col_12">
+     <div class="container_box">
+        <div class="box_title">
+            <h3>Aide </h3>
+        </div>
+        <div class="box_content">
+            <div class="row">
+                {% include 
+                    "CoreSystemBundle:Templates:Help/forms.html.twig" with
+                    {
+                        'form':edit_form,
+                        'entity':help
+                    }
+                %}
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col col_10 marginTopMinus">
+    <div class="submitResetModifBtnsSection">
+         <input type="submit" value="Enregistrer"  class="btn btn-submit"/>
+    </div>
+</div>
+{{ form_end(edit_form) }}
+{% endblock %}
+
+{% block lib_script %}
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js "></script>
+    {{ tinymce_init() }}
+{% endblock %}
+
+{% block local_script %}
+    <script src="{{ asset('adminTemplateFiles/build/js/boxes_script.js') }}" type="text/javascript"></script>
+{% endblock %}

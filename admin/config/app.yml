@@ -1,3 +1,9 @@
+imports:
+    - { resource: 'database.yml' }
+    - { resource: 'mail.yml' }
+    - { resource: 'locale.yml' }
+    - { resource: 'bundles.yml' }
+
 parameters:
   secret: ThisTokenIsNotSoSecretChangeIt
   project_prefix: 5TALOS

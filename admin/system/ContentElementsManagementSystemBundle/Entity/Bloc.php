@@ -37,25 +37,25 @@ class Bloc
     private $position;
 
     /**
-     * @ORM\ManyToOne(targetEntity="\AdminBundle\Entity\GeneralEntity", inversedBy="blocTexts" )
+     * @ORM\ManyToOne(targetEntity="\CoreSystemBundle\Entity\GeneralEntity", inversedBy="blocTexts" )
      * @ORM\JoinColumn(name="entity_id_withBlocTexts", referencedColumnName="id") 
      */
     private $entity_withBlocText;
 
     /**
-     * @ORM\ManyToOne(targetEntity="\AdminBundle\Entity\GeneralEntity", inversedBy="blocQuotes" )
+     * @ORM\ManyToOne(targetEntity="\CoreSystemBundle\Entity\GeneralEntity", inversedBy="blocQuotes" )
      * @ORM\JoinColumn(name="entity_id_withBlocQuotes", referencedColumnName="id") 
      */
     private $entity_withBlocQuote;
 
     /**
-     * @ORM\ManyToOne(targetEntity="\AdminBundle\Entity\GeneralEntity", inversedBy="blocImages" )
+     * @ORM\ManyToOne(targetEntity="\CoreSystemBundle\Entity\GeneralEntity", inversedBy="blocImages" )
      * @ORM\JoinColumn(name="entity_id_withBlocImages", referencedColumnName="id") 
      */
     private $entity_withBlocImage;
 
     /**
-     * @ORM\ManyToOne(targetEntity="\AdminBundle\Entity\GeneralEntity", inversedBy="blocSections" )
+     * @ORM\ManyToOne(targetEntity="\CoreSystemBundle\Entity\GeneralEntity", inversedBy="blocSections" )
      * @ORM\JoinColumn(name="entity_id_withBlocSections", referencedColumnName="id") 
      */
     private $entity_withBlocSection;
@@ -98,11 +98,11 @@ class Bloc
     /**
      * Set entityWithBlocText
      *
-     * @param \AdminBundle\Entity\GeneralEntity $entityWithBlocText
+     * @param \CoreSystemBundle\Entity\GeneralEntity $entityWithBlocText
      *
      * @return Bloc
      */
-    public function setEntityWithBlocText(\AdminBundle\Entity\GeneralEntity $entityWithBlocText = null)
+    public function setEntityWithBlocText(\CoreSystemBundle\Entity\GeneralEntity $entityWithBlocText = null)
     {
         $this->entity_withBlocText = $entityWithBlocText;
 
@@ -112,7 +112,7 @@ class Bloc
     /**
      * Get entityWithBlocText
      *
-     * @return \AdminBundle\Entity\GeneralEntity
+     * @return \CoreSystemBundle\Entity\GeneralEntity
      */
     public function getEntityWithBlocText()
     {
@@ -122,11 +122,11 @@ class Bloc
     /**
      * Set entityWithBlocQuote
      *
-     * @param \AdminBundle\Entity\GeneralEntity $entityWithBlocQuote
+     * @param \CoreSystemBundle\Entity\GeneralEntity $entityWithBlocQuote
      *
      * @return Bloc
      */
-    public function setEntityWithBlocQuote(\AdminBundle\Entity\GeneralEntity $entityWithBlocQuote = null)
+    public function setEntityWithBlocQuote(\CoreSystemBundle\Entity\GeneralEntity $entityWithBlocQuote = null)
     {
         $this->entity_withBlocQuote = $entityWithBlocQuote;
     
@@ -136,7 +136,7 @@ class Bloc
     /**
      * Get entityWithBlocQuote
      *
-     * @return \AdminBundle\Entity\GeneralEntity
+     * @return \CoreSystemBundle\Entity\GeneralEntity
      */
     public function getEntityWithBlocQuote()
     {
@@ -146,11 +146,11 @@ class Bloc
     /**
      * Set entityWithBlocImage
      *
-     * @param \AdminBundle\Entity\GeneralEntity $entityWithBlocImage
+     * @param \CoreSystemBundle\Entity\GeneralEntity $entityWithBlocImage
      *
      * @return Bloc
      */
-    public function setEntityWithBlocImage(\AdminBundle\Entity\GeneralEntity $entityWithBlocImage = null)
+    public function setEntityWithBlocImage(\CoreSystemBundle\Entity\GeneralEntity $entityWithBlocImage = null)
     {
         $this->entity_withBlocImage = $entityWithBlocImage;
     
@@ -160,7 +160,7 @@ class Bloc
     /**
      * Get entityWithBlocImage
      *
-     * @return \AdminBundle\Entity\GeneralEntity
+     * @return \CoreSystemBundle\Entity\GeneralEntity
      */
     public function getEntityWithBlocImage()
     {
@@ -170,11 +170,11 @@ class Bloc
     /**
      * Set entityWithBlocSection
      *
-     * @param \AdminBundle\Entity\GeneralEntity $entityWithBlocSection
+     * @param \CoreSystemBundle\Entity\GeneralEntity $entityWithBlocSection
      *
      * @return Bloc
      */
-    public function setEntityWithBlocSection(\AdminBundle\Entity\GeneralEntity $entityWithBlocSection = null)
+    public function setEntityWithBlocSection(\CoreSystemBundle\Entity\GeneralEntity $entityWithBlocSection = null)
     {
         $this->entity_withBlocSection = $entityWithBlocSection;
 
@@ -184,7 +184,7 @@ class Bloc
     /**
      * Get entityWithBlocSection
      *
-     * @return \AdminBundle\Entity\GeneralEntity
+     * @return \CoreSystemBundle\Entity\GeneralEntity
      */
     public function getEntityWithBlocSection()
     {

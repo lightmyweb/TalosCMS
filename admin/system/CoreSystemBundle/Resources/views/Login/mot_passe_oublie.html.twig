@@ -1,0 +1,28 @@
+{% extends 'CoreSystemBundle::_login_shred.html.twig' %}
+{% block title %}TALOS - Mot de passe oublié{% endblock %}
+ {% block body %}
+
+      <div class="animate form login_form" >
+          <section class="login_content">
+          	{% if confirme_new_password is defined and confirme_new_password == 1 %}
+          		<h2>Votre mot de passe est modifié. <br><br><a href="{{ path('admin_login') }}">Cliquer ici</a> pour connecter.</h2>
+          	{% else %}
+	            <form method="post" action="{{ path('admin_nouveau_mot_passe') }}">
+	              <h2>Choisissez un nouveau mot de passe</h2>
+
+	              <input type="hidden" name="salt" class="form-control" value="{{salt}}"  />
+
+	              <div>
+	                <input type="password" name="new_password" minlength="6" class="form-control" placeholder="Nouveau mot de passe"  />
+	              </div>
+	              <div>
+	                <button type="submit" class="btn btn-default submit">Valider</button>
+	              </div>
+
+	              <div class="clearfix"></div>
+	            </form>
+	        {% endif %}
+          </section>
+        </div>
+
+ {% endblock %}

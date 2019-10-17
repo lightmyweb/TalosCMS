@@ -1,0 +1,31 @@
+{% extends 'CoreSystemBundle::_shared.html.twig' %}
+{% block title %}Demande de contact{% endblock %} 
+    {% block body %} 
+<div class="col col_12">
+    <div class="container_box">
+        <div class="box_title">
+            <h3>Demande de contact par {{ contact.firstname }} {{ contact.lastname }} </h3>
+        </div>
+        <div class="box_content">
+            <div class="row">
+                <div class="col">
+                    <p> Date de la demande:</p> 
+                    <p>{% if contact.createdAt %}{{ contact.createdAt|date('Y-m-d H:i:s') }}{% endif %} </p>
+                </div>
+                <div class="col">
+                    <p> E-mail: </p>
+                    <p><a href="mailto:{{contact.email}}">{{contact.email}}</a> </p>
+                </div>
+                <div class="col">
+                    <p> Mobile:  </p>
+                    <p> {{contact.mobile}} </p>
+                </div>
+                <div class="col">
+                    <p> Objet: </p>
+                    <p> {{contact.message}} </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

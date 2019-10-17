@@ -1,0 +1,70 @@
+{% extends 'CoreSystemBundle::_shared.html.twig' %}
+{% block title %}Editer page{% endblock %} 
+
+{% block lib_script %}
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js "></script>
+    {{ tinymce_init() }}
+{% endblock %}
+
+{% block local_script %}
+    <script src="{{ asset('adminTemplateFiles/build/js/boxes_script.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('adminTemplateFiles/build/js/eventOrder.js') }}" type="text/javascript"></script>
+    <script type="text/javascript">
+    updatePositionOnEdit();
+    </script>
+{% endblock %}
+
+{% block body %}
+{{ form_start(edit_form) }}
+<div class="col col_8">
+     <div class="container_box" data-change="{{ path('slugValidation',{ 'entity': '999-entity','slug':'888-slug'}) }}">
+        <div class="box_title"> 
+            {% if page.translations[app.request.locale].title  is defined %}
+                <h3>Editer - {{ page.translations[app.request.locale].title }}</h3>
+            {% else %}
+                <h3>Editer Page <small>Titre introuvable</small></h3>
+            {% endif %}
+        </div>
+        <div class="box_content">
+            <div class="row">
+                {% include  
+                    "CoreSystemBundle:Templates:Page/forms.html.twig" with
+                    {
+                        'form':edit_form,
+                        'entity':page,
+                        'data':null
+                    }
+                %}
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col col_4">
+    
+    <div class="action-page">
+        <div class="action-body">
+            {% include  
+                "CoreSystemBundle:Templates:state.html.twig" with
+                {
+                    'form':edit_form,
+                    'entity':page
+                }
+            %} 
+           <div class="btn-group">
+                {% include  
+                    "CoreSystemBundle:Templates:submitButtons.html.twig" with
+                    {
+                        'path':path('page_index')
+                    }
+                %}
+           </div>
+        </div>
+    </div>
+</div>
+{{ form_end(edit_form) }}
+
+{% endblock %}
+
+{% block media_content %}
+    {% include 'MediaBundle:Templates:medias.html.twig'%}
+{% endblock %}
