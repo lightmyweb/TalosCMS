@@ -9,9 +9,13 @@
         </div>
         <div class="box_content">
             <div class="row">
-                {{ render(controller( 
-                    'AdminBundle:RenderTemplate:renderHelpForm',{ 'form': edit_form,'entity':help}
-                )) }}
+                {% include 
+                    "AdminBundle:Templates:Help/forms.html.twig" with
+                    {
+                        'form':edit_form,
+                        'entity':help
+                    }
+                %}
             </div>
         </div>
     </div>

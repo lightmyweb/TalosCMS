@@ -27,9 +27,14 @@
         </div>
         <div class="box_content">
             <div class="row">
-                {{ render(controller( 
-                    'AdminBundle:RenderTemplate:renderPageForm',{ 'form': edit_form, 'entity':page, 'data':null }
-                )) }}
+                {% include  
+                    "AdminBundle:Templates:Page/forms.html.twig" with
+                    {
+                        'form':edit_form,
+                        'entity':page,
+                        'data':null
+                    }
+                %}
             </div>
         </div>
     </div>
@@ -38,13 +43,20 @@
     
     <div class="action-page">
         <div class="action-body">
-           {{ render(controller( 
-            'AdminBundle:RenderTemplate:renderState',{ 'form': edit_form, 'entity':page}
-            )) }}
+            {% include  
+                "AdminBundle:Templates:state.html.twig" with
+                {
+                    'form':edit_form,
+                    'entity':page
+                }
+            %} 
            <div class="btn-group">
-                {{ render(controller( 
-                    'AdminBundle:RenderTemplate:renderSubmitButtons',{'path':path('page_index')  }
-                )) }}
+                {% include  
+                    "AdminBundle:Templates:submitButtons.html.twig" with
+                    {
+                        'path':path('page_index')
+                    }
+                %}
            </div>
         </div>
     </div>

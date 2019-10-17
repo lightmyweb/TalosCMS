@@ -1,5 +1,5 @@
 {% extends 'AdminBundle::_login_shred.html.twig' %}
-{% block title %}{{ render(controller( 'AdminBundle:RenderTemplate:renderProjecttitle')) }} - Connexion Back-Office{% endblock %}
+{% block title %}{{ project_name }}  - Connexion Back-Office{% endblock %}
 {% block body %}
 <div class="container_wrapper login_warraper">
   <div class="header">Connexion</div>
@@ -30,9 +30,7 @@
         <div class="grpInput button">
           <button class="btn btn-theme" id="mdp_oublie" data-rel="{{ path('admin_mot_passe_oublie') }}" type="button">Valider</button>
         </div>
-      </div>
-      
-      
+      </div> 
   </div>  
 </div>
 

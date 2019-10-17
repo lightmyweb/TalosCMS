@@ -94,6 +94,17 @@ class PageType extends AbstractType
             'entry_options'  => array(
                 'attr'      => array('class' => 'secions-box')
             ),
+        ))
+        ->add('blocSections', CollectionType::class, array(
+            'entry_type' => \ContentElementsManagementSystemBundle\Form\BlocSectionType::class,
+            'allow_add' => true,
+            'allow_delete' => true,
+            'delete_empty'=>true,
+            'by_reference' => false,
+            'prototype' => true,
+            'entry_options'  => array(
+                'attr'      => array('class' => 'sections-box')
+            ),
         ));
 
         return $builder;
