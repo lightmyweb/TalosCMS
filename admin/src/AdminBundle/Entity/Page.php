@@ -11,7 +11,7 @@ use Knp\DoctrineBehaviors\Model as ORMBehaviors;
  * @ORM\Table(name="page")
  * @ORM\Entity(repositoryClass="AdminBundle\Repository\PageRepository")
  */
-class Page extends GeneralEntity
+class Page extends \CoreSystemBundle\Entity\GeneralEntity
 {
     use ORMBehaviors\Translatable\Translatable;
 

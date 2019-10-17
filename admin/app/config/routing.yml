@@ -12,10 +12,10 @@ front:
     type: annotation
     prefix: '/{_locale}/'
     requirements: { _locale: fr|es| }
-# admin:
-#     resource: '@AdminBundle/Controller/'
-#     type: annotation
-#     prefix: /admin_%project_prefix%
+admin:
+    resource: '@AdminBundle/Controller/'
+    type: annotation
+    prefix: /admin/gestion/%project_prefix%
 admin_login:
     path: /login_%project_prefix%/
     defaults: { _controller: 'CoreSystemBundle:Login:index' }

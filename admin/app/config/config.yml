@@ -1,5 +1,9 @@
 imports:
     - { resource: '../../config/app.yml' }
+    - { resource: '../../config/database.yml' }
+    - { resource: '../../config/mail.yml' }
+    - { resource: '../../config/locale.yml' }
+    - { resource: '../../config/bundles.yml' }
     - { resource: security.yml }
     - { resource: services.yml }
     - { resource: '@AdminBundle/Resources/config/services.yml' }

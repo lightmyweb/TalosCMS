@@ -44,7 +44,7 @@ class PageType extends AbstractType
             ]
         ])
 
-        ->add('seo', SeoType::class,array(
+        ->add('seo', \CoreSystemBundle\Form\SeoType::class,array(
             'label'=>' '
         ))
 

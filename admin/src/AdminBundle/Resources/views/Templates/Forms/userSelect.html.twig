@@ -1,9 +1,0 @@
-<a >Affecter à un utilisateur</a>
-<select name="userChoice" class="userChoice">
-	{% for user in users %}
-		<option value="{{user.idUser}}" {% if app.user.idUser == user.idUser %} selected="selected" {% endif %}>
-			{{ user.firstName }} {{ user.lastName }}
-		</option>
-	{% endfor %}
-</select>
-<button class="affectUser"  >Valider</button>

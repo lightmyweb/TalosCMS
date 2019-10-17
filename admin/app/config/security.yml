@@ -4,7 +4,7 @@ security:
     # https://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
     encoders:
         #Symfony\Component\Security\Core\User\User: plaintext
-       AdminBundle\Entity\User: bcrypt
+       CoreSystemBundle\Entity\User: bcrypt
     role_hierarchy:
         ROLE_EDITOR: ROLE_USER
         ROLE_ADMIN: ROLE_EDITOR
@@ -13,7 +13,7 @@ security:
     providers:
         db_provider:
             entity:
-                class: AdminBundle:User
+                class: CoreSystemBundle:User
                 property: username
     firewalls:
         secured_area:
@@ -31,5 +31,5 @@ security:
                 target: /login_%project_prefix%/
                 invalidate_session: false
     access_control:
-        - { path: ^/admin_%project_prefix%/, roles: ROLE_USER }
+        - { path: ^/admin/%project_prefix%/, roles: ROLE_USER }
         - { path: ^/login_%project_prefix%/, roles: IS_AUTHENTICATED_ANONYMOUSLY }

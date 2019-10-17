@@ -15,7 +15,7 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
  * @ORM\DiscriminatorColumn(name="entity_type", type="string")
  * @ORM\DiscriminatorMap({
     "helpEntity"="Help",
-    "pageEntity" = "Page",
+    "pageEntity"="AdminBundle\Entity\Page",
     "generalEntity" = "GeneralEntity"
 })
  */

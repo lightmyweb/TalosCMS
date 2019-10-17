@@ -37,17 +37,9 @@ class RoutingController extends Controller
         $doctrine = $this->getDoctrine();
         return $this->render('CoreSystemBundle:Dashboard:index.html.twig',array(
             'number_of_users' => $doctrine->getRepository('CoreSystemBundle:User')->getTotalCount(),
-            'number_of_pages'=>$doctrine->getRepository('CoreSystemBundle:Page')->getTotalCount(),
+            'number_of_pages'=>55,
             'number_of_locales'=>$doctrine->getRepository('CoreSystemBundle:Locale')->getTotalCount(),
         ));
-    }
-
-    /**
-     * @Route("/exemple",name="exemple_index")
-     */
-    public function exempleAction()
-    {
-        return $this->render('CoreSystemBundle:Templates:exemple.html.twig');
     }
 
     /**
@@ -205,97 +197,5 @@ class RoutingController extends Controller
         $output = new BufferedOutput();
         $application->run($input, $output);
         $content = $output->fetch();
-    }
-
-
-    /**
-     * @Route("/updateProjectPosition/{id}_{position}",name="updateProjectPosition")
-     *  @Method({"GET"})
-     */
-    public function updateProjectPositionAction(Request $data,$id = null,$position = null){
-
-        $dataArray = array('result'=>0);
-        $service = new OrderService($this->getDoctrine()->getManager());
-        $result = $service->setProjectPosition($id,$position);
-        if( $result == 1 ){
-            $dataArray = array('result'=>1,'order'=>$position);
-        }
-        return new JsonResponse( $dataArray );
-    }
-
-    /**
-     * @Route("/updateProjectPositionHome/{id}_{position}",name="updateProjectPositionHome")
-     *  @Method({"GET"})
-     */
-    public function updateProjectPositionHomeAction(Request $data,$id = null,$position = null){
-
-        $dataArray = array('result'=>0);
-        $service = new OrderService($this->getDoctrine()->getManager());
-        $result = $service->setProjectPositionHome($id,$position);
-        if( $result == 1 ){
-            $dataArray = array('result'=>1,'order'=>$position);
-        }
-        return new JsonResponse( $dataArray );
-    }
-
-    /**
-     * @Route("/updateClientPosition/{id}_{position}",name="updateClientPosition")
-     *  @Method({"GET"})
-     */
-    public function updateClientPositionAction(Request $data,$id = null,$position = null){
-
-        $dataArray = array('result'=>0);
-        $service = new OrderService($this->getDoctrine()->getManager());
-        $result = $service->setClientPosition($id,$position);
-        if( $result == 1 ){
-            $dataArray = array('result'=>1,'order'=>$position);
-        }
-        return new JsonResponse( $dataArray );
-    }
-
-    /**
-     * @Route("/updatePressPosition/{id}_{position}",name="updatePressPosition")
-     *  @Method({"GET"})
-     */
-    public function updatePressPositionAction(Request $data,$id = null,$position = null){
-
-        $dataArray = array('result'=>0);
-        $service = new OrderService($this->getDoctrine()->getManager());
-        $result = $service->setPressPosition($id,$position);
-        if( $result == 1 ){
-            $dataArray = array('result'=>1,'order'=>$position);
-        }
-        return new JsonResponse( $dataArray );
-    }
-
-    /**
-     * @Route("/updateCategoryPosition/{id}_{position}",name="updateCategoryPosition")
-     *  @Method({"GET"})
-     */
-    public function updateCategoryPositionAction(Request $data,$id = null,$position = null){
-
-        $dataArray = array('result'=>0);
-        $service = new OrderService($this->getDoctrine()->getManager());
-        $result = $service->setCategoryPosition($id,$position);
-        if( $result == 1 ){
-            $dataArray = array('result'=>1,'order'=>$position);
-        }
-        return new JsonResponse( $dataArray );
-    }
-
-
-    /**
-     * deletepdfpress.
-     * @Route("/deletepdfpress/{id}", name="deletepdfpress")
-     * @Method({"GET", "POST"})
-    */
-    public function deletePdfPressAction(Request $request, PressTranslation $pressTranslation)
-    {
-         $dataArray = array('result'=>1);
-         $null=null;
-         $pressTranslation->setPdfdelete($null);
-          $this->getDoctrine()->getManager()->flush();
-          // return $this->redirectToRoute('publication_index');
-          return new JsonResponse( $dataArray );
     }
 }
